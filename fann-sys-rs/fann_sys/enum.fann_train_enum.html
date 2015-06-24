@@ -41,11 +41,9 @@
     </nav>
 
     <section id='main' class="content enum">
-<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>fann_sys</a>::<wbr><a class='enum' href=''>fann_train_enum</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-139' class='srclink' href='../src/fann_sys/lib.rs.html#148-175' title='goto source code'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>fann_sys</a>::<wbr><a class='enum' href=''>fann_train_enum</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-139' href='../src/fann_sys/lib.rs.html#148-175'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum fann_train_enum {
     FANN_TRAIN_INCREMENTAL,
     FANN_TRAIN_BATCH,
@@ -56,16 +54,16 @@ fann_train_on_data or fann_train_on_file. The incremental training looks alters 
 after each time it is presented an input pattern, while batch only alters the weights once after
 it has been presented to all the patterns.</p>
 </div><h2 class='variants'>Variants</h2>
-<table><tr><td id='variant.FANN_TRAIN_INCREMENTAL'><code>FANN_TRAIN_INCREMENTAL</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are
+<table><tr><td id='variant.FANN_TRAIN_INCREMENTAL'><a class='stability Unmarked' title='No stability level'></a><code>FANN_TRAIN_INCREMENTAL</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are
 updated after each training pattern. This means that the weights are updated many
 times during a single epoch. For this reason some problems, will train very fast with
 this algorithm, while other more advanced problems will not train very well.</p>
-</div></td></tr><tr><td id='variant.FANN_TRAIN_BATCH'><code>FANN_TRAIN_BATCH</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are updated after calculating the mean
+</div></td></tr><tr><td id='variant.FANN_TRAIN_BATCH'><a class='stability Unmarked' title='No stability level'></a><code>FANN_TRAIN_BATCH</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are updated after calculating the mean
 square error for the whole training set. This means that the weights are only updated once
 during a epoch. For this reason some problems, will train slower with this algorithm. But
 since the mean square error is calculated more correctly than in incremental training, some
 problems will reach a better solutions with this algorithm.</p>
-</div></td></tr><tr><td id='variant.FANN_TRAIN_RPROP'><code>FANN_TRAIN_RPROP</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results
+</div></td></tr><tr><td id='variant.FANN_TRAIN_RPROP'><a class='stability Unmarked' title='No stability level'></a><code>FANN_TRAIN_RPROP</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results
 for many problems. The RPROP training algorithm is adaptive, and does therefore not
 use the learning_rate. Some other parameters can however be set to change the way the
 RPROP algorithm works, but it is only recommended for users with insight in how the RPROP
@@ -73,14 +71,14 @@ training algorithm works. The RPROP training algorithm is described by
 [Riedmiller and Braun, 1993], but the actual learning algorithm used here is the
 iRPROP- training algorithm which is described by [Igel and Husken, 2000] which
 is an variety of the standard RPROP training algorithm.</p>
-</div></td></tr><tr><td id='variant.FANN_TRAIN_QUICKPROP'><code>FANN_TRAIN_QUICKPROP</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results
+</div></td></tr><tr><td id='variant.FANN_TRAIN_QUICKPROP'><a class='stability Unmarked' title='No stability level'></a><code>FANN_TRAIN_QUICKPROP</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results
 for many problems. The quickprop training algorithm uses the learning_rate parameter
 along with other more advanced parameters, but it is only recommended to change these
 advanced parameters, for users with insight in how the quickprop training algorithm works.
 The quickprop training algorithm is described by [Fahlman, 1988].</p>
-</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h3><div class='impl-items'></div></section>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h4>
+<h4 id='method.clone_from' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a></code></h3><div class='impl-items'></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -112,10 +110,6 @@ The quickprop training algorithm is described by [Fahlman, 1988].</p>
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

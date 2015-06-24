@@ -41,11 +41,9 @@
     </nav>
 
     <section id='main' class="content enum">
-<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>fann_sys</a>::<wbr><a class='enum' href=''>fann_errno_enum</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-21' class='srclink' href='../src/fann_sys/lib.rs.html#101-140' title='goto source code'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>fann_sys</a>::<wbr><a class='enum' href=''>fann_errno_enum</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-21' href='../src/fann_sys/lib.rs.html#101-140'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum fann_errno_enum {
     FANN_E_NO_ERROR,
     FANN_E_CANT_OPEN_CONFIG_R,
@@ -68,28 +66,28 @@
     FANN_E_SCALE_NOT_PRESENT,
 }</pre><div class='docblock'><p>Error events on fann and fann_train_data.</p>
 </div><h2 class='variants'>Variants</h2>
-<table><tr><td id='variant.FANN_E_NO_ERROR'><code>FANN_E_NO_ERROR</code></td><td><div class='docblock'><p>No error</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_CONFIG_R'><code>FANN_E_CANT_OPEN_CONFIG_R</code></td><td><div class='docblock'><p>Unable to open configuration file for reading</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_CONFIG_W'><code>FANN_E_CANT_OPEN_CONFIG_W</code></td><td><div class='docblock'><p>Unable to open configuration file for writing</p>
-</div></td></tr><tr><td id='variant.FANN_E_WRONG_CONFIG_VERSION'><code>FANN_E_WRONG_CONFIG_VERSION</code></td><td><div class='docblock'><p>Wrong version of configuration file</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_CONFIG'><code>FANN_E_CANT_READ_CONFIG</code></td><td><div class='docblock'><p>Error reading info from configuration file</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_NEURON'><code>FANN_E_CANT_READ_NEURON</code></td><td><div class='docblock'><p>Error reading neuron info from configuration file</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_CONNECTIONS'><code>FANN_E_CANT_READ_CONNECTIONS</code></td><td><div class='docblock'><p>Error reading connections from configuration file</p>
-</div></td></tr><tr><td id='variant.FANN_E_WRONG_NUM_CONNECTIONS'><code>FANN_E_WRONG_NUM_CONNECTIONS</code></td><td><div class='docblock'><p>Number of connections not equal to the number expected</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_TD_W'><code>FANN_E_CANT_OPEN_TD_W</code></td><td><div class='docblock'><p>Unable to open train data file for writing</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_TD_R'><code>FANN_E_CANT_OPEN_TD_R</code></td><td><div class='docblock'><p>Unable to open train data file for reading</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_TD'><code>FANN_E_CANT_READ_TD</code></td><td><div class='docblock'><p>Error reading training data from file</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_ALLOCATE_MEM'><code>FANN_E_CANT_ALLOCATE_MEM</code></td><td><div class='docblock'><p>Unable to allocate memory</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_TRAIN_ACTIVATION'><code>FANN_E_CANT_TRAIN_ACTIVATION</code></td><td><div class='docblock'><p>Unable to train with the selected activation function</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_USE_ACTIVATION'><code>FANN_E_CANT_USE_ACTIVATION</code></td><td><div class='docblock'><p>Unable to use the selected activation function</p>
-</div></td></tr><tr><td id='variant.FANN_E_TRAIN_DATA_MISMATCH'><code>FANN_E_TRAIN_DATA_MISMATCH</code></td><td><div class='docblock'><p>Irreconcilable differences between two fann_train_data structures</p>
-</div></td></tr><tr><td id='variant.FANN_E_CANT_USE_TRAIN_ALG'><code>FANN_E_CANT_USE_TRAIN_ALG</code></td><td><div class='docblock'><p>Unable to use the selected training algorithm</p>
-</div></td></tr><tr><td id='variant.FANN_E_TRAIN_DATA_SUBSET'><code>FANN_E_TRAIN_DATA_SUBSET</code></td><td><div class='docblock'><p>Trying to take subset which is not within the training set</p>
-</div></td></tr><tr><td id='variant.FANN_E_INDEX_OUT_OF_BOUND'><code>FANN_E_INDEX_OUT_OF_BOUND</code></td><td><div class='docblock'><p>Index is out of bound</p>
-</div></td></tr><tr><td id='variant.FANN_E_SCALE_NOT_PRESENT'><code>FANN_E_SCALE_NOT_PRESENT</code></td><td><div class='docblock'><p>Scaling parameters not present</p>
-</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h3><div class='impl-items'></div></section>
+<table><tr><td id='variant.FANN_E_NO_ERROR'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_NO_ERROR</code></td><td><div class='docblock'><p>No error</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_CONFIG_R'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_OPEN_CONFIG_R</code></td><td><div class='docblock'><p>Unable to open configuration file for reading</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_CONFIG_W'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_OPEN_CONFIG_W</code></td><td><div class='docblock'><p>Unable to open configuration file for writing</p>
+</div></td></tr><tr><td id='variant.FANN_E_WRONG_CONFIG_VERSION'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_WRONG_CONFIG_VERSION</code></td><td><div class='docblock'><p>Wrong version of configuration file</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_CONFIG'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_READ_CONFIG</code></td><td><div class='docblock'><p>Error reading info from configuration file</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_NEURON'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_READ_NEURON</code></td><td><div class='docblock'><p>Error reading neuron info from configuration file</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_CONNECTIONS'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_READ_CONNECTIONS</code></td><td><div class='docblock'><p>Error reading connections from configuration file</p>
+</div></td></tr><tr><td id='variant.FANN_E_WRONG_NUM_CONNECTIONS'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_WRONG_NUM_CONNECTIONS</code></td><td><div class='docblock'><p>Number of connections not equal to the number expected</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_TD_W'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_OPEN_TD_W</code></td><td><div class='docblock'><p>Unable to open train data file for writing</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_OPEN_TD_R'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_OPEN_TD_R</code></td><td><div class='docblock'><p>Unable to open train data file for reading</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_READ_TD'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_READ_TD</code></td><td><div class='docblock'><p>Error reading training data from file</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_ALLOCATE_MEM'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_ALLOCATE_MEM</code></td><td><div class='docblock'><p>Unable to allocate memory</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_TRAIN_ACTIVATION'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_TRAIN_ACTIVATION</code></td><td><div class='docblock'><p>Unable to train with the selected activation function</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_USE_ACTIVATION'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_USE_ACTIVATION</code></td><td><div class='docblock'><p>Unable to use the selected activation function</p>
+</div></td></tr><tr><td id='variant.FANN_E_TRAIN_DATA_MISMATCH'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_TRAIN_DATA_MISMATCH</code></td><td><div class='docblock'><p>Irreconcilable differences between two fann_train_data structures</p>
+</div></td></tr><tr><td id='variant.FANN_E_CANT_USE_TRAIN_ALG'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_CANT_USE_TRAIN_ALG</code></td><td><div class='docblock'><p>Unable to use the selected training algorithm</p>
+</div></td></tr><tr><td id='variant.FANN_E_TRAIN_DATA_SUBSET'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_TRAIN_DATA_SUBSET</code></td><td><div class='docblock'><p>Trying to take subset which is not within the training set</p>
+</div></td></tr><tr><td id='variant.FANN_E_INDEX_OUT_OF_BOUND'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_INDEX_OUT_OF_BOUND</code></td><td><div class='docblock'><p>Index is out of bound</p>
+</div></td></tr><tr><td id='variant.FANN_E_SCALE_NOT_PRESENT'><a class='stability Unmarked' title='No stability level'></a><code>FANN_E_SCALE_NOT_PRESENT</code></td><td><div class='docblock'><p>Scaling parameters not present</p>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h4>
+<h4 id='method.clone_from' class='method'><a class='stability Stable' title='Stable'></a><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><a class='stability Stable' title='Stable'></a><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a></code></h3><div class='impl-items'></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -121,10 +119,6 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
             </p>
         </div>
     </div>
