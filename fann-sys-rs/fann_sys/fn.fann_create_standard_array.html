@@ -41,14 +41,16 @@
     </nav>
 
     <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_create_standard_array</a><wbr></span><span class='out-of-band'><span id='render-detail'>
-            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
-        </span><a id='src-1700' href='../src/fann_sys/lib.rs.html#1993'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_create_standard_array</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-1700' class='srclink' href='../src/fann_sys/lib.rs.html#1993' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub unsafe extern fn fann_create_standard_array(num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Just like <code>fann_create_standard</code>, but with an array of layer sizes
 instead of individual parameters.</p>
 
 <h1 id="example" class='section-header'><a
-                           href="#example">Example</a></h1><pre id='rust-example-rendered' class='rust '>
+                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
 <span class='comment'>// Creating an ANN with 2 input neurons, 1 output neuron,</span>
 <span class='comment'>// and two hidden neurons with 8 and 9 neurons</span>
 <span class='kw'>let</span> <span class='ident'>layers</span> <span class='op'>=</span> [<span class='number'>2</span>, <span class='number'>8</span>, <span class='number'>9</span>, <span class='number'>1</span>];
@@ -94,6 +96,10 @@ instead of individual parameters.</p>
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>
