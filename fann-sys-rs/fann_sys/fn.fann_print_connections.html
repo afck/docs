@@ -41,15 +41,14 @@
     </nav>
 
     <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_print_connections</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-1793' class='srclink' href='../src/fann_sys/lib.rs.html#2116' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_print_connections(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>)</pre><div class='docblock'><p>Will print the connections of the ann in a compact matrix, for easy viewing of the internals
-of the ann.</p>
+<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_print_connections</a><wbr></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-1793' href='../src/fann_sys/lib.rs.html#2123'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_print_connections(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>)</pre><div class='docblock'><p>Prints the connections of the ann in a compact matrix, for easy viewing of the internals
+of the ANN.</p>
 
-<p>The output from fann_print_connections on a small (2 2 1) network trained on the xor problem</p>
+<p>The output from <code>fann_print_connections</code> on a small (2 2 1) network trained on the xor
+problem:</p>
 
 <pre><code class="language-text">Layer / Neuron 012345
 L   1 / N    3 BBa...
@@ -59,15 +58,15 @@ L   2 / N    6 ...BBA
 L   2 / N    7 ......
 </code></pre>
 
-<p>This network have five real neurons and two bias neurons. This gives a total of seven
+<p>This network has five real neurons and two bias neurons. This gives a total of seven
 neurons named from 0 to 6. The connections between these neurons can be seen in the matrix.
 &quot;.&quot; is a place where there is no connection, while a character tells how strong the
 connection is on a scale from a-z. The two real neurons in the hidden layer (neuron 3 and 4
-in layer 1) has connection from the three neurons in the previous layer as is visible in the
-first two lines. The output neuron (6) has connections form the three neurons in the hidden
-layer 3 - 5 as is visible in the fourth line.</p>
+in layer 1) have connections from the three neurons in the previous layer as is visible in
+the first two lines. The output neuron 6 has connections from the three neurons in the
+hidden layer 3 - 5 as is visible in the fourth line.</p>
 
-<p>To simplify the matrix output neurons is not visible as neurons that connections can come
+<p>To simplify the matrix output neurons are not visible as neurons that connections can come
 from, and input and bias neurons are not visible as neurons that connections can go to.</p>
 
 <p>This function appears in FANN &gt;= 1.2.0.</p>
@@ -103,10 +102,6 @@ from, and input and bias neurons are not visible as neurons that connections can
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

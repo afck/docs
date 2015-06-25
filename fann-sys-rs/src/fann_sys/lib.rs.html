@@ -2368,6 +2368,14 @@
 <span id="2326">2326</span>
 <span id="2327">2327</span>
 <span id="2328">2328</span>
+<span id="2329">2329</span>
+<span id="2330">2330</span>
+<span id="2331">2331</span>
+<span id="2332">2332</span>
+<span id="2333">2333</span>
+<span id="2334">2334</span>
+<span id="2335">2335</span>
+<span id="2336">2336</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Raw bindings to C functions of the Fast Artificial Neural Network library</span>
 <span class='doccomment'>//!</span>
@@ -2381,7 +2389,7 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! All of this can be done without much knowledge of the internals of ANNs, although the ANNs</span>
 <span class='doccomment'>//! created will still be powerful and effective. If you have more knowledge about ANNs, and desire</span>
-<span class='doccomment'>//! more control, almost every part of the ANNs can be parametized to create specialized and highly</span>
+<span class='doccomment'>//! more control, almost every part of the ANNs can be parametrized to create specialized and highly</span>
 <span class='doccomment'>//! optimal ANNs.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//!</span>
@@ -2398,8 +2406,8 @@
 <span class='doccomment'>//! supported by `fann_train_on_data`.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! * Evolving topology training - The training start out with an empty ANN, only consisting</span>
-<span class='doccomment'>//! of input and output neurons. Hidden neurons and connections is the added during training,</span>
-<span class='doccomment'>//! in order to reach the same goal as for fixed topology training. This kind of training</span>
+<span class='doccomment'>//! of input and output neurons. Hidden neurons and connections are added during training,</span>
+<span class='doccomment'>//! in order to achieve the same goal as for fixed topology training. This kind of training</span>
 <span class='doccomment'>//! is supported by FANN Cascade Training.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//!</span>
@@ -2407,13 +2415,13 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! Cascade training differs from ordinary training in the sense that it starts with an empty neural</span>
 <span class='doccomment'>//! network and then adds neurons one by one, while it trains the neural network. The main benefit</span>
-<span class='doccomment'>//! of this approach, is that you do not have to guess the number of hidden layers and neurons prior</span>
-<span class='doccomment'>//! to training, but cascade training have also proved better at solving some problems.</span>
+<span class='doccomment'>//! of this approach is that you do not have to guess the number of hidden layers and neurons prior</span>
+<span class='doccomment'>//! to training, but cascade training has also proved better at solving some problems.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! The basic idea of cascade training is that a number of candidate neurons are trained separate</span>
-<span class='doccomment'>//! from the real network, then the most promissing of these candidate neurons is inserted into the</span>
-<span class='doccomment'>//! neural network. Then the output connections are trained and new candidate neurons is prepared.</span>
-<span class='doccomment'>//! The candidate neurons are created as shorcut connected neurons in a new hidden layer, which</span>
+<span class='doccomment'>//! from the real network, then the most promising of these candidate neurons is inserted into the</span>
+<span class='doccomment'>//! neural network. Then the output connections are trained and new candidate neurons are prepared.</span>
+<span class='doccomment'>//! The candidate neurons are created as shortcut connected neurons in a new hidden layer, which</span>
 <span class='doccomment'>//! means that the final neural network will consist of a number of hidden layers with one shortcut</span>
 <span class='doccomment'>//! connected neuron in each.</span>
 <span class='doccomment'>//!</span>
@@ -2426,9 +2434,9 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! # Error Handling</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//! Errors from the fann library are usually reported on `stderr`.</span>
+<span class='doccomment'>//! Errors from the FANN library are usually reported on `stderr`.</span>
 <span class='doccomment'>//! It is however possible to redirect these error messages to a file,</span>
-<span class='doccomment'>//! or completely ignore them by the `fann_set_error_log` function.</span>
+<span class='doccomment'>//! or completely ignore them with the `fann_set_error_log` function.</span>
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! It is also possible to inspect the last error message by using the</span>
 <span class='doccomment'>//! `fann_get_errno` and `fann_get_errstr` functions.</span>
@@ -2436,9 +2444,9 @@
 <span class='doccomment'>//!</span>
 <span class='doccomment'>//! # Datatypes</span>
 <span class='doccomment'>//!</span>
-<span class='doccomment'>//! The two main datatypes used in the fann library is `struct fann`,</span>
-<span class='doccomment'>//! which represents an artificial neural network, and `struct fann_train_data`,</span>
-<span class='doccomment'>//! which represent training data.</span>
+<span class='doccomment'>//! The two main datatypes used in the FANN library are `fann`,</span>
+<span class='doccomment'>//! which represents an artificial neural network, and `fann_train_data`,</span>
+<span class='doccomment'>//! which represents training data.</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>non_camel_case_types</span>)]</span>
 
 <span class='comment'>// TODO: Cross-link the documentation.</span>
@@ -2498,7 +2506,7 @@
     <span class='ident'>FANN_E_CANT_TRAIN_ACTIVATION</span>,
     <span class='doccomment'>/// Unable to use the selected activation function</span>
     <span class='ident'>FANN_E_CANT_USE_ACTIVATION</span>,
-    <span class='doccomment'>/// Irreconcilable differences between two fann_train_data structures</span>
+    <span class='doccomment'>/// Irreconcilable differences between two `fann_train_data` structures</span>
     <span class='ident'>FANN_E_TRAIN_DATA_MISMATCH</span>,
     <span class='doccomment'>/// Unable to use the selected training algorithm</span>
     <span class='ident'>FANN_E_CANT_USE_TRAIN_ALG</span>,
@@ -2510,8 +2518,8 @@
     <span class='ident'>FANN_E_SCALE_NOT_PRESENT</span>,
 }
 
-<span class='doccomment'>/// The Training algorithms used when training on fann_train_data with functions like</span>
-<span class='doccomment'>/// fann_train_on_data or fann_train_on_file. The incremental training looks alters the weights</span>
+<span class='doccomment'>/// The Training algorithms used when training on `fann_train_data` with functions like</span>
+<span class='doccomment'>/// `fann_train_on_data` or `fann_train_on_file`. The incremental training alters the weights</span>
 <span class='doccomment'>/// after each time it is presented an input pattern, while batch only alters the weights once after</span>
 <span class='doccomment'>/// it has been presented to all the patterns.</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
@@ -2519,18 +2527,18 @@
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>fann_train_enum</span> {
     <span class='doccomment'>/// Standard backpropagation algorithm, where the weights are</span>
     <span class='doccomment'>/// updated after each training pattern. This means that the weights are updated many</span>
-    <span class='doccomment'>/// times during a single epoch. For this reason some problems, will train very fast with</span>
+    <span class='doccomment'>/// times during a single epoch. For this reason some problems will train very fast with</span>
     <span class='doccomment'>/// this algorithm, while other more advanced problems will not train very well.</span>
     <span class='ident'>FANN_TRAIN_INCREMENTAL</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='doccomment'>/// Standard backpropagation algorithm, where the weights are updated after calculating the mean</span>
     <span class='doccomment'>/// square error for the whole training set. This means that the weights are only updated once</span>
-    <span class='doccomment'>/// during a epoch. For this reason some problems, will train slower with this algorithm. But</span>
+    <span class='doccomment'>/// during an epoch. For this reason some problems will train slower with this algorithm. But</span>
     <span class='doccomment'>/// since the mean square error is calculated more correctly than in incremental training, some</span>
-    <span class='doccomment'>/// problems will reach a better solutions with this algorithm.</span>
+    <span class='doccomment'>/// problems will reach better solutions with this algorithm.</span>
     <span class='ident'>FANN_TRAIN_BATCH</span>,
     <span class='doccomment'>/// A more advanced batch training algorithm which achieves good results</span>
     <span class='doccomment'>/// for many problems. The RPROP training algorithm is adaptive, and does therefore not</span>
-    <span class='doccomment'>/// use the learning_rate. Some other parameters can however be set to change the way the</span>
+    <span class='doccomment'>/// use the `learning_rate`. Some other parameters can however be set to change the way the</span>
     <span class='doccomment'>/// RPROP algorithm works, but it is only recommended for users with insight in how the RPROP</span>
     <span class='doccomment'>/// training algorithm works. The RPROP training algorithm is described by</span>
     <span class='doccomment'>/// [Riedmiller and Braun, 1993], but the actual learning algorithm used here is the</span>
@@ -2538,21 +2546,21 @@
     <span class='doccomment'>/// is an variety of the standard RPROP training algorithm.</span>
     <span class='ident'>FANN_TRAIN_RPROP</span>,
     <span class='doccomment'>/// A more advanced batch training algorithm which achieves good results</span>
-    <span class='doccomment'>/// for many problems. The quickprop training algorithm uses the learning_rate parameter</span>
+    <span class='doccomment'>/// for many problems. The quickprop training algorithm uses the `learning_rate` parameter</span>
     <span class='doccomment'>/// along with other more advanced parameters, but it is only recommended to change these</span>
-    <span class='doccomment'>/// advanced parameters, for users with insight in how the quickprop training algorithm works.</span>
+    <span class='doccomment'>/// advanced parameters for users with insight in how the quickprop training algorithm works.</span>
     <span class='doccomment'>/// The quickprop training algorithm is described by [Fahlman, 1988].</span>
     <span class='ident'>FANN_TRAIN_QUICKPROP</span>,
 }
 
 <span class='doccomment'>/// The activation functions used for the neurons during training. The activation functions</span>
-<span class='doccomment'>/// can either be defined for a group of neurons by fann_set_activation_function_hidden and</span>
-<span class='doccomment'>/// fann_set_activation_function_output or it can be defined for a single neuron by</span>
-<span class='doccomment'>/// fann_set_activation_function.</span>
+<span class='doccomment'>/// can either be defined for a group of neurons by `fann_set_activation_function_hidden` and</span>
+<span class='doccomment'>/// `fann_set_activation_function_output`, or it can be defined for a single neuron by</span>
+<span class='doccomment'>/// `fann_set_activation_function`.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// The steepness of an activation function is defined in the same way by</span>
-<span class='doccomment'>/// fann_set_activation_steepness_hidden, fann_set_activation_steepness_output and</span>
-<span class='doccomment'>/// fann_set_activation_steepness.</span>
+<span class='doccomment'>/// `fann_set_activation_steepness_hidden`, `fann_set_activation_steepness_output` and</span>
+<span class='doccomment'>/// `fann_set_activation_steepness`.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// The functions are described with functions where:</span>
 <span class='doccomment'>///</span>
@@ -2645,7 +2653,7 @@
     <span class='doccomment'>/// * y = ((x*s) / 2) / (1 + |x*s|) + 0.5</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * d = s*1/(2*(1+|x*s|)*(1+|x*s|))</span>
-    <span class='ident'>FANN_ELLIOT</span>,
+    <span class='ident'>FANN_ELLIOTT</span>,
     <span class='doccomment'>/// Fast (symmetric sigmoid like) activation function defined by David Elliott</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: -1 &lt; y &lt; 1</span>
@@ -2653,7 +2661,7 @@
     <span class='doccomment'>/// * y = (x*s) / (1 + |x*s|)</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * d = s*1/((1+|x*s|)*(1+|x*s|))</span>
-    <span class='ident'>FANN_ELLIOT_SYMMETRIC</span>,
+    <span class='ident'>FANN_ELLIOTT_SYMMETRIC</span>,
     <span class='doccomment'>/// Bounded linear activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: 0 &lt;= y &lt;= 1</span>
@@ -2666,7 +2674,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * y = x*s, d = 1*s</span>
     <span class='ident'>FANN_LINEAR_PIECE_SYMMETRIC</span>,
-    <span class='doccomment'>/// Periodical sinus activation function.</span>
+    <span class='doccomment'>/// Periodical sine activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: -1 &lt;= y &lt;= 1</span>
     <span class='doccomment'>///</span>
@@ -2674,7 +2682,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * d = s*cos(x*s)</span>
     <span class='ident'>FANN_SIN_SYMMETRIC</span>,
-    <span class='doccomment'>/// Periodical cosinus activation function.</span>
+    <span class='doccomment'>/// Periodical cosine activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: -1 &lt;= y &lt;= 1</span>
     <span class='doccomment'>///</span>
@@ -2682,7 +2690,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * d = s*-sin(x*s)</span>
     <span class='ident'>FANN_COS_SYMMETRIC</span>,
-    <span class='doccomment'>/// Periodical sinus activation function.</span>
+    <span class='doccomment'>/// Periodical sine activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: 0 &lt;= y &lt;= 1</span>
     <span class='doccomment'>///</span>
@@ -2690,7 +2698,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * d = s*cos(x*s)/2</span>
     <span class='ident'>FANN_SIN</span>,
-    <span class='doccomment'>/// Periodical cosinus activation function.</span>
+    <span class='doccomment'>/// Periodical cosine activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: 0 &lt;= y &lt;= 1</span>
     <span class='doccomment'>///</span>
@@ -2700,7 +2708,7 @@
     <span class='ident'>FANN_COS</span>,
 }
 
-<span class='doccomment'>///    Error function used during training.</span>
+<span class='doccomment'>/// Error function used during training.</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>fann_errorfunc_enum</span> {
@@ -2717,9 +2725,9 @@
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>fann_stopfunc_enum</span> {
-    <span class='doccomment'>/// Stop criteria is Mean Square Error (MSE) value.</span>
+    <span class='doccomment'>/// Stop criterion is Mean Square Error (MSE) value.</span>
     <span class='ident'>FANN_STOPFUNC_MSE</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='doccomment'>/// Stop criteria is number of bits that fail. The number of bits; means the</span>
+    <span class='doccomment'>/// Stop criterion is number of bits that fail. The number of bits means the</span>
     <span class='doccomment'>/// number of output neurons which differ more than the bit fail limit</span>
     <span class='doccomment'>/// (see fann_get_bit_fail_limit, fann_set_bit_fail_limit).</span>
     <span class='doccomment'>/// The bits are counted in all of the training data, so this number can be higher than</span>
@@ -2727,13 +2735,13 @@
     <span class='ident'>FANN_STOPFUNC_BIT</span>,
 }
 
-<span class='doccomment'>/// Definition of network types used by `fann_get_network_type`</span>
+<span class='doccomment'>/// Definition of network types used by `fann_get_network_type`.</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>fann_nettype_enum</span> {
-    <span class='doccomment'>/// Each layer only has connections to the next layer</span>
+    <span class='doccomment'>/// Each layer only has connections to the next layer.</span>
     <span class='ident'>FANN_NETTYPE_LAYER</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='doccomment'>/// Each layer has connections to all following layers</span>
+    <span class='doccomment'>/// Each layer has connections to all following layers.</span>
     <span class='ident'>FANN_NETTYPE_SHORTCUT</span>,
 }
 
@@ -2743,8 +2751,8 @@
 <span class='doccomment'>/// The callback can be set by using `fann_set_callback` and is very useful for doing custom</span>
 <span class='doccomment'>/// things during training. It is recommended to use this function when implementing custom</span>
 <span class='doccomment'>/// training procedures, or when visualizing the training in a GUI etc. The parameters which the</span>
-<span class='doccomment'>/// callback function takes is the parameters given to the fann_train_on_data, plus an epochs</span>
-<span class='doccomment'>/// parameter which tells how many epochs the training have taken so far.</span>
+<span class='doccomment'>/// callback function takes are the parameters given to `fann_train_on_data`, plus an `epochs`</span>
+<span class='doccomment'>/// parameter which tells how many epochs the training has taken so far.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// The callback function should return an integer, if the callback function returns -1, the</span>
 <span class='doccomment'>/// training will terminate.</span>
@@ -2765,7 +2773,7 @@
 <span class='doccomment'>///                  desired_error: c_float,</span>
 <span class='doccomment'>///                  epochs: c_uint) -&gt; c_int {</span>
 <span class='doccomment'>///     let mut mse = unsafe { fann_get_MSE(ann) };</span>
-<span class='doccomment'>///     println!(&quot;Epochs {}. MSE: {}. Desired-MSE: {}&quot;, epochs, mse, desired_error);</span>
+<span class='doccomment'>///     println!(&quot;Epochs: {}. MSE: {}. Desired MSE: {}&quot;, epochs, mse, desired_error);</span>
 <span class='doccomment'>///     0</span>
 <span class='doccomment'>/// }</span>
 <span class='doccomment'>///</span>
@@ -2809,7 +2817,7 @@
     <span class='ident'>errstr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>,
 }
 
-<span class='doccomment'>/// The fast artificial neural network(fann) structure.</span>
+<span class='doccomment'>/// The fast artificial neural network (`fann`) structure.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// Data within this structure should never be accessed directly, but only by using the</span>
 <span class='doccomment'>/// `fann_get_...` and `fann_set_...` functions.</span>
@@ -2885,7 +2893,7 @@
     <span class='ident'>scale_factor_out</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_float</span>,
 }
 
-<span class='doccomment'>/// Describes a connection between two neurons and its weight</span>
+<span class='doccomment'>/// Describes a connection between two neurons and its weight.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// # See Also</span>
 <span class='doccomment'>/// `fann_get_connection_array`, `fann_set_weight_array`</span>
@@ -2927,16 +2935,16 @@
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
     <span class='kw'>pub</span> <span class='kw'>static</span> <span class='kw-2'>mut</span> <span class='ident'>fann_default_error_log</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILE</span>;
 
-    <span class='doccomment'>/// Change where errors are logged to. Both fann and fann_data can be</span>
-    <span class='doccomment'>/// cast to fann_error, so this function can be used to set either of these.</span>
+    <span class='doccomment'>/// Change where errors are logged to. Both `fann` and `fann_data` can be</span>
+    <span class='doccomment'>/// cast to `fann_error`, so this function can be used to set either of these.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// If log_file is NULL, no errors will be printed.</span>
+    <span class='doccomment'>/// If `log_file` is NULL, no errors will be printed.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// If errdata is NULL, the default log will be set. The default log is the log used when</span>
-    <span class='doccomment'>/// creating fann and fann_data. This default log will also be the default for all new structs</span>
-    <span class='doccomment'>/// that are created.</span>
+    <span class='doccomment'>/// If `errdat` is NULL, the default log will be set. The default log is the log used when</span>
+    <span class='doccomment'>/// creating `fann` and `fann_data`. This default log will also be the default for all new</span>
+    <span class='doccomment'>/// structs that are created.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The default behavior is to log them to stderr.</span>
+    <span class='doccomment'>/// The default behavior is to log them to `stderr`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_error`</span>
@@ -2962,14 +2970,14 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_reset_errstr</span>(<span class='ident'>errdat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>);
 
-    <span class='doccomment'>/// Returns the last errstr.</span>
+    <span class='doccomment'>/// Returns the last error string.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This function calls fann_reset_errno and fann_reset_errstr.</span>
+    <span class='doccomment'>/// This function calls `fann_reset_errno` and `fann_reset_errstr`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_errstr</span>(<span class='ident'>errdat</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_error</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_errstr</span>(<span class='ident'>errdat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>;
 
-    <span class='doccomment'>/// Prints the last error to stderr.</span>
+    <span class='doccomment'>/// Prints the last error to `stderr`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_print_error</span>(<span class='ident'>errdat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>);
@@ -2983,7 +2991,7 @@
     <span class='doccomment'>/// * `ann` - The neural network structure</span>
     <span class='doccomment'>/// * `input` - an array of inputs. This array must be exactly `fann_get_num_input` long.</span>
     <span class='doccomment'>/// * `desired_output` - an array of desired outputs. This array must be exactly</span>
-    <span class='doccomment'>/// `fann_get_num_output` long.</span>
+    <span class='doccomment'>///     `fann_get_num_output` long.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_train_on_data`, `fann_train_epoch`</span>
@@ -3004,7 +3012,7 @@
 
     <span class='doccomment'>/// Reads the mean square error from the network.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Reads the mean square error from the network. This value is calculated during</span>
+    <span class='doccomment'>/// This value is calculated during</span>
     <span class='doccomment'>/// training or testing, and can therefore sometimes be a bit off if the weights</span>
     <span class='doccomment'>/// have been changed since the last calculation of the value.</span>
     <span class='doccomment'>///</span>
@@ -3019,8 +3027,8 @@
     <span class='doccomment'>/// The bits are counted in all of the training data, so this number can be higher than</span>
     <span class='doccomment'>/// the number of training data.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This value is reset by fann_reset_MSE and updated by all the same functions which also</span>
-    <span class='doccomment'>///    updates the MSE value (e.g. fann_test_data, fann_train_epoch)</span>
+    <span class='doccomment'>/// This value is reset by `fann_reset_MSE` and updated by all the same functions which also</span>
+    <span class='doccomment'>/// update the MSE value (e.g. `fann_test_data`, `fann_train_epoch`)</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_stopfunc_enum`, `fann_get_MSE`</span>
@@ -3040,21 +3048,20 @@
 
     <span class='doccomment'>/// Trains on an entire dataset, for a period of time.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>///</span>
     <span class='doccomment'>/// This training uses the training algorithm chosen by `fann_set_training_algorithm`,</span>
     <span class='doccomment'>/// and the parameters set for these training algorithms.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann` - The neural network</span>
-    <span class='doccomment'>/// * `data` - The data, which should be used during training</span>
-    <span class='doccomment'>/// * `max_epochs` - The maximum number of epochs the training should continue</span>
-    <span class='doccomment'>/// * `epochs_between_reports` - The number of epochs between printing a status report to stdout.</span>
-    <span class='doccomment'>/// A value of zero means no reports should be printed.</span>
-    <span class='doccomment'>/// * `desired_error` - The desired `fann_get_MSE` or `fann_get_bit_fail`, depending on which</span>
-    <span class='doccomment'>/// stop function is chosen by `fann_set_train_stop_function`.</span>
+    <span class='doccomment'>/// * `ann`                    - The neural network</span>
+    <span class='doccomment'>/// * `data`                   - The data that should be used during training</span>
+    <span class='doccomment'>/// * `max_epochs`             - The maximum number of epochs the training should continue</span>
+    <span class='doccomment'>/// * `epochs_between_reports` - The number of epochs between printing a status report to</span>
+    <span class='doccomment'>///     `stdout`. A value of zero means no reports should be printed.</span>
+    <span class='doccomment'>/// * `desired_error`          - The desired `fann_get_MSE` or `fann_get_bit_fail`, depending on</span>
+    <span class='doccomment'>///     which stop function is chosen by `fann_set_train_stop_function`.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Instead of printing out reports every epochs_between_reports, a callback function can be</span>
+    <span class='doccomment'>/// Instead of printing out reports every `epochs_between_reports`, a callback function can be</span>
     <span class='doccomment'>/// called (see `fann_set_callback`).</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3081,7 +3088,7 @@
 
     <span class='doccomment'>/// Train one epoch with a set of training data.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Train one epoch with the training data stored in data. One epoch is where all of</span>
+    <span class='doccomment'>/// Train one epoch with the training data stored in `data`. One epoch is where all of</span>
     <span class='doccomment'>/// the training data is considered exactly once.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function returns the MSE error as it is calculated either before or during</span>
@@ -3159,13 +3166,13 @@
         <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>;
 
     <span class='doccomment'>/// Destructs the training data and properly deallocates all of the associated data.</span>
-    <span class='doccomment'>/// Be sure to call this function after finished using the training data.</span>
+    <span class='doccomment'>/// Be sure to call this function when finished using the training data.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.0.0</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_destroy_train</span>(<span class='ident'>train_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>);
 
     <span class='doccomment'>/// Shuffles training data, randomizing the order.</span>
-    <span class='doccomment'>/// This is recommended for incremental training, while it have no influence during batch</span>
+    <span class='doccomment'>/// This is recommended for incremental training, while it has no influence during batch</span>
     <span class='doccomment'>/// training.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
@@ -3175,7 +3182,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann`      - ann for which were calculated trained parameters before</span>
+    <span class='doccomment'>/// * `ann`      - ANN for which trained parameters were calculated before</span>
     <span class='doccomment'>/// * `data`     - training data that needs to be scaled</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3188,7 +3195,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann`      - ann for which were calculated trained parameters before</span>
+    <span class='doccomment'>/// * `ann`      - ann for which trained parameters were calculated before</span>
     <span class='doccomment'>/// * `data`     - training data that needs to be descaled</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3201,7 +3208,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann`           - ann for wgich parameters needs to be calculated</span>
+    <span class='doccomment'>/// * `ann`           - ANN for which parameters need to be calculated</span>
     <span class='doccomment'>/// * `data`          - training data that will be used to calculate scaling parameters</span>
     <span class='doccomment'>/// * `new_input_min` - desired lower bound in input data after scaling (not strictly followed)</span>
     <span class='doccomment'>/// * `new_input_max` - desired upper bound in input data after scaling (not strictly followed)</span>
@@ -3219,10 +3226,12 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann`            - ann for wgich parameters needs to be calculated</span>
+    <span class='doccomment'>/// * `ann`            - ANN for which parameters need to be calculated</span>
     <span class='doccomment'>/// * `data`           - training data that will be used to calculate scaling parameters</span>
-    <span class='doccomment'>/// * `new_output_min` - desired lower bound in input data after scaling (not strictly followed)</span>
-    <span class='doccomment'>/// * `new_output_max` - desired upper bound in input data after scaling (not strictly followed)</span>
+    <span class='doccomment'>/// * `new_output_min` - desired lower bound in output data after scaling (not strictly</span>
+    <span class='doccomment'>///     followed)</span>
+    <span class='doccomment'>/// * `new_output_max` - desired upper bound in output data after scaling (not strictly</span>
+    <span class='doccomment'>///     followed)</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_set_input_scaling_params`</span>
@@ -3237,12 +3246,14 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann`            - ann for wgich parameters needs to be calculated</span>
+    <span class='doccomment'>/// * `ann`            - ANN for which parameters need to be calculated</span>
     <span class='doccomment'>/// * `data`           - training data that will be used to calculate scaling parameters</span>
     <span class='doccomment'>/// * `new_input_min`  - desired lower bound in input data after scaling (not strictly followed)</span>
     <span class='doccomment'>/// * `new_input_max`  - desired upper bound in input data after scaling (not strictly followed)</span>
-    <span class='doccomment'>/// * `new_output_min` - desired lower bound in input data after scaling (not strictly followed)</span>
-    <span class='doccomment'>/// * `new_output_max` - desired upper bound in input data after scaling (not strictly followed)</span>
+    <span class='doccomment'>/// * `new_output_min` - desired lower bound in output data after scaling (not strictly</span>
+    <span class='doccomment'>///     followed)</span>
+    <span class='doccomment'>/// * `new_output_max` - desired upper bound in output data after scaling (not strictly</span>
+    <span class='doccomment'>///     followed)</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_set_input_scaling_params`, `fann_set_output_scaling_params`</span>
@@ -3264,7 +3275,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_clear_scaling_params</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
-    <span class='doccomment'>/// Scale data in input vector before feed it to ann based on previously calculated parameters.</span>
+    <span class='doccomment'>/// Scale data in input vector before feeding it to the ANN based on previously calculated</span>
+    <span class='doccomment'>/// parameters.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -3277,7 +3289,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_scale_input</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>input_vector</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>);
 
-    <span class='doccomment'>/// Scale data in output vector before feed it to ann based on previously calculated parameters.</span>
+    <span class='doccomment'>/// Scale data in output vector before feeding it to the ANN based on previously calculated</span>
+    <span class='doccomment'>/// parameters.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -3290,7 +3303,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_scale_output</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>output_vector</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>);
 
-    <span class='doccomment'>/// Scale data in input vector after get it from ann based on previously calculated parameters.</span>
+    <span class='doccomment'>/// Scale data in input vector after getting it from the ANN based on previously calculated</span>
+    <span class='doccomment'>/// parameters.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -3303,7 +3317,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_descale_input</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>input_vector</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>);
 
-    <span class='doccomment'>/// Scale data in output vector after get it from ann based on previously calculated parameters.</span>
+    <span class='doccomment'>/// Scale data in output vector after getting it from the ANN based on previously calculated</span>
+    <span class='doccomment'>/// parameters.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -3349,7 +3364,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_merge_train_data</span>(<span class='ident'>data1</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>,
                                  <span class='ident'>data2</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
 
-    <span class='doccomment'>/// Returns an exact copy of a `struct fann_train_data`.</span>
+    <span class='doccomment'>/// Returns an exact copy of a `fann_train_data`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_duplicate_train_data</span>(<span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
@@ -3391,7 +3406,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_num_output_train_data</span>(<span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>) <span class='op'>-&gt;</span> <span class='ident'>c_uint</span>;
 
-    <span class='doccomment'>/// Save the training structure to a file, with the format as specified in</span>
+    <span class='doccomment'>/// Save the training structure to a file, with the format specified in</span>
     <span class='doccomment'>/// `fann_read_train_from_file`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Return</span>
@@ -3484,7 +3499,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_learning_momentum</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>learning_momentum</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// Get the activation function for neuron number *neuron* in layer number `layer`,</span>
+    <span class='doccomment'>/// Get the activation function for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// It is not possible to get activation functions for the neurons in the input layer.</span>
@@ -3506,14 +3521,14 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_function</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
         <span class='op'>-&gt;</span> <span class='ident'>fann_activationfunc_enum</span>;
 
-    <span class='doccomment'>/// Set the activation function for neuron number *neuron* in layer number `layer`,</span>
+    <span class='doccomment'>/// Set the activation function for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// It is not possible to set activation functions for the neurons in the input layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// When choosing an activation function it is important to note that the activation</span>
     <span class='doccomment'>/// functions have different range. `FANN_SIGMOID` is e.g. in the 0 - 1 range while</span>
-    <span class='doccomment'>/// `FANN_SIGMOID_SYMMETRIC` is in the -1 - 1 range and `FANN_LINEAR` is unbound.</span>
+    <span class='doccomment'>/// `FANN_SIGMOID_SYMMETRIC` is in the -1 - 1 range and `FANN_LINEAR` is unbounded.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Information about the individual activation functions is available at</span>
     <span class='doccomment'>/// `fann_activationfunc_enum`.</span>
@@ -3565,7 +3580,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_activation_function_output</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
                                                <span class='ident'>activation_function</span>: <span class='ident'>fann_activationfunc_enum</span>);
 
-    <span class='doccomment'>/// Get the activation steepness for neuron number *neuron* in layer number `layer`,</span>
+    <span class='doccomment'>/// Get the activation steepness for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// It is not possible to get activation steepness for the neurons in the input layer.</span>
@@ -3593,7 +3608,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_steepness</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
         <span class='op'>-&gt;</span> <span class='ident'>fann_type</span>;
 
-    <span class='doccomment'>/// Set the activation steepness for neuron number *neuron* in layer number `layer`,</span>
+    <span class='doccomment'>/// Set the activation steepness for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// It is not possible to set activation steepness for the neurons in the input layer.</span>
@@ -3619,7 +3634,7 @@
                                          <span class='ident'>layer</span>: <span class='ident'>c_int</span>,
                                          <span class='ident'>neuron</span>: <span class='ident'>c_int</span>);
 
-    <span class='doccomment'>/// Set the activation steepness all of the neurons in layer number `layer`,</span>
+    <span class='doccomment'>/// Set the activation steepness for all neurons in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// It is not possible to set activation steepness for the neurons in the input layer.</span>
@@ -3651,7 +3666,7 @@
 
     <span class='doccomment'>/// Returns the error function used during training.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The error functions is described further in `fann_errorfunc_enum`.</span>
+    <span class='doccomment'>/// The error functions are described further in `fann_errorfunc_enum`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default error function is `FANN_ERRORFUNC_TANH`</span>
     <span class='doccomment'>///</span>
@@ -3663,7 +3678,7 @@
 
     <span class='doccomment'>/// Set the error function used during training.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The error functions is described further in `fann_errorfunc_enum`.</span>
+    <span class='doccomment'>/// The error functions are described further in `fann_errorfunc_enum`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_get_train_error_function`</span>
@@ -3752,9 +3767,9 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_quickprop_decay</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>quickprop_decay</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// The mu factor is used to increase and decrease the step-size during quickprop training.</span>
-    <span class='doccomment'>/// The mu factor should always be above 1, since it would otherwise decrease the step-size</span>
-    <span class='doccomment'>/// when it was suppose to increase it.</span>
+    <span class='doccomment'>/// The mu factor is used to increase and decrease the step size during quickprop training.</span>
+    <span class='doccomment'>/// The mu factor should always be above 1, since it would otherwise decrease the step size</span>
+    <span class='doccomment'>/// when it was supposed to increase it.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default mu factor is 1.75.</span>
     <span class='doccomment'>///</span>
@@ -3773,7 +3788,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_quickprop_mu</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>quickprop_mu</span>: <span class='ident'>c_float</span>);
 
     <span class='doccomment'>/// The increase factor is a value larger than 1, which is used to</span>
-    <span class='doccomment'>/// increase the step-size during RPROP training.</span>
+    <span class='doccomment'>/// increase the step size during RPROP training.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default increase factor is 1.2.</span>
     <span class='doccomment'>///</span>
@@ -3791,7 +3806,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_rprop_increase_factor</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>rprop_increase_factor</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// The decrease factor is a value smaller than 1, which is used to decrease the step-size</span>
+    <span class='doccomment'>/// The decrease factor is a value smaller than 1, which is used to decrease the step size</span>
     <span class='doccomment'>/// during RPROP training.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default decrease factor is 0.5.</span>
@@ -3802,7 +3817,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_rprop_decrease_factor</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>) <span class='op'>-&gt;</span> <span class='ident'>c_float</span>;
 
-    <span class='doccomment'>/// The decrease factor is a value smaller than 1, which is used to decrease the step-size</span>
+    <span class='doccomment'>/// The decrease factor is a value smaller than 1, which is used to decrease the step size</span>
     <span class='doccomment'>/// during RPROP training.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3811,7 +3826,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_rprop_decrease_factor</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>rprop_decrease_factor</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// The minimum step-size is a small positive number determining how small the minimum step-size</span>
+    <span class='doccomment'>/// The minimum step size is a small positive number determining how small the minimum step size</span>
     <span class='doccomment'>/// may be.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default value delta min is 0.0.</span>
@@ -3822,7 +3837,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_rprop_delta_min</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>) <span class='op'>-&gt;</span> <span class='ident'>c_float</span>;
 
-    <span class='doccomment'>/// The minimum step-size is a small positive number determining how small the minimum step-size</span>
+    <span class='doccomment'>/// The minimum step size is a small positive number determining how small the minimum step size</span>
     <span class='doccomment'>/// may be.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3831,7 +3846,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_rprop_delta_min</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>rprop_delta_min</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// The maximum step-size is a positive number determining how large the maximum step-size may</span>
+    <span class='doccomment'>/// The maximum step size is a positive number determining how large the maximum step size may</span>
     <span class='doccomment'>/// be.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default delta max is 50.0.</span>
@@ -3842,7 +3857,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_rprop_delta_max</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>) <span class='op'>-&gt;</span> <span class='ident'>c_float</span>;
 
-    <span class='doccomment'>/// The maximum step-size is a positive number determining how large the maximum step-size may</span>
+    <span class='doccomment'>/// The maximum step size is a positive number determining how large the maximum step size may</span>
     <span class='doccomment'>/// be.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -3851,7 +3866,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_rprop_delta_max</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>rprop_delta_max</span>: <span class='ident'>c_float</span>);
 
-    <span class='doccomment'>/// The initial step-size is a positive number determining the initial step size.</span>
+    <span class='doccomment'>/// The initial step size is a positive number determining the initial step size.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default delta zero is 0.1.</span>
     <span class='doccomment'>///</span>
@@ -3861,7 +3876,7 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_rprop_delta_zero</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>) <span class='op'>-&gt;</span> <span class='ident'>c_float</span>;
 
-    <span class='doccomment'>/// The initial step-size is a positive number determining the initial step size.</span>
+    <span class='doccomment'>/// The initial step size is a positive number determining the initial step size.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_get_rprop_delta_zero`, `fann_get_rprop_delta_zero`</span>
@@ -3880,19 +3895,20 @@
     <span class='doccomment'>///                                fann_num_output_train_data(train_data));</span>
     <span class='doccomment'>/// ```</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This training uses the parameters set using the `fann_set_cascade_...`, but it also uses</span>
+    <span class='doccomment'>/// This training uses the parameters set using `fann_set_cascade_...`, but it also uses</span>
     <span class='doccomment'>/// another training algorithm as it&#39;s internal training algorithm. This algorithm can be set to</span>
     <span class='doccomment'>/// either `FANN_TRAIN_RPROP` or `FANN_TRAIN_QUICKPROP` by `fann_set_training_algorithm`, and</span>
     <span class='doccomment'>/// the parameters set for these training algorithms will also affect the cascade training.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
-    <span class='doccomment'>/// * `ann` - The neural network</span>
-    <span class='doccomment'>/// * `data` - The data, which should be used during training</span>
-    <span class='doccomment'>/// * `max_neuron` - The maximum number of neurons to be added to neural network</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// * `ann`                     - The neural network</span>
+    <span class='doccomment'>/// * `data`                    - The data that should be used during training</span>
+    <span class='doccomment'>/// * `max_neuron`              - The maximum number of neurons to be added to the ANN</span>
     <span class='doccomment'>/// * `neurons_between_reports` - The number of neurons between printing a status report to</span>
     <span class='doccomment'>///     stdout. A value of zero means no reports should be printed.</span>
-    <span class='doccomment'>/// * `desired_error` - The desired `fann_get_MSE` or `fann_get_bit_fail`, depending on which</span>
-    <span class='doccomment'>///     stop function is chosen by `fann_set_train_stop_function`.</span>
+    <span class='doccomment'>/// * `desired_error`           - The desired `fann_get_MSE` or `fann_get_bit_fail`, depending</span>
+    <span class='doccomment'>///     on which stop function is chosen by `fann_set_train_stop_function`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Instead of printing out reports every neurons_between_reports, a callback function can be</span>
     <span class='doccomment'>/// called (see `fann_set_callback`).</span>
@@ -4157,7 +4173,7 @@
     <span class='doccomment'>/// generated by this array.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default activation functions is {`FANN_SIGMOID`, `FANN_SIGMOID_SYMMETRIC`,</span>
-    <span class='doccomment'>/// `FANN_GAUSSIAN`, `FANN_GAUSSIAN_SYMMETRIC`, `FANN_ELLIOT`, `FANN_ELLIOT_SYMMETRIC`}</span>
+    <span class='doccomment'>/// `FANN_GAUSSIAN`, `FANN_GAUSSIAN_SYMMETRIC`, `FANN_ELLIOTT`, `FANN_ELLIOTT_SYMMETRIC`}</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_get_cascade_activation_functions_count`, `fann_set_cascade_activation_functions`,</span>
@@ -4244,7 +4260,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_num_candidate_groups</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
                                                  <span class='ident'>cascade_num_candidate_groups</span>: <span class='ident'>c_uint</span>);
 
-    <span class='doccomment'>/// Constructs a backpropagation neural network from a configuration file, which have been saved</span>
+    <span class='doccomment'>/// Constructs a backpropagation neural network from a configuration file, which has been saved</span>
     <span class='doccomment'>/// by `fann_save`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
@@ -4260,9 +4276,9 @@
     <span class='doccomment'>/// parameters associated with the neural network.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// These three parameters (`fann_set_callback`, `fann_set_error_log`,</span>
-    <span class='doccomment'>/// `fann_set_user_data`) are *NOT* saved  to the file because they cannot safely be</span>
+    <span class='doccomment'>/// `fann_set_user_data`) are *NOT* saved to the file because they cannot safely be</span>
     <span class='doccomment'>/// ported to a different location. Also temporary parameters generated during training</span>
-    <span class='doccomment'>/// like `fann_get_MSE` is not saved.</span>
+    <span class='doccomment'>/// like `fann_get_MSE` are not saved.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Return</span>
     <span class='doccomment'>/// The function returns 0 on success and -1 on failure.</span>
@@ -4286,14 +4302,12 @@
     <span class='doccomment'>/// A high value indicates high precision, and a low value indicates low</span>
     <span class='doccomment'>/// precision.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// A negative value indicates very low precision, and a very</span>
-    <span class='doccomment'>/// strong possibility for overflow.</span>
-    <span class='doccomment'>/// (the actual fix point will be set to 0, since a negative</span>
-    <span class='doccomment'>/// fix point does not make sense).</span>
+    <span class='doccomment'>/// A negative value indicates very low precision, and a very strong possibility for overflow.</span>
+    <span class='doccomment'>/// (the actual fix point will be set to 0, since a negative fix point does not make sense).</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Generally, a fix point lower than 6 is bad, and should be avoided.</span>
-    <span class='doccomment'>/// The best way to avoid this, is to have less connections to each neuron,</span>
-    <span class='doccomment'>/// or just less neurons in each layer.</span>
+    <span class='doccomment'>/// The best way to avoid this is to have fewer connections to each neuron,</span>
+    <span class='doccomment'>/// or just fewer neurons in each layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The fixed point use of this network is only intended for use on machines that</span>
     <span class='doccomment'>/// have no floating point processor, like an iPAQ. On normal computers the floating</span>
@@ -4311,24 +4325,24 @@
     <span class='doccomment'>/// and this bias neuron will be connected to all neurons in the next layer.</span>
     <span class='doccomment'>/// When running the network, the bias nodes always emits 1.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// To destroy a fann use the fann_destroy function.</span>
+    <span class='doccomment'>/// To destroy a `fann` use the `fann_destroy` function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * `num_layers` - The total number of layers including the input and the output layer.</span>
-    <span class='doccomment'>/// * `...` - Integer values determining the number of neurons in each layer starting with the</span>
-    <span class='doccomment'>/// input layer and ending with the output layer.</span>
+    <span class='doccomment'>/// * `...`        - Integer values determining the number of neurons in each layer starting</span>
+    <span class='doccomment'>///     with the input layer and ending with the output layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Returns</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// A pointer to the newly created fann.</span>
+    <span class='doccomment'>/// A pointer to the newly created `fann`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Example</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Creating an ANN with 2 input neurons, 1 output neuron,</span>
-    <span class='doccomment'>/// and two hidden layers with 8 and 9 neurons</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// ```</span>
+    <span class='doccomment'>/// // Creating an ANN with 2 input neurons, 1 output neuron,</span>
+    <span class='doccomment'>/// // and two hidden layers with 8 and 9 neurons</span>
     <span class='doccomment'>/// unsafe {</span>
     <span class='doccomment'>///     let ann = fann_sys::fann_create_standard(4, 2, 8, 9, 1);</span>
     <span class='doccomment'>/// }</span>
@@ -4363,11 +4377,11 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * `connection_rate` - The connection rate controls how many connections there will be in the</span>
     <span class='doccomment'>///     network. If the connection rate is set to 1, the network will be fully</span>
-    <span class='doccomment'>///     connected, but if it is set to 0.5 only half of the connections will be set.</span>
+    <span class='doccomment'>///     connected, but if it is set to 0.5, only half of the connections will be set.</span>
     <span class='doccomment'>///     A connection rate of 1 will yield the same result as `fann_create_standard`.</span>
-    <span class='doccomment'>/// * `num_layers` - The total number of layers including the input and the output layer.</span>
-    <span class='doccomment'>/// * `...` - Integer values determining the number of neurons in each layer starting with the</span>
-    <span class='doccomment'>///     input layer and ending with the output layer.</span>
+    <span class='doccomment'>/// * `num_layers`      - The total number of layers including the input and the output layer.</span>
+    <span class='doccomment'>/// * `...`             - Integer values determining the number of neurons in each layer</span>
+    <span class='doccomment'>///     starting with the input layer and ending with the output layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Returns</span>
     <span class='doccomment'>/// A pointer to the newly created `fann`.</span>
@@ -4395,7 +4409,7 @@
     <span class='doccomment'>/// also has shortcut connections.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Shortcut connections are connections that skip layers. A fully connected network with</span>
-    <span class='doccomment'>/// shortcut connections, is a network where all neurons are connected to all neurons in later</span>
+    <span class='doccomment'>/// shortcut connections is a network where all neurons are connected to all neurons in later</span>
     <span class='doccomment'>/// layers. Including direct connections from the input layer to the output layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// See `fann_create_standard` for a description of the parameters.</span>
@@ -4417,21 +4431,21 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_create_shortcut_array</span>(<span class='ident'>num_layers</span>: <span class='ident'>c_uint</span>, <span class='ident'>layers</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_uint</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>;
 
-    <span class='doccomment'>/// Destroys the entire network and properly freeing all the associated memory.</span>
+    <span class='doccomment'>/// Destroys the entire network, properly freeing all the associated memory.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_destroy</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>);
 
-    <span class='doccomment'>///    Will run input through the neural network, returning an array of outputs, the number of</span>
-    <span class='doccomment'>///    which being equal to the number of neurons in the output layer.</span>
+    <span class='doccomment'>/// Runs input through the neural network, returning an array of outputs, the number of</span>
+    <span class='doccomment'>/// which being equal to the number of neurons in the output layer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
-    <span class='doccomment'>///    `fann_test`</span>
+    <span class='doccomment'>/// `fann_test`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_run</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>input</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>;
 
-    <span class='doccomment'>/// Give each connection a random weight between `min_weight` and `max_weight`</span>
+    <span class='doccomment'>/// Give each connection a random weight between `min_weight` and `max_weight`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// From the beginning the weights are random between -0.1 and 0.1.</span>
     <span class='doccomment'>///</span>
@@ -4443,14 +4457,14 @@
 
     <span class='doccomment'>/// Initialize the weights using Widrow + Nguyen&#39;s algorithm.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This function behaves similarly to fann_randomize_weights. It will use the algorithm</span>
+    <span class='doccomment'>/// This function behaves similarly to `fann_randomize_weights`. It will use the algorithm</span>
     <span class='doccomment'>/// developed by Derrick Nguyen and Bernard Widrow to set the weights in such a way</span>
     <span class='doccomment'>/// as to speed up training. This technique is not always successful, and in some cases can be</span>
     <span class='doccomment'>/// less efficient than a purely random initialization.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The algorithm requires access to the range of the input data (ie, largest and smallest</span>
-    <span class='doccomment'>/// input), and therefore accepts a second argument, data, which is the training data that will</span>
-    <span class='doccomment'>/// be used to train the network.</span>
+    <span class='doccomment'>/// input), and therefore accepts a second argument, `data`, which is the training data that</span>
+    <span class='doccomment'>/// will be used to train the network.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_randomize_weights`, `fann_read_train_from_file`</span>
@@ -4458,10 +4472,11 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_init_weights</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>train_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>);
 
-    <span class='doccomment'>/// Will print the connections of the ann in a compact matrix, for easy viewing of the internals</span>
-    <span class='doccomment'>/// of the ann.</span>
+    <span class='doccomment'>/// Prints the connections of the ann in a compact matrix, for easy viewing of the internals</span>
+    <span class='doccomment'>/// of the ANN.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The output from fann_print_connections on a small (2 2 1) network trained on the xor problem</span>
+    <span class='doccomment'>/// The output from `fann_print_connections` on a small (2 2 1) network trained on the xor</span>
+    <span class='doccomment'>/// problem:</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// ```text</span>
     <span class='doccomment'>/// Layer / Neuron 012345</span>
@@ -4472,15 +4487,15 @@
     <span class='doccomment'>/// L   2 / N    7 ......</span>
     <span class='doccomment'>/// ```</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This network have five real neurons and two bias neurons. This gives a total of seven</span>
+    <span class='doccomment'>/// This network has five real neurons and two bias neurons. This gives a total of seven</span>
     <span class='doccomment'>/// neurons named from 0 to 6. The connections between these neurons can be seen in the matrix.</span>
     <span class='doccomment'>/// &quot;.&quot; is a place where there is no connection, while a character tells how strong the</span>
     <span class='doccomment'>/// connection is on a scale from a-z. The two real neurons in the hidden layer (neuron 3 and 4</span>
-    <span class='doccomment'>/// in layer 1) has connection from the three neurons in the previous layer as is visible in the</span>
-    <span class='doccomment'>/// first two lines. The output neuron (6) has connections form the three neurons in the hidden</span>
-    <span class='doccomment'>/// layer 3 - 5 as is visible in the fourth line.</span>
+    <span class='doccomment'>/// in layer 1) have connections from the three neurons in the previous layer as is visible in</span>
+    <span class='doccomment'>/// the first two lines. The output neuron 6 has connections from the three neurons in the</span>
+    <span class='doccomment'>/// hidden layer 3 - 5 as is visible in the fourth line.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// To simplify the matrix output neurons is not visible as neurons that connections can come</span>
+    <span class='doccomment'>/// To simplify the matrix output neurons are not visible as neurons that connections can come</span>
     <span class='doccomment'>/// from, and input and bias neurons are not visible as neurons that connections can go to.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.2.0.</span>
@@ -4546,6 +4561,7 @@
     <span class='doccomment'>/// * `ann` - A previously created neural network structure of type `fann` pointer.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Returns</span>
+    <span class='doccomment'>///</span>
     <span class='doccomment'>/// The number of layers in the neural network</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Example</span>
@@ -4563,7 +4579,7 @@
 
     <span class='doccomment'>/// Get the number of neurons in each layer in the network.</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Bias is not included so the layers match the fann_create functions.</span>
+    <span class='doccomment'>/// Bias is not included so the layers match the `fann_create` functions.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -4626,22 +4642,21 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_weight</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>from_neuron</span>: <span class='ident'>c_uint</span>,
                            <span class='ident'>to_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>weight</span>: <span class='ident'>fann_type</span>);
 
-    <span class='doccomment'>/// Store a pointer to user defined data. The pointer can be</span>
-    <span class='doccomment'>/// retrieved with `fann_get_user_data` for example in a</span>
-    <span class='doccomment'>/// callback. It is the user&#39;s responsibility to allocate and</span>
-    <span class='doccomment'>/// deallocate any data that the pointer might point to.</span>
+    <span class='doccomment'>/// Store a pointer to user defined data. The pointer can be retrieved with `fann_get_user_data`</span>
+    <span class='doccomment'>/// for example in a callback. It is the user&#39;s responsibility to allocate and deallocate any</span>
+    <span class='doccomment'>/// data that the pointer might point to.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// * `ann` - A previously created neural network structure of type `fann` pointer.</span>
+    <span class='doccomment'>/// * `ann`       - A previously created neural network structure of type `fann` pointer.</span>
     <span class='doccomment'>/// * `user_data` - A void pointer to user defined data.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_user_data</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>user_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>);
 
-    <span class='doccomment'>/// Get a pointer to user defined data that was previously set</span>
-    <span class='doccomment'>/// with `fann_set_user_data`. It is the user&#39;s responsibility to</span>
-    <span class='doccomment'>/// allocate and deallocate any data that the pointer might point to.</span>
+    <span class='doccomment'>/// Get a pointer to user defined data that was previously set with `fann_set_user_data`. It is</span>
+    <span class='doccomment'>/// the user&#39;s responsibility to allocate and deallocate any data that the pointer might point</span>
+    <span class='doccomment'>/// to.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Parameters</span>
     <span class='doccomment'>///</span>
@@ -4665,8 +4680,10 @@
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_tutorial_example</span>() {
-        <span class='kw'>let</span> <span class='ident'>c_train_file</span> <span class='op'>=</span> <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='string'>b&quot;test_files/xor.data&quot;</span>[..]).<span class='ident'>unwrap</span>();
-        <span class='kw'>let</span> <span class='ident'>c_save_file</span> <span class='op'>=</span> <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='string'>b&quot;test_files/xor_float.net&quot;</span>[..]).<span class='ident'>unwrap</span>();
+        <span class='kw'>let</span> <span class='ident'>c_trainfile</span> <span class='op'>=</span> <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='string'>b&quot;test_files/xor.data&quot;</span>[..]).<span class='ident'>unwrap</span>();
+        <span class='kw'>let</span> <span class='ident'>p_trainfile</span> <span class='op'>=</span> <span class='ident'>c_trainfile</span>.<span class='ident'>as_ptr</span>();
+        <span class='kw'>let</span> <span class='ident'>c_savefile</span> <span class='op'>=</span> <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='string'>b&quot;test_files/xor_float.net&quot;</span>[..]).<span class='ident'>unwrap</span>();
+        <span class='kw'>let</span> <span class='ident'>p_savefile</span> <span class='op'>=</span> <span class='ident'>c_savefile</span>.<span class='ident'>as_ptr</span>();
         <span class='comment'>// Train an ANN with a data set and then save the ANN to a file.</span>
         <span class='kw'>let</span> <span class='ident'>num_input</span> <span class='op'>=</span> <span class='number'>2</span>;
         <span class='kw'>let</span> <span class='ident'>num_output</span> <span class='op'>=</span> <span class='number'>1</span>;
@@ -4679,14 +4696,13 @@
             <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_create_standard</span>(<span class='ident'>num_layers</span>, <span class='ident'>num_input</span>, <span class='ident'>num_neurons_hidden</span>, <span class='ident'>num_output</span>);
             <span class='ident'>fann_set_activation_function_hidden</span>(<span class='ident'>ann</span>, <span class='ident'>FANN_SIGMOID_SYMMETRIC</span>);
             <span class='ident'>fann_set_activation_function_output</span>(<span class='ident'>ann</span>, <span class='ident'>FANN_SIGMOID_SYMMETRIC</span>);
-            <span class='ident'>fann_train_on_file</span>(
-                <span class='ident'>ann</span>, <span class='ident'>c_train_file</span>.<span class='ident'>as_ptr</span>(), <span class='ident'>max_epochs</span>, <span class='ident'>epochs_between_reports</span>, <span class='ident'>desired_error</span>);
-            <span class='ident'>fann_save</span>(<span class='ident'>ann</span>, <span class='ident'>c_save_file</span>.<span class='ident'>as_ptr</span>());
+            <span class='ident'>fann_train_on_file</span>(<span class='ident'>ann</span>, <span class='ident'>p_trainfile</span>, <span class='ident'>max_epochs</span>, <span class='ident'>epochs_between_reports</span>, <span class='ident'>desired_error</span>);
+            <span class='ident'>fann_save</span>(<span class='ident'>ann</span>, <span class='ident'>p_savefile</span>);
             <span class='ident'>fann_destroy</span>(<span class='ident'>ann</span>);
         }
         <span class='comment'>// Load the ANN and execute input.</span>
         <span class='kw'>unsafe</span> {
-            <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_create_from_file</span>(<span class='ident'>c_save_file</span>.<span class='ident'>as_ptr</span>());
+            <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_create_from_file</span>(<span class='ident'>p_savefile</span>);
             <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> ( <span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='op'>-</span><span class='number'>1.0</span>,  <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
             <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> ( <span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [ <span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
             <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='op'>-</span><span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [ <span class='number'>1.0</span>,  <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
@@ -4694,7 +4710,7 @@
             <span class='ident'>fann_destroy</span>(<span class='ident'>ann</span>);
         }
         <span class='comment'>// Delete the ANN file created by the test.</span>
-        <span class='ident'>remove_file</span>(<span class='ident'>from_utf8</span>(<span class='ident'>c_save_file</span>.<span class='ident'>to_bytes</span>()).<span class='ident'>unwrap</span>()).<span class='ident'>unwrap</span>();
+        <span class='ident'>remove_file</span>(<span class='ident'>from_utf8</span>(<span class='ident'>c_savefile</span>.<span class='ident'>to_bytes</span>()).<span class='ident'>unwrap</span>()).<span class='ident'>unwrap</span>();
     }
 }
 </pre>
@@ -4730,10 +4746,6 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
             </p>
         </div>
     </div>
