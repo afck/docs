@@ -41,9 +41,11 @@
     </nav>
 
     <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>fann_sys</a><wbr></span><span class='out-of-band'><a href='stability.html'>[stability]</a> <span id='render-detail'>
-            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
-        </span><a id='src-0' href='../src/fann_sys/lib.rs.html#1-2336'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>fann_sys</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-0' class='srclink' href='../src/fann_sys/lib.rs.html#1-2340' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Raw bindings to C functions of the Fast Artificial Neural Network library</p>
 
 <h1 id="creation/execution" class='section-header'><a
@@ -112,1119 +114,1411 @@ which represents training data.</p>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
 <table><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_errno_enum.html' title='fann_sys::fann_errno_enum'>fann_errno_enum</a>::*;</code></td></tr><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_train_enum.html' title='fann_sys::fann_train_enum'>fann_train_enum</a>::*;</code></td></tr><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_activationfunc_enum.html' title='fann_sys::fann_activationfunc_enum'>fann_activationfunc_enum</a>::*;</code></td></tr><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a>::*;</code></td></tr><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_stopfunc_enum.html' title='fann_sys::fann_stopfunc_enum'>fann_stopfunc_enum</a>::*;</code></td></tr><tr><td><code>pub use <a class='enum' href='../fann_sys/enum.fann_nettype_enum.html' title='fann_sys::fann_nettype_enum'>fann_nettype_enum</a>::*;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.fann.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.fann.html'
                                title='fann_sys::fann'>fann</a></td>
-                        <td class='docblock short'><p>The fast artificial neural network (<code>fann</code>) structure.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The fast artificial neural network (<code>fann</code>) structure.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.fann_connection.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.fann_connection.html'
                                title='fann_sys::fann_connection'>fann_connection</a></td>
-                        <td class='docblock short'><p>Describes a connection between two neurons and its weight.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Describes a connection between two neurons and its weight.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.fann_error.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.fann_error.html'
                                title='fann_sys::fann_error'>fann_error</a></td>
-                        <td class='docblock short'><p>Structure used to store error-related information, both
+                        <td class='docblock short'>
+                             <p>Structure used to store error-related information, both
 <code>fann</code> and <code>fann_train_data</code> can be cast to this type.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='struct' href='struct.fann_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.fann_train_data.html'
                                title='fann_sys::fann_train_data'>fann_train_data</a></td>
-                        <td class='docblock short'><p>Structure used to store data, for use with training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Structure used to store data, for use with training.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_activationfunc_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_activationfunc_enum.html'
                                title='fann_sys::fann_activationfunc_enum'>fann_activationfunc_enum</a></td>
-                        <td class='docblock short'><p>The activation functions used for the neurons during training. The activation functions
+                        <td class='docblock short'>
+                             <p>The activation functions used for the neurons during training. The activation functions
 can either be defined for a group of neurons by <code>fann_set_activation_function_hidden</code> and
 <code>fann_set_activation_function_output</code>, or it can be defined for a single neuron by
 <code>fann_set_activation_function</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_errno_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_errno_enum.html'
                                title='fann_sys::fann_errno_enum'>fann_errno_enum</a></td>
-                        <td class='docblock short'><p>Error events on fann and fann_train_data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Error events on fann and fann_train_data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_errorfunc_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_errorfunc_enum.html'
                                title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></td>
-                        <td class='docblock short'><p>Error function used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Error function used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_nettype_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_nettype_enum.html'
                                title='fann_sys::fann_nettype_enum'>fann_nettype_enum</a></td>
-                        <td class='docblock short'><p>Definition of network types used by <code>fann_get_network_type</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Definition of network types used by <code>fann_get_network_type</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_stopfunc_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_stopfunc_enum.html'
                                title='fann_sys::fann_stopfunc_enum'>fann_stopfunc_enum</a></td>
-                        <td class='docblock short'><p>Stop criteria used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Stop criteria used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='enum' href='enum.fann_train_enum.html'
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.fann_train_enum.html'
                                title='fann_sys::fann_train_enum'>fann_train_enum</a></td>
-                        <td class='docblock short'><p>The Training algorithms used when training on <code>fann_train_data</code> with functions like
+                        <td class='docblock short'>
+                             <p>The Training algorithms used when training on <code>fann_train_data</code> with functions like
 <code>fann_train_on_data</code> or <code>fann_train_on_file</code>. The incremental training alters the weights
 after each time it is presented an input pattern, while batch only alters the weights once after
 it has been presented to all the patterns.</p>
-</td>
+
+                        </td>
                     </tr>
                 </table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='static' href='static.fann_default_error_log.html'
+                    <tr class=' module-item'>
+                        <td><a class='static' href='static.fann_default_error_log.html'
                                title='fann_sys::fann_default_error_log'>fann_default_error_log</a></td>
-                        <td class='docblock short'></td>
+                        <td class='docblock short'>
+                             
+                        </td>
                     </tr>
                 </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_cascadetrain_on_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_cascadetrain_on_data.html'
                                title='fann_sys::fann_cascadetrain_on_data'>fann_cascadetrain_on_data</a></td>
-                        <td class='docblock short'><p>Trains on an entire dataset, for a period of time using the Cascade2 training algorithm.
+                        <td class='docblock short'>
+                             <p>Trains on an entire dataset, for a period of time using the Cascade2 training algorithm.
 This algorithm adds neurons to the neural network while training, which means that it
 needs to start with an ANN without any hidden layers. The neural network should also use
 shortcut connections, so <code>fann_create_shortcut</code> should be used to create the ANN like this:</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_cascadetrain_on_file.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_cascadetrain_on_file.html'
                                title='fann_sys::fann_cascadetrain_on_file'>fann_cascadetrain_on_file</a></td>
-                        <td class='docblock short'><p>Does the same as <code>fann_cascadetrain_on_data</code>, but reads the training data directly from a
+                        <td class='docblock short'>
+                             <p>Does the same as <code>fann_cascadetrain_on_data</code>, but reads the training data directly from a
 file.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_clear_scaling_params.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_clear_scaling_params.html'
                                title='fann_sys::fann_clear_scaling_params'>fann_clear_scaling_params</a></td>
-                        <td class='docblock short'><p>Clears scaling parameters.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Clears scaling parameters.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_from_file.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_from_file.html'
                                title='fann_sys::fann_create_from_file'>fann_create_from_file</a></td>
-                        <td class='docblock short'><p>Constructs a backpropagation neural network from a configuration file, which has been saved
+                        <td class='docblock short'>
+                             <p>Constructs a backpropagation neural network from a configuration file, which has been saved
 by <code>fann_save</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_shortcut.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_shortcut.html'
                                title='fann_sys::fann_create_shortcut'>fann_create_shortcut</a></td>
-                        <td class='docblock short'><p>Creates a standard backpropagation neural network, which is not fully connected and which
+                        <td class='docblock short'>
+                             <p>Creates a standard backpropagation neural network, which is not fully connected and which
 also has shortcut connections.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_shortcut_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_shortcut_array.html'
                                title='fann_sys::fann_create_shortcut_array'>fann_create_shortcut_array</a></td>
-                        <td class='docblock short'><p>Just like <code>fann_create_shortcut</code>, but with an array of layer sizes
+                        <td class='docblock short'>
+                             <p>Just like <code>fann_create_shortcut</code>, but with an array of layer sizes
 instead of individual parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_sparse.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_sparse.html'
                                title='fann_sys::fann_create_sparse'>fann_create_sparse</a></td>
-                        <td class='docblock short'><p>Creates a standard backpropagation neural network, which is not fully connected.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Creates a standard backpropagation neural network, which is not fully connected.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_sparse_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_sparse_array.html'
                                title='fann_sys::fann_create_sparse_array'>fann_create_sparse_array</a></td>
-                        <td class='docblock short'><p>Just like <code>fann_create_sparse</code>, but with an array of layer sizes
+                        <td class='docblock short'>
+                             <p>Just like <code>fann_create_sparse</code>, but with an array of layer sizes
 instead of individual parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_standard.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_standard.html'
                                title='fann_sys::fann_create_standard'>fann_create_standard</a></td>
-                        <td class='docblock short'><p>Creates a standard fully connected backpropagation neural network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Creates a standard fully connected backpropagation neural network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_standard_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_standard_array.html'
                                title='fann_sys::fann_create_standard_array'>fann_create_standard_array</a></td>
-                        <td class='docblock short'><p>Just like <code>fann_create_standard</code>, but with an array of layer sizes
+                        <td class='docblock short'>
+                             <p>Just like <code>fann_create_standard</code>, but with an array of layer sizes
 instead of individual parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_create_train_from_callback.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_create_train_from_callback.html'
                                title='fann_sys::fann_create_train_from_callback'>fann_create_train_from_callback</a></td>
-                        <td class='docblock short'><p>Creates the training data struct from a user supplied function.
+                        <td class='docblock short'>
+                             <p>Creates the training data struct from a user supplied function.
  As the training data are numerable (data 1, data 2...), the user must write
  a function that receives the number of the training data set (input,output)
  and returns the set.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_descale_input.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_descale_input.html'
                                title='fann_sys::fann_descale_input'>fann_descale_input</a></td>
-                        <td class='docblock short'><p>Scale data in input vector after getting it from the ANN based on previously calculated
+                        <td class='docblock short'>
+                             <p>Scale data in input vector after getting it from the ANN based on previously calculated
 parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_descale_output.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_descale_output.html'
                                title='fann_sys::fann_descale_output'>fann_descale_output</a></td>
-                        <td class='docblock short'><p>Scale data in output vector after getting it from the ANN based on previously calculated
+                        <td class='docblock short'>
+                             <p>Scale data in output vector after getting it from the ANN based on previously calculated
 parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_descale_train.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_descale_train.html'
                                title='fann_sys::fann_descale_train'>fann_descale_train</a></td>
-                        <td class='docblock short'><p>Descale input and output data based on previously calculated parameters.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Descale input and output data based on previously calculated parameters.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_destroy.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_destroy.html'
                                title='fann_sys::fann_destroy'>fann_destroy</a></td>
-                        <td class='docblock short'><p>Destroys the entire network, properly freeing all the associated memory.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Destroys the entire network, properly freeing all the associated memory.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_destroy_train.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_destroy_train.html'
                                title='fann_sys::fann_destroy_train'>fann_destroy_train</a></td>
-                        <td class='docblock short'><p>Destructs the training data and properly deallocates all of the associated data.
+                        <td class='docblock short'>
+                             <p>Destructs the training data and properly deallocates all of the associated data.
 Be sure to call this function when finished using the training data.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_duplicate_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_duplicate_train_data.html'
                                title='fann_sys::fann_duplicate_train_data'>fann_duplicate_train_data</a></td>
-                        <td class='docblock short'><p>Returns an exact copy of a <code>fann_train_data</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns an exact copy of a <code>fann_train_data</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_MSE.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_MSE.html'
                                title='fann_sys::fann_get_MSE'>fann_get_MSE</a></td>
-                        <td class='docblock short'><p>Reads the mean square error from the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Reads the mean square error from the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_activation_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_activation_function.html'
                                title='fann_sys::fann_get_activation_function'>fann_get_activation_function</a></td>
-                        <td class='docblock short'><p>Get the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Get the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_activation_steepness.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_activation_steepness.html'
                                title='fann_sys::fann_get_activation_steepness'>fann_get_activation_steepness</a></td>
-                        <td class='docblock short'><p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_bias_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_bias_array.html'
                                title='fann_sys::fann_get_bias_array'>fann_get_bias_array</a></td>
-                        <td class='docblock short'><p>Get the number of bias in each layer in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the number of bias in each layer in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_bit_fail.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_bit_fail.html'
                                title='fann_sys::fann_get_bit_fail'>fann_get_bit_fail</a></td>
-                        <td class='docblock short'><p>The number of fail bits; means the number of output neurons which differ more
+                        <td class='docblock short'>
+                             <p>The number of fail bits; means the number of output neurons which differ more
 than the bit fail limit (see <code>fann_get_bit_fail_limit</code>, <code>fann_set_bit_fail_limit</code>).
 The bits are counted in all of the training data, so this number can be higher than
 the number of training data.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_bit_fail_limit.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_bit_fail_limit.html'
                                title='fann_sys::fann_get_bit_fail_limit'>fann_get_bit_fail_limit</a></td>
-                        <td class='docblock short'><p>Returns the bit fail limit used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the bit fail limit used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_activation_functions.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_activation_functions.html'
                                title='fann_sys::fann_get_cascade_activation_functions'>fann_get_cascade_activation_functions</a></td>
-                        <td class='docblock short'><p>The cascade activation functions array is an array of the different activation functions
+                        <td class='docblock short'>
+                             <p>The cascade activation functions array is an array of the different activation functions
 used by the candidates.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_activation_functions_count.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_activation_functions_count.html'
                                title='fann_sys::fann_get_cascade_activation_functions_count'>fann_get_cascade_activation_functions_count</a></td>
-                        <td class='docblock short'><p>The number of activation functions in the <code>fann_get_cascade_activation_functions</code> array.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The number of activation functions in the <code>fann_get_cascade_activation_functions</code> array.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_activation_steepnesses.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_activation_steepnesses.html'
                                title='fann_sys::fann_get_cascade_activation_steepnesses'>fann_get_cascade_activation_steepnesses</a></td>
-                        <td class='docblock short'><p>The cascade activation steepnesses array is an array of the different activation functions
+                        <td class='docblock short'>
+                             <p>The cascade activation steepnesses array is an array of the different activation functions
 used by the candidates.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_activation_steepnesses_count.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_activation_steepnesses_count.html'
                                title='fann_sys::fann_get_cascade_activation_steepnesses_count'>fann_get_cascade_activation_steepnesses_count</a></td>
-                        <td class='docblock short'><p>The number of activation steepnesses in the <code>fann_get_cascade_activation_functions</code> array.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The number of activation steepnesses in the <code>fann_get_cascade_activation_functions</code> array.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_candidate_change_fraction.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_candidate_change_fraction.html'
                                title='fann_sys::fann_get_cascade_candidate_change_fraction'>fann_get_cascade_candidate_change_fraction</a></td>
-                        <td class='docblock short'><p>The cascade candidate change fraction is a number between 0 and 1 determining how large a
+                        <td class='docblock short'>
+                             <p>The cascade candidate change fraction is a number between 0 and 1 determining how large a
 fraction the <code>fann_get_MSE</code> value should change within
 <code>fann_get_cascade_candidate_stagnation_epochs</code> during training of the candidate neurons, in
 order for the training not to stagnate. If the training stagnates, the training of the
 candidate neurons will be ended and the best candidate will be selected.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_candidate_limit.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_candidate_limit.html'
                                title='fann_sys::fann_get_cascade_candidate_limit'>fann_get_cascade_candidate_limit</a></td>
-                        <td class='docblock short'><p>The candidate limit is a limit for how much the candidate neuron may be trained.
+                        <td class='docblock short'>
+                             <p>The candidate limit is a limit for how much the candidate neuron may be trained.
 The limit is a limit on the proportion between the MSE and candidate score.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_candidate_stagnation_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_candidate_stagnation_epochs.html'
                                title='fann_sys::fann_get_cascade_candidate_stagnation_epochs'>fann_get_cascade_candidate_stagnation_epochs</a></td>
-                        <td class='docblock short'><p>The number of cascade candidate stagnation epochs determines the number of epochs training
+                        <td class='docblock short'>
+                             <p>The number of cascade candidate stagnation epochs determines the number of epochs training
 is allowed to continue without changing the MSE by a fraction of
 <code>fann_get_cascade_candidate_change_fraction</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_max_cand_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_max_cand_epochs.html'
                                title='fann_sys::fann_get_cascade_max_cand_epochs'>fann_get_cascade_max_cand_epochs</a></td>
-                        <td class='docblock short'><p>The maximum candidate epochs determines the maximum number of epochs the input
+                        <td class='docblock short'>
+                             <p>The maximum candidate epochs determines the maximum number of epochs the input
 connections to the candidates may be trained before adding a new candidate neuron.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_max_out_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_max_out_epochs.html'
                                title='fann_sys::fann_get_cascade_max_out_epochs'>fann_get_cascade_max_out_epochs</a></td>
-                        <td class='docblock short'><p>The maximum out epochs determines the maximum number of epochs the output connections
+                        <td class='docblock short'>
+                             <p>The maximum out epochs determines the maximum number of epochs the output connections
 may be trained after adding a new candidate neuron.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_num_candidate_groups.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_num_candidate_groups.html'
                                title='fann_sys::fann_get_cascade_num_candidate_groups'>fann_get_cascade_num_candidate_groups</a></td>
-                        <td class='docblock short'><p>The number of candidate groups is the number of groups of identical candidates which will be
+                        <td class='docblock short'>
+                             <p>The number of candidate groups is the number of groups of identical candidates which will be
 used during training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_num_candidates.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_num_candidates.html'
                                title='fann_sys::fann_get_cascade_num_candidates'>fann_get_cascade_num_candidates</a></td>
-                        <td class='docblock short'><p>The number of candidates used during training (calculated by multiplying
+                        <td class='docblock short'>
+                             <p>The number of candidates used during training (calculated by multiplying
 <code>fann_get_cascade_activation_functions_count</code>,
 <code>fann_get_cascade_activation_steepnesses_count</code> and
 <code>fann_get_cascade_num_candidate_groups</code>).</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_output_change_fraction.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_output_change_fraction.html'
                                title='fann_sys::fann_get_cascade_output_change_fraction'>fann_get_cascade_output_change_fraction</a></td>
-                        <td class='docblock short'><p>The cascade output change fraction is a number between 0 and 1 determining how large a
+                        <td class='docblock short'>
+                             <p>The cascade output change fraction is a number between 0 and 1 determining how large a
 fraction the <code>fann_get_MSE</code> value should change within
 <code>fann_get_cascade_output_stagnation_epochs</code> during training of the output connections, in
 order for the training not to stagnate. If the training stagnates, the training of the
 output connections will be ended and new candidates will be prepared.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_output_stagnation_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_output_stagnation_epochs.html'
                                title='fann_sys::fann_get_cascade_output_stagnation_epochs'>fann_get_cascade_output_stagnation_epochs</a></td>
-                        <td class='docblock short'><p>The number of cascade output stagnation epochs determines the number of epochs training is
+                        <td class='docblock short'>
+                             <p>The number of cascade output stagnation epochs determines the number of epochs training is
 allowed to continue without changing the MSE by a fraction of
 <code>fann_get_cascade_output_change_fraction</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_cascade_weight_multiplier.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_cascade_weight_multiplier.html'
                                title='fann_sys::fann_get_cascade_weight_multiplier'>fann_get_cascade_weight_multiplier</a></td>
-                        <td class='docblock short'><p>The weight multiplier is a parameter which is used to multiply the weights from the
+                        <td class='docblock short'>
+                             <p>The weight multiplier is a parameter which is used to multiply the weights from the
 candidate neuron before adding the neuron to the neural network. This parameter is usually
 between 0 and 1, and is used to make the training a bit less aggressive.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_connection_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_connection_array.html'
                                title='fann_sys::fann_get_connection_array'>fann_get_connection_array</a></td>
-                        <td class='docblock short'><p>Get the connections in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the connections in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_connection_rate.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_connection_rate.html'
                                title='fann_sys::fann_get_connection_rate'>fann_get_connection_rate</a></td>
-                        <td class='docblock short'><p>Get the connection rate used when the network was created.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the connection rate used when the network was created.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_errno.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_errno.html'
                                title='fann_sys::fann_get_errno'>fann_get_errno</a></td>
-                        <td class='docblock short'><p>Returns the last error number.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the last error number.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_errstr.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_errstr.html'
                                title='fann_sys::fann_get_errstr'>fann_get_errstr</a></td>
-                        <td class='docblock short'><p>Returns the last error string.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the last error string.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_layer_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_layer_array.html'
                                title='fann_sys::fann_get_layer_array'>fann_get_layer_array</a></td>
-                        <td class='docblock short'><p>Get the number of neurons in each layer in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the number of neurons in each layer in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_learning_momentum.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_learning_momentum.html'
                                title='fann_sys::fann_get_learning_momentum'>fann_get_learning_momentum</a></td>
-                        <td class='docblock short'><p>Get the learning momentum.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the learning momentum.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_learning_rate.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_learning_rate.html'
                                title='fann_sys::fann_get_learning_rate'>fann_get_learning_rate</a></td>
-                        <td class='docblock short'><p>Return the learning rate.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Return the learning rate.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_network_type.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_network_type.html'
                                title='fann_sys::fann_get_network_type'>fann_get_network_type</a></td>
-                        <td class='docblock short'><p>Get the type of neural network it was created as.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the type of neural network it was created as.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_num_input.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_num_input.html'
                                title='fann_sys::fann_get_num_input'>fann_get_num_input</a></td>
-                        <td class='docblock short'><p>Get the number of input neurons.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the number of input neurons.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_num_layers.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_num_layers.html'
                                title='fann_sys::fann_get_num_layers'>fann_get_num_layers</a></td>
-                        <td class='docblock short'><p>Get the number of layers in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the number of layers in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_num_output.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_num_output.html'
                                title='fann_sys::fann_get_num_output'>fann_get_num_output</a></td>
-                        <td class='docblock short'><p>Get the number of output neurons.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the number of output neurons.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_quickprop_decay.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_quickprop_decay.html'
                                title='fann_sys::fann_get_quickprop_decay'>fann_get_quickprop_decay</a></td>
-                        <td class='docblock short'><p>The decay is a small negative valued number which is the factor that the weights
+                        <td class='docblock short'>
+                             <p>The decay is a small negative valued number which is the factor that the weights
 should become smaller in each iteration during quickprop training. This is used
 to make sure that the weights do not become too high during training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_quickprop_mu.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_quickprop_mu.html'
                                title='fann_sys::fann_get_quickprop_mu'>fann_get_quickprop_mu</a></td>
-                        <td class='docblock short'><p>The mu factor is used to increase and decrease the step size during quickprop training.
+                        <td class='docblock short'>
+                             <p>The mu factor is used to increase and decrease the step size during quickprop training.
 The mu factor should always be above 1, since it would otherwise decrease the step size
 when it was supposed to increase it.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_rprop_decrease_factor.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_rprop_decrease_factor.html'
                                title='fann_sys::fann_get_rprop_decrease_factor'>fann_get_rprop_decrease_factor</a></td>
-                        <td class='docblock short'><p>The decrease factor is a value smaller than 1, which is used to decrease the step size
+                        <td class='docblock short'>
+                             <p>The decrease factor is a value smaller than 1, which is used to decrease the step size
 during RPROP training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_rprop_delta_max.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_rprop_delta_max.html'
                                title='fann_sys::fann_get_rprop_delta_max'>fann_get_rprop_delta_max</a></td>
-                        <td class='docblock short'><p>The maximum step size is a positive number determining how large the maximum step size may
+                        <td class='docblock short'>
+                             <p>The maximum step size is a positive number determining how large the maximum step size may
 be.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_rprop_delta_min.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_rprop_delta_min.html'
                                title='fann_sys::fann_get_rprop_delta_min'>fann_get_rprop_delta_min</a></td>
-                        <td class='docblock short'><p>The minimum step size is a small positive number determining how small the minimum step size
+                        <td class='docblock short'>
+                             <p>The minimum step size is a small positive number determining how small the minimum step size
 may be.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_rprop_delta_zero.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_rprop_delta_zero.html'
                                title='fann_sys::fann_get_rprop_delta_zero'>fann_get_rprop_delta_zero</a></td>
-                        <td class='docblock short'><p>The initial step size is a positive number determining the initial step size.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The initial step size is a positive number determining the initial step size.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_rprop_increase_factor.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_rprop_increase_factor.html'
                                title='fann_sys::fann_get_rprop_increase_factor'>fann_get_rprop_increase_factor</a></td>
-                        <td class='docblock short'><p>The increase factor is a value larger than 1, which is used to
+                        <td class='docblock short'>
+                             <p>The increase factor is a value larger than 1, which is used to
 increase the step size during RPROP training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_total_connections.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_total_connections.html'
                                title='fann_sys::fann_get_total_connections'>fann_get_total_connections</a></td>
-                        <td class='docblock short'><p>Get the total number of connections in the entire network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Get the total number of connections in the entire network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_total_neurons.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_total_neurons.html'
                                title='fann_sys::fann_get_total_neurons'>fann_get_total_neurons</a></td>
-                        <td class='docblock short'><p>Get the total number of neurons in the entire network. This number does also include the
+                        <td class='docblock short'>
+                             <p>Get the total number of neurons in the entire network. This number does also include the
 bias neurons, so a 2-4-2 network has 2+4+2 +2(bias) = 10 neurons.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_train_error_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_train_error_function.html'
                                title='fann_sys::fann_get_train_error_function'>fann_get_train_error_function</a></td>
-                        <td class='docblock short'><p>Returns the error function used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the error function used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_train_stop_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_train_stop_function.html'
                                title='fann_sys::fann_get_train_stop_function'>fann_get_train_stop_function</a></td>
-                        <td class='docblock short'><p>Returns the the stop function used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the the stop function used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_training_algorithm.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_training_algorithm.html'
                                title='fann_sys::fann_get_training_algorithm'>fann_get_training_algorithm</a></td>
-                        <td class='docblock short'><p>Return the training algorithm as described by <code>fann_train_enum</code>. This training algorithm
+                        <td class='docblock short'>
+                             <p>Return the training algorithm as described by <code>fann_train_enum</code>. This training algorithm
 is used by <code>fann_train_on_data</code> and associated functions.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_get_user_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_get_user_data.html'
                                title='fann_sys::fann_get_user_data'>fann_get_user_data</a></td>
-                        <td class='docblock short'><p>Get a pointer to user defined data that was previously set with <code>fann_set_user_data</code>. It is
+                        <td class='docblock short'>
+                             <p>Get a pointer to user defined data that was previously set with <code>fann_set_user_data</code>. It is
 the user&#39;s responsibility to allocate and deallocate any data that the pointer might point
 to.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_init_weights.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_init_weights.html'
                                title='fann_sys::fann_init_weights'>fann_init_weights</a></td>
-                        <td class='docblock short'><p>Initialize the weights using Widrow + Nguyen&#39;s algorithm.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Initialize the weights using Widrow + Nguyen&#39;s algorithm.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_length_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_length_train_data.html'
                                title='fann_sys::fann_length_train_data'>fann_length_train_data</a></td>
-                        <td class='docblock short'><p>Returns the number of training patterns in the <code>fann_train_data</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the number of training patterns in the <code>fann_train_data</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_merge_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_merge_train_data.html'
                                title='fann_sys::fann_merge_train_data'>fann_merge_train_data</a></td>
-                        <td class='docblock short'><p>Merges the data from <code>data1</code> and <code>data2</code> into a new <code>fann_train_data</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Merges the data from <code>data1</code> and <code>data2</code> into a new <code>fann_train_data</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_num_input_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_num_input_train_data.html'
                                title='fann_sys::fann_num_input_train_data'>fann_num_input_train_data</a></td>
-                        <td class='docblock short'><p>Returns the number of inputs in each of the training patterns in the <code>fann_train_data</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the number of inputs in each of the training patterns in the <code>fann_train_data</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_num_output_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_num_output_train_data.html'
                                title='fann_sys::fann_num_output_train_data'>fann_num_output_train_data</a></td>
-                        <td class='docblock short'><p>Returns the number of outputs in each of the training patterns in the <code>fann_train_data</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Returns the number of outputs in each of the training patterns in the <code>fann_train_data</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_print_connections.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_print_connections.html'
                                title='fann_sys::fann_print_connections'>fann_print_connections</a></td>
-                        <td class='docblock short'><p>Prints the connections of the ann in a compact matrix, for easy viewing of the internals
+                        <td class='docblock short'>
+                             <p>Prints the connections of the ann in a compact matrix, for easy viewing of the internals
 of the ANN.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_print_error.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_print_error.html'
                                title='fann_sys::fann_print_error'>fann_print_error</a></td>
-                        <td class='docblock short'><p>Prints the last error to <code>stderr</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Prints the last error to <code>stderr</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_print_parameters.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_print_parameters.html'
                                title='fann_sys::fann_print_parameters'>fann_print_parameters</a></td>
-                        <td class='docblock short'><p>Prints all of the parameters and options of the ANN.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Prints all of the parameters and options of the ANN.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_randomize_weights.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_randomize_weights.html'
                                title='fann_sys::fann_randomize_weights'>fann_randomize_weights</a></td>
-                        <td class='docblock short'><p>Give each connection a random weight between <code>min_weight</code> and <code>max_weight</code>.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Give each connection a random weight between <code>min_weight</code> and <code>max_weight</code>.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_read_train_from_file.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_read_train_from_file.html'
                                title='fann_sys::fann_read_train_from_file'>fann_read_train_from_file</a></td>
-                        <td class='docblock short'><p>Reads a file that stores training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Reads a file that stores training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_reset_MSE.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_reset_MSE.html'
                                title='fann_sys::fann_reset_MSE'>fann_reset_MSE</a></td>
-                        <td class='docblock short'><p>Resets the mean square error from the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Resets the mean square error from the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_reset_errno.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_reset_errno.html'
                                title='fann_sys::fann_reset_errno'>fann_reset_errno</a></td>
-                        <td class='docblock short'><p>Resets the last error number.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Resets the last error number.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_reset_errstr.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_reset_errstr.html'
                                title='fann_sys::fann_reset_errstr'>fann_reset_errstr</a></td>
-                        <td class='docblock short'><p>Resets the last error string.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Resets the last error string.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_run.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_run.html'
                                title='fann_sys::fann_run'>fann_run</a></td>
-                        <td class='docblock short'><p>Runs input through the neural network, returning an array of outputs, the number of
+                        <td class='docblock short'>
+                             <p>Runs input through the neural network, returning an array of outputs, the number of
 which being equal to the number of neurons in the output layer.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_save.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_save.html'
                                title='fann_sys::fann_save'>fann_save</a></td>
-                        <td class='docblock short'><p>Save the entire network to a configuration file.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Save the entire network to a configuration file.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_save_to_fixed.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_save_to_fixed.html'
                                title='fann_sys::fann_save_to_fixed'>fann_save_to_fixed</a></td>
-                        <td class='docblock short'><p>Saves the entire network to a configuration file.
+                        <td class='docblock short'>
+                             <p>Saves the entire network to a configuration file.
 But it is saved in fixed point format no matter which
 format it is currently in.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_save_train.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_save_train.html'
                                title='fann_sys::fann_save_train'>fann_save_train</a></td>
-                        <td class='docblock short'><p>Save the training structure to a file, with the format specified in
+                        <td class='docblock short'>
+                             <p>Save the training structure to a file, with the format specified in
 <code>fann_read_train_from_file</code></p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_save_train_to_fixed.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_save_train_to_fixed.html'
                                title='fann_sys::fann_save_train_to_fixed'>fann_save_train_to_fixed</a></td>
-                        <td class='docblock short'><p>Saves the training structure to a fixed point data file.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Saves the training structure to a fixed point data file.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_input.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_input.html'
                                title='fann_sys::fann_scale_input'>fann_scale_input</a></td>
-                        <td class='docblock short'><p>Scale data in input vector before feeding it to the ANN based on previously calculated
+                        <td class='docblock short'>
+                             <p>Scale data in input vector before feeding it to the ANN based on previously calculated
 parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_input_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_input_train_data.html'
                                title='fann_sys::fann_scale_input_train_data'>fann_scale_input_train_data</a></td>
-                        <td class='docblock short'><p>Scales the inputs in the training data to the specified range.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Scales the inputs in the training data to the specified range.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_output.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_output.html'
                                title='fann_sys::fann_scale_output'>fann_scale_output</a></td>
-                        <td class='docblock short'><p>Scale data in output vector before feeding it to the ANN based on previously calculated
+                        <td class='docblock short'>
+                             <p>Scale data in output vector before feeding it to the ANN based on previously calculated
 parameters.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_output_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_output_train_data.html'
                                title='fann_sys::fann_scale_output_train_data'>fann_scale_output_train_data</a></td>
-                        <td class='docblock short'><p>Scales the outputs in the training data to the specified range.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Scales the outputs in the training data to the specified range.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_train.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_train.html'
                                title='fann_sys::fann_scale_train'>fann_scale_train</a></td>
-                        <td class='docblock short'><p>Scale input and output data based on previously calculated parameters.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Scale input and output data based on previously calculated parameters.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_scale_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_scale_train_data.html'
                                title='fann_sys::fann_scale_train_data'>fann_scale_train_data</a></td>
-                        <td class='docblock short'><p>Scales the inputs and outputs in the training data to the specified range.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Scales the inputs and outputs in the training data to the specified range.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_function.html'
                                title='fann_sys::fann_set_activation_function'>fann_set_activation_function</a></td>
-                        <td class='docblock short'><p>Set the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Set the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_function_hidden.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_function_hidden.html'
                                title='fann_sys::fann_set_activation_function_hidden'>fann_set_activation_function_hidden</a></td>
-                        <td class='docblock short'><p>Set the activation function for all of the hidden layers.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the activation function for all of the hidden layers.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_function_layer.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_function_layer.html'
                                title='fann_sys::fann_set_activation_function_layer'>fann_set_activation_function_layer</a></td>
-                        <td class='docblock short'><p>Set the activation function for all the neurons in the layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Set the activation function for all the neurons in the layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_function_output.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_function_output.html'
                                title='fann_sys::fann_set_activation_function_output'>fann_set_activation_function_output</a></td>
-                        <td class='docblock short'><p>Set the activation function for the output layer.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the activation function for the output layer.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_steepness.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_steepness.html'
                                title='fann_sys::fann_set_activation_steepness'>fann_set_activation_steepness</a></td>
-                        <td class='docblock short'><p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_steepness_hidden.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_steepness_hidden.html'
                                title='fann_sys::fann_set_activation_steepness_hidden'>fann_set_activation_steepness_hidden</a></td>
-                        <td class='docblock short'><p>Set the steepness of the activation steepness in all of the hidden layers.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the steepness of the activation steepness in all of the hidden layers.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_steepness_layer.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_steepness_layer.html'
                                title='fann_sys::fann_set_activation_steepness_layer'>fann_set_activation_steepness_layer</a></td>
-                        <td class='docblock short'><p>Set the activation steepness for all neurons in layer number <code>layer</code>,
+                        <td class='docblock short'>
+                             <p>Set the activation steepness for all neurons in layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_activation_steepness_output.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_activation_steepness_output.html'
                                title='fann_sys::fann_set_activation_steepness_output'>fann_set_activation_steepness_output</a></td>
-                        <td class='docblock short'><p>Set the steepness of the activation steepness in the output layer.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the steepness of the activation steepness in the output layer.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_bit_fail_limit.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_bit_fail_limit.html'
                                title='fann_sys::fann_set_bit_fail_limit'>fann_set_bit_fail_limit</a></td>
-                        <td class='docblock short'><p>Set the bit fail limit used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the bit fail limit used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_callback.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_callback.html'
                                title='fann_sys::fann_set_callback'>fann_set_callback</a></td>
-                        <td class='docblock short'><p>Sets the callback function for use during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the callback function for use during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_activation_functions.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_activation_functions.html'
                                title='fann_sys::fann_set_cascade_activation_functions'>fann_set_cascade_activation_functions</a></td>
-                        <td class='docblock short'><p>Sets the array of cascade candidate activation functions. The array must be just as long
+                        <td class='docblock short'>
+                             <p>Sets the array of cascade candidate activation functions. The array must be just as long
 as defined by the count.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_activation_steepnesses.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_activation_steepnesses.html'
                                title='fann_sys::fann_set_cascade_activation_steepnesses'>fann_set_cascade_activation_steepnesses</a></td>
-                        <td class='docblock short'><p>Sets the array of cascade candidate activation steepnesses. The array must be just as long
+                        <td class='docblock short'>
+                             <p>Sets the array of cascade candidate activation steepnesses. The array must be just as long
 as defined by the count.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_candidate_change_fraction.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_candidate_change_fraction.html'
                                title='fann_sys::fann_set_cascade_candidate_change_fraction'>fann_set_cascade_candidate_change_fraction</a></td>
-                        <td class='docblock short'><p>Sets the cascade candidate change fraction.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the cascade candidate change fraction.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_candidate_limit.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_candidate_limit.html'
                                title='fann_sys::fann_set_cascade_candidate_limit'>fann_set_cascade_candidate_limit</a></td>
-                        <td class='docblock short'><p>Sets the candidate limit.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the candidate limit.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_candidate_stagnation_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_candidate_stagnation_epochs.html'
                                title='fann_sys::fann_set_cascade_candidate_stagnation_epochs'>fann_set_cascade_candidate_stagnation_epochs</a></td>
-                        <td class='docblock short'><p>Sets the number of cascade candidate stagnation epochs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the number of cascade candidate stagnation epochs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_max_cand_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_max_cand_epochs.html'
                                title='fann_sys::fann_set_cascade_max_cand_epochs'>fann_set_cascade_max_cand_epochs</a></td>
-                        <td class='docblock short'><p>Sets the max candidate epochs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the max candidate epochs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_max_out_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_max_out_epochs.html'
                                title='fann_sys::fann_set_cascade_max_out_epochs'>fann_set_cascade_max_out_epochs</a></td>
-                        <td class='docblock short'><p>Sets the maximum out epochs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the maximum out epochs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_num_candidate_groups.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_num_candidate_groups.html'
                                title='fann_sys::fann_set_cascade_num_candidate_groups'>fann_set_cascade_num_candidate_groups</a></td>
-                        <td class='docblock short'><p>Sets the number of candidate groups.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the number of candidate groups.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_output_change_fraction.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_output_change_fraction.html'
                                title='fann_sys::fann_set_cascade_output_change_fraction'>fann_set_cascade_output_change_fraction</a></td>
-                        <td class='docblock short'><p>Sets the cascade output change fraction.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the cascade output change fraction.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_output_stagnation_epochs.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_output_stagnation_epochs.html'
                                title='fann_sys::fann_set_cascade_output_stagnation_epochs'>fann_set_cascade_output_stagnation_epochs</a></td>
-                        <td class='docblock short'><p>Sets the number of cascade output stagnation epochs.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the number of cascade output stagnation epochs.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_cascade_weight_multiplier.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_cascade_weight_multiplier.html'
                                title='fann_sys::fann_set_cascade_weight_multiplier'>fann_set_cascade_weight_multiplier</a></td>
-                        <td class='docblock short'><p>Sets the weight multiplier.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the weight multiplier.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_error_log.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_error_log.html'
                                title='fann_sys::fann_set_error_log'>fann_set_error_log</a></td>
-                        <td class='docblock short'><p>Change where errors are logged to. Both <code>fann</code> and <code>fann_data</code> can be
+                        <td class='docblock short'>
+                             <p>Change where errors are logged to. Both <code>fann</code> and <code>fann_data</code> can be
 cast to <code>fann_error</code>, so this function can be used to set either of these.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_input_scaling_params.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_input_scaling_params.html'
                                title='fann_sys::fann_set_input_scaling_params'>fann_set_input_scaling_params</a></td>
-                        <td class='docblock short'><p>Calculate input scaling parameters for future use based on training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Calculate input scaling parameters for future use based on training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_learning_momentum.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_learning_momentum.html'
                                title='fann_sys::fann_set_learning_momentum'>fann_set_learning_momentum</a></td>
-                        <td class='docblock short'><p>Set the learning momentum.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the learning momentum.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_learning_rate.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_learning_rate.html'
                                title='fann_sys::fann_set_learning_rate'>fann_set_learning_rate</a></td>
-                        <td class='docblock short'><p>Set the learning rate.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the learning rate.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_output_scaling_params.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_output_scaling_params.html'
                                title='fann_sys::fann_set_output_scaling_params'>fann_set_output_scaling_params</a></td>
-                        <td class='docblock short'><p>Calculate output scaling parameters for future use based on training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Calculate output scaling parameters for future use based on training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_quickprop_decay.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_quickprop_decay.html'
                                title='fann_sys::fann_set_quickprop_decay'>fann_set_quickprop_decay</a></td>
-                        <td class='docblock short'><p>Sets the quickprop decay factor.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the quickprop decay factor.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_quickprop_mu.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_quickprop_mu.html'
                                title='fann_sys::fann_set_quickprop_mu'>fann_set_quickprop_mu</a></td>
-                        <td class='docblock short'><p>Sets the quickprop mu factor.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Sets the quickprop mu factor.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_rprop_decrease_factor.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_rprop_decrease_factor.html'
                                title='fann_sys::fann_set_rprop_decrease_factor'>fann_set_rprop_decrease_factor</a></td>
-                        <td class='docblock short'><p>The decrease factor is a value smaller than 1, which is used to decrease the step size
+                        <td class='docblock short'>
+                             <p>The decrease factor is a value smaller than 1, which is used to decrease the step size
 during RPROP training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_rprop_delta_max.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_rprop_delta_max.html'
                                title='fann_sys::fann_set_rprop_delta_max'>fann_set_rprop_delta_max</a></td>
-                        <td class='docblock short'><p>The maximum step size is a positive number determining how large the maximum step size may
+                        <td class='docblock short'>
+                             <p>The maximum step size is a positive number determining how large the maximum step size may
 be.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_rprop_delta_min.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_rprop_delta_min.html'
                                title='fann_sys::fann_set_rprop_delta_min'>fann_set_rprop_delta_min</a></td>
-                        <td class='docblock short'><p>The minimum step size is a small positive number determining how small the minimum step size
+                        <td class='docblock short'>
+                             <p>The minimum step size is a small positive number determining how small the minimum step size
 may be.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_rprop_delta_zero.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_rprop_delta_zero.html'
                                title='fann_sys::fann_set_rprop_delta_zero'>fann_set_rprop_delta_zero</a></td>
-                        <td class='docblock short'><p>The initial step size is a positive number determining the initial step size.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The initial step size is a positive number determining the initial step size.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_rprop_increase_factor.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_rprop_increase_factor.html'
                                title='fann_sys::fann_set_rprop_increase_factor'>fann_set_rprop_increase_factor</a></td>
-                        <td class='docblock short'><p>The increase factor used during RPROP training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>The increase factor used during RPROP training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_scaling_params.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_scaling_params.html'
                                title='fann_sys::fann_set_scaling_params'>fann_set_scaling_params</a></td>
-                        <td class='docblock short'><p>Calculate input and output scaling parameters for future use based on training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Calculate input and output scaling parameters for future use based on training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_train_error_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_train_error_function.html'
                                title='fann_sys::fann_set_train_error_function'>fann_set_train_error_function</a></td>
-                        <td class='docblock short'><p>Set the error function used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the error function used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_train_stop_function.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_train_stop_function.html'
                                title='fann_sys::fann_set_train_stop_function'>fann_set_train_stop_function</a></td>
-                        <td class='docblock short'><p>Set the stop function used during training.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the stop function used during training.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_training_algorithm.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_training_algorithm.html'
                                title='fann_sys::fann_set_training_algorithm'>fann_set_training_algorithm</a></td>
-                        <td class='docblock short'><p>Set the training algorithm.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set the training algorithm.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_user_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_user_data.html'
                                title='fann_sys::fann_set_user_data'>fann_set_user_data</a></td>
-                        <td class='docblock short'><p>Store a pointer to user defined data. The pointer can be retrieved with <code>fann_get_user_data</code>
+                        <td class='docblock short'>
+                             <p>Store a pointer to user defined data. The pointer can be retrieved with <code>fann_get_user_data</code>
 for example in a callback. It is the user&#39;s responsibility to allocate and deallocate any
 data that the pointer might point to.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_weight.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_weight.html'
                                title='fann_sys::fann_set_weight'>fann_set_weight</a></td>
-                        <td class='docblock short'><p>Set a connection in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set a connection in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_set_weight_array.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_set_weight_array.html'
                                title='fann_sys::fann_set_weight_array'>fann_set_weight_array</a></td>
-                        <td class='docblock short'><p>Set connections in the network.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Set connections in the network.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_shuffle_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_shuffle_train_data.html'
                                title='fann_sys::fann_shuffle_train_data'>fann_shuffle_train_data</a></td>
-                        <td class='docblock short'><p>Shuffles training data, randomizing the order.
+                        <td class='docblock short'>
+                             <p>Shuffles training data, randomizing the order.
 This is recommended for incremental training, while it has no influence during batch
 training.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_subset_train_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_subset_train_data.html'
                                title='fann_sys::fann_subset_train_data'>fann_subset_train_data</a></td>
-                        <td class='docblock short'><p>Returns an copy of a subset of the <code>fann_train_data</code>, starting at position <code>pos</code>
+                        <td class='docblock short'>
+                             <p>Returns an copy of a subset of the <code>fann_train_data</code>, starting at position <code>pos</code>
 and <code>length</code> elements forward.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_test.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_test.html'
                                title='fann_sys::fann_test'>fann_test</a></td>
-                        <td class='docblock short'><p>Test with a set of inputs, and a set of desired outputs.
+                        <td class='docblock short'>
+                             <p>Test with a set of inputs, and a set of desired outputs.
 This operation updates the mean square error, but does not
 change the network in any way.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_test_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_test_data.html'
                                title='fann_sys::fann_test_data'>fann_test_data</a></td>
-                        <td class='docblock short'><p>Test a set of training data and calculates the MSE for the training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Tests a set of training data and calculates the MSE for the training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_train.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_train.html'
                                title='fann_sys::fann_train'>fann_train</a></td>
-                        <td class='docblock short'><p>Train one iteration with a set of inputs, and a set of desired outputs.
+                        <td class='docblock short'>
+                             <p>Train one iteration with a set of inputs, and a set of desired outputs.
 This training is always incremental training (see <code>fann_train_enum</code>), since
 only one pattern is presented.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_train_epoch.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_train_epoch.html'
                                title='fann_sys::fann_train_epoch'>fann_train_epoch</a></td>
-                        <td class='docblock short'><p>Train one epoch with a set of training data.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Train one epoch with a set of training data.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_train_on_data.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_train_on_data.html'
                                title='fann_sys::fann_train_on_data'>fann_train_on_data</a></td>
-                        <td class='docblock short'><p>Trains on an entire dataset, for a period of time.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Trains on an entire dataset, for a period of time.</p>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='fn' href='fn.fann_train_on_file.html'
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fann_train_on_file.html'
                                title='fann_sys::fann_train_on_file'>fann_train_on_file</a></td>
-                        <td class='docblock short'><p>Does the same as <code>fann_train_on_data</code>, but reads the training data directly from a file.</p>
-</td>
+                        <td class='docblock short'>
+                             <p>Does the same as <code>fann_train_on_data</code>, but reads the training data directly from a file.</p>
+
+                        </td>
                     </tr>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.fann_callback_type.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.fann_callback_type.html'
                                title='fann_sys::fann_callback_type'>fann_callback_type</a></td>
-                        <td class='docblock short'><p>This callback function can be called during training when using <code>fann_train_on_data</code>,
+                        <td class='docblock short'>
+                             <p>This callback function can be called during training when using <code>fann_train_on_data</code>,
 <code>fann_train_on_file</code> or <code>fann_cascadetrain_on_data</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 
-                    <tr>
-                        <td><a class='stability Unmarked' title='No stability level'></a><a class='type' href='type.fann_type.html'
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.fann_type.html'
                                title='fann_sys::fann_type'>fann_type</a></td>
-                        <td class='docblock short'><p><code>fann_type</code> is the type used for the weights, inputs and outputs of the neural network. In
+                        <td class='docblock short'>
+                             <p><code>fann_type</code> is the type used for the weights, inputs and outputs of the neural network. In
 the Rust bindings, it is currently always defined as <code>c_float</code>.</p>
-</td>
+
+                        </td>
                     </tr>
                 </table></section>
     <section id='search' class="content hidden"></section>
@@ -1258,6 +1552,10 @@ the Rust bindings, it is currently always defined as <code>c_float</code>.</p>
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

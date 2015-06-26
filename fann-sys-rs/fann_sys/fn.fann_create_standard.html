@@ -41,14 +41,16 @@
     </nav>
 
     <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_create_standard</a><wbr></span><span class='out-of-band'><span id='render-detail'>
-            <a id="collapse-all" href="#">[-]</a>&nbsp;<a id="expand-all" href="#">[+]</a>
-        </span><a id='src-1693' href='../src/fann_sys/lib.rs.html#1973'>[src]</a></span></h1>
+<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_create_standard</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-1693' class='srclink' href='../src/fann_sys/lib.rs.html#1974' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub unsafe extern fn fann_create_standard(num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Creates a standard fully connected backpropagation neural network.</p>
 
 <p>There will be a bias neuron in each layer (except the output layer),
 and this bias neuron will be connected to all neurons in the next layer.
-When running the network, the bias nodes always emits 1.</p>
+When running the network, the bias nodes always emit 1.</p>
 
 <p>To destroy a <code>fann</code> use the <code>fann_destroy</code> function.</p>
 
@@ -65,7 +67,7 @@ with the input layer and ending with the output layer.</li>
 <p>A pointer to the newly created <code>fann</code>.</p>
 
 <h1 id="example" class='section-header'><a
-                           href="#example">Example</a></h1><pre id='rust-example-rendered' class='rust '>
+                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
 <span class='comment'>// Creating an ANN with 2 input neurons, 1 output neuron,</span>
 <span class='comment'>// and two hidden layers with 8 and 9 neurons</span>
 <span class='kw'>unsafe</span> {
@@ -106,6 +108,10 @@ with the input layer and ending with the output layer.</li>
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>
