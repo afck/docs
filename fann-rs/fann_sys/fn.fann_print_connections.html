@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `fann_print_connections` fn in crate `fann_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, fann_print_connections">
+
+    <title>fann_sys::fann_print_connections - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_print_connections', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='fn' href=''>fann_print_connections</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-1800' class='srclink' href='../src/fann_sys/lib.rs.html#2129' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_print_connections(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>)</pre><div class='docblock'><p>Prints the connections of the ann in a compact matrix, for easy viewing of the internals
+of the ANN.</p>
+
+<p>The output from <code>fann_print_connections</code> on a small (2 2 1) network trained on the xor
+problem:</p>
+
+<pre><code class="language-text">Layer / Neuron 012345
+L   1 / N    3 BBa...
+L   1 / N    4 BBA...
+L   1 / N    5 ......
+L   2 / N    6 ...BBA
+L   2 / N    7 ......
+</code></pre>
+
+<p>This network has five real neurons and two bias neurons. This gives a total of seven
+neurons named from 0 to 6. The connections between these neurons can be seen in the matrix.
+&quot;.&quot; is a place where there is no connection, while a character tells how strong the
+connection is on a scale from a-z. The two real neurons in the hidden layer (neuron 3 and 4
+in layer 1) have connections from the three neurons in the previous layer as is visible in
+the first two lines. The output neuron 6 has connections from the three neurons in the
+hidden layer 3 - 5 as is visible in the fourth line.</p>
+
+<p>To simplify the matrix output neurons are not visible as neurons that connections can come
+from, and input and bias neurons are not visible as neurons that connections can go to.</p>
+
+<p>This function appears in FANN &gt;= 1.2.0.</p>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "fann_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

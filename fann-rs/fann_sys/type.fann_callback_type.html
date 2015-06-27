@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `fann_callback_type` type in crate `fann_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, fann_callback_type">
+
+    <title>fann_sys::fann_callback_type - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_callback_type', ty: 'type', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content type">
+<h1 class='fqn'><span class='in-band'><a href='index.html'>fann_sys</a>::<wbr><a class='type' href=''>fann_callback_type</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-401' class='srclink' href='../src/fann_sys/lib.rs.html#407-413' title='goto source code'>[src]</a></span></h1>
+<pre class='rust typedef'>type fann_callback_type = <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt; extern "C" fn(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, train: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a>, max_epochs: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, epochs_between_reports: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, desired_error: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, epochs: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>&gt;;</pre><div class='docblock'><p>This callback function can be called during training when using <code>fann_train_on_data</code>,
+<code>fann_train_on_file</code> or <code>fann_cascadetrain_on_data</code>.</p>
+
+<p>The callback can be set by using <code>fann_set_callback</code> and is very useful for doing custom
+things during training. It is recommended to use this function when implementing custom
+training procedures, or when visualizing the training in a GUI etc. The parameters which the
+callback function takes are the parameters given to <code>fann_train_on_data</code>, plus an <code>epochs</code>
+parameter which tells how many epochs the training has taken so far.</p>
+
+<p>The callback function should return an integer, if the callback function returns -1, the
+training will terminate.</p>
+
+<p>Example of a callback function:</p>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann_sys</span>;
+
+<span class='kw'>use</span> <span class='ident'>libc</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>fann_sys</span>::<span class='op'>*</span>;
+
+<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>cb</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
+                 <span class='ident'>train</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>,
+                 <span class='ident'>max_epochs</span>: <span class='ident'>c_uint</span>,
+                 <span class='ident'>epochs_between_reports</span>: <span class='ident'>c_uint</span>,
+                 <span class='ident'>desired_error</span>: <span class='ident'>c_float</span>,
+                 <span class='ident'>epochs</span>: <span class='ident'>c_uint</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span> {
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>mse</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>fann_get_MSE</span>(<span class='ident'>ann</span>) };
+    <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Epochs: {}. MSE: {}. Desired MSE: {}&quot;</span>, <span class='ident'>epochs</span>, <span class='ident'>mse</span>, <span class='ident'>desired_error</span>);
+    <span class='number'>0</span>
+}
+
+<span class='kw'>fn</span> <span class='ident'>main</span>() {
+    <span class='kw'>let</span> <span class='ident'>test_callback</span>: <span class='ident'>fann_callback_type</span> <span class='op'>=</span> <span class='prelude-val'>Some</span>(<span class='ident'>cb</span>);
+}
+</pre>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "fann_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

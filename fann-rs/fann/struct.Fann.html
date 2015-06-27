@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Fann` struct in crate `fann`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Fann">
+
+    <title>fann::Fann - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>fann</a></p><script>window.sidebarCurrent = {name: 'Fann', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>fann</a>::<wbr><a class='struct' href=''>Fann</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-3529' class='srclink' href='../src/fann/lib.rs.html#346-353' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Fann {
+    // some fields omitted
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>&gt;</code></h4>
+<div class='docblock'><p>Create a fully connected neural network.</p>
+
+<p>There will be a bias neuron in each layer except the output layer,
+and this bias neuron will be connected to all neurons in the next layer.
+When running the network, the bias nodes always emit 1.</p>
+
+<h1 id="arguments" class='section-header'><a
+                           href="#arguments">Arguments</a></h1>
+<ul>
+<li><code>layers</code> - Specifies the number of neurons in each layer, starting with the input and
+         ending with the output layer.</li>
+</ul>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
+<span class='comment'>// Creating a network with 2 input neurons, 1 output neuron,</span>
+<span class='comment'>// and two hidden layers with 8 and 9 neurons.</span>
+<span class='kw'>let</span> <span class='ident'>layers</span> <span class='op'>=</span> [<span class='number'>2</span>, <span class='number'>8</span>, <span class='number'>9</span>, <span class='number'>1</span>];
+<span class='ident'>fann</span>::<span class='ident'>Fann</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='ident'>layers</span>).<span class='ident'>unwrap</span>();
+</pre>
+</div><h4 id='method.new_sparse' class='method'><code>fn <a href='#method.new_sparse' class='fnname'>new_sparse</a>(connection_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>&gt;</code></h4>
+<div class='docblock'><p>Create a neural network that is not necessarily fully connected.</p>
+
+<p>There will be a bias neuron in each layer except the output layer,
+and this bias neuron will be connected to all neurons in the next layer.
+When running the network, the bias nodes always emit 1.</p>
+
+<h1 id="arguments" class='section-header'><a
+                           href="#arguments">Arguments</a></h1>
+<ul>
+<li><code>connection_rate</code> - The share of pairs of neurons in consecutive layers that will be
+                  connected.</li>
+<li><code>layers</code>          - Specifies the number of neurons in each layer, starting with the input
+                  and ending with the output layer.</li>
+</ul>
+</div><h4 id='method.new_shortcut' class='method'><code>fn <a href='#method.new_shortcut' class='fnname'>new_shortcut</a>(layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>&gt;</code></h4>
+<div class='docblock'><p>Create a neural network which has shortcut connections, i. e. it doesn&#39;t connect only each
+layer to its successor, but every layer with every later layer: Each neuron has connections
+to all neurons in all subsequent layers.</p>
+</div><h4 id='method.train' class='method'><code>fn <a href='#method.train' class='fnname'>train</a>(&amp;mut self, input: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, desired_output: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Train with a single pair of input and output. This is always incremental training (see
+<code>TrainAlg</code>), since only one pattern is presented.</p>
+</div><h4 id='method.train_on_data' class='method'><code>fn <a href='#method.train_on_data' class='fnname'>train_on_data</a>(&amp;mut self, data: &amp;<a class='struct' href='../fann/train_data/struct.TrainData.html' title='fann::train_data::TrainData'>TrainData</a>, max_epochs: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, epochs_between_reports: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, desired_error: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Train the network on the given data set.</p>
+
+<h1 id="arguments" class='section-header'><a
+                           href="#arguments">Arguments</a></h1>
+<ul>
+<li><code>data</code>                   - The training data.</li>
+<li><code>max_epochs</code>             - The maximum number of training epochs.</li>
+<li><code>epochs_between_reports</code> - The number of epochs between printing a status report to
+                         <code>stdout</code>, or <code>0</code> to print no reports.</li>
+<li><code>desired_error</code>          - The desired maximum value of <code>get_mse</code> or <code>get_bit_fail</code>,
+                         depending on which stop function was selected.</li>
+</ul>
+</div><h4 id='method.train_on_file' class='method'><code>fn <a href='#method.train_on_file' class='fnname'>train_on_file</a>&lt;P: <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;mut self, path: P, max_epochs: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, epochs_between_reports: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, desired_error: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Do the same as <code>train_on_data</code> but read the training data directly from a file.</p>
+</div><h4 id='method.train_epoch' class='method'><code>fn <a href='#method.train_epoch' class='fnname'>train_epoch</a>(&amp;mut self, data: &amp;<a class='struct' href='../fann/train_data/struct.TrainData.html' title='fann::train_data::TrainData'>TrainData</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>&gt;</code></h4>
+<div class='docblock'><p>Train one epoch with a set of training data, i. e. each sample from the training data is
+considered exactly once.</p>
+
+<p>Returns the mean square error as it is calculated either before or during the actual
+training. This is not the actual MSE after the training epoch, but since calculating this
+will require to go through the entire training set once more, it is more than adequate to
+use this value during training.</p>
+</div><h4 id='method.test' class='method'><code>fn <a href='#method.test' class='fnname'>test</a>(&amp;mut self, input: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, desired_output: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Test with a single pair of input and output. This operation updates the mean square error
+but does not change the network.</p>
+
+<p>Returns the actual output of the network.</p>
+</div><h4 id='method.test_data' class='method'><code>fn <a href='#method.test_data' class='fnname'>test_data</a>(&amp;mut self, data: &amp;<a class='struct' href='../fann/train_data/struct.TrainData.html' title='fann::train_data::TrainData'>TrainData</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>&gt;</code></h4>
+<div class='docblock'><p>Test with a training data set and calculate the mean square error.</p>
+</div><h4 id='method.get_mse' class='method'><code>fn <a href='#method.get_mse' class='fnname'>get_mse</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a></code></h4>
+<div class='docblock'><p>Get the mean square error.</p>
+</div><h4 id='method.get_bit_fail' class='method'><code>fn <a href='#method.get_bit_fail' class='fnname'>get_bit_fail</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the number of fail bits, i. e. the number of neurons which differed from the desired
+output by more than the bit fail limit since the previous reset.</p>
+</div><h4 id='method.reset_mse_and_bit_fail' class='method'><code>fn <a href='#method.reset_mse_and_bit_fail' class='fnname'>reset_mse_and_bit_fail</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Reset the mean square error and bit fail count.</p>
+</div><h4 id='method.run' class='method'><code>fn <a href='#method.run' class='fnname'>run</a>(&amp;self, input: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Run the input through the neural network and returns the output. The length of the input
+must equal the number of input neurons and the length of the output will equal the number
+of output neurons.</p>
+</div><h4 id='method.get_num_input' class='method'><code>fn <a href='#method.get_num_input' class='fnname'>get_num_input</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the number of input neurons.</p>
+</div><h4 id='method.get_num_output' class='method'><code>fn <a href='#method.get_num_output' class='fnname'>get_num_output</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the number of output neurons.</p>
+</div><h4 id='method.get_total_neurons' class='method'><code>fn <a href='#method.get_total_neurons' class='fnname'>get_total_neurons</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the total number of neurons, including the bias neurons.</p>
+
+<p>E. g. a 2-4-2 network has 3 + 5 + 2 = 10 neurons (because two layers have bias neurons).</p>
+</div><h4 id='method.get_total_connections' class='method'><code>fn <a href='#method.get_total_connections' class='fnname'>get_total_connections</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the total number of connections.</p>
+</div><h4 id='method.get_network_type' class='method'><code>fn <a href='#method.get_network_type' class='fnname'>get_network_type</a>(&amp;self) -&gt; <a class='enum' href='../fann/enum.NetType.html' title='fann::NetType'>NetType</a></code></h4>
+<div class='docblock'><p>Get the type of the neural network.</p>
+</div><h4 id='method.get_connection_rate' class='method'><code>fn <a href='#method.get_connection_rate' class='fnname'>get_connection_rate</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a></code></h4>
+<div class='docblock'><p>Get the connection rate used when the network was created.</p>
+</div><h4 id='method.get_num_layers' class='method'><code>fn <a href='#method.get_num_layers' class='fnname'>get_num_layers</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
+<div class='docblock'><p>Get the number of layers in the network.</p>
+</div><h4 id='method.get_activation_func' class='method'><code>fn <a href='#method.get_activation_func' class='fnname'>get_activation_func</a>(&amp;self, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>, neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>) -&gt; <a class='type' href='../fann/error/type.FannResult.html' title='fann::error::FannResult'>FannResult</a>&lt;<a class='enum' href='../fann/enum.ActivationFunc.html' title='fann::ActivationFunc'>ActivationFunc</a>&gt;</code></h4>
+<div class='docblock'><p>Get the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>, counting
+the input layer as number 0. Input layer neurons do not have an activation function, so
+<code>layer</code> must be at least 1.</p>
+</div><h4 id='method.set_activation_func' class='method'><code>fn <a href='#method.set_activation_func' class='fnname'>set_activation_func</a>(&amp;mut self, af: <a class='enum' href='../fann/enum.ActivationFunc.html' title='fann::ActivationFunc'>ActivationFunc</a>, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>, neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>)</code></h4>
+<div class='docblock'><p>Set the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>, counting
+the input layer as number 0. Input layer neurons do not have an activation function, so
+<code>layer</code> must be at least 1.</p>
+</div><h4 id='method.set_activation_func_hidden' class='method'><code>fn <a href='#method.set_activation_func_hidden' class='fnname'>set_activation_func_hidden</a>(&amp;mut self, activation_func: <a class='enum' href='../fann/enum.ActivationFunc.html' title='fann::ActivationFunc'>ActivationFunc</a>)</code></h4>
+<div class='docblock'><p>Set the activation function for all hidden layers.</p>
+</div><h4 id='method.set_activation_func_output' class='method'><code>fn <a href='#method.set_activation_func_output' class='fnname'>set_activation_func_output</a>(&amp;mut self, activation_func: <a class='enum' href='../fann/enum.ActivationFunc.html' title='fann::ActivationFunc'>ActivationFunc</a>)</code></h4>
+<div class='docblock'><p>Set the activation function for the output layer.</p>
+</div><h4 id='method.get_activation_steepness' class='method'><code>fn <a href='#method.get_activation_steepness' class='fnname'>get_activation_steepness</a>(&amp;self, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>, neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>&gt;</code></h4>
+<div class='docblock'><p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>.</p>
+</div><h4 id='method.set_activation_steepness' class='method'><code>fn <a href='#method.set_activation_steepness' class='fnname'>set_activation_steepness</a>(&amp;self, steepness: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>, neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>)</code></h4>
+<div class='docblock'><p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting
+the input layer as number 0. Input layer neurons do not have an activation steepness, so
+layer must be at least 1.</p>
+
+<p>The steepness determines how fast the function goes from minimum to maximum. A higher value
+will result in more aggressive training.</p>
+
+<p>A steep activation function is adequate if outputs are binary, e. e. they are supposed to
+be either almost 0 or almost 1.</p>
+
+<p>The default value is 0.5.</p>
+</div><h4 id='method.set_activation_steepness_layer' class='method'><code>fn <a href='#method.set_activation_steepness_layer' class='fnname'>set_activation_steepness_layer</a>(&amp;self, steepness: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>)</code></h4>
+<div class='docblock'><p>Set the activation steepness for layer number <code>layer</code>.</p>
+</div><h4 id='method.set_activation_steepness_hidden' class='method'><code>fn <a href='#method.set_activation_steepness_hidden' class='fnname'>set_activation_steepness_hidden</a>(&amp;self, steepness: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>)</code></h4>
+<div class='docblock'><p>Set the activation steepness for all hidden layers.</p>
+</div><h4 id='method.set_activation_steepness_output' class='method'><code>fn <a href='#method.set_activation_steepness_output' class='fnname'>set_activation_steepness_output</a>(&amp;self, steepness: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>)</code></h4>
+<div class='docblock'><p>Set the activation steepness for the output layer.</p>
+</div><h4 id='method.get_error_func' class='method'><code>fn <a href='#method.get_error_func' class='fnname'>get_error_func</a>(&amp;self) -&gt; <a class='enum' href='../fann/enum.ErrorFunc.html' title='fann::ErrorFunc'>ErrorFunc</a></code></h4>
+<div class='docblock'><p>Get the error function used during training.</p>
+</div><h4 id='method.set_error_func' class='method'><code>fn <a href='#method.set_error_func' class='fnname'>set_error_func</a>(&amp;mut self, ef: <a class='enum' href='../fann/enum.ErrorFunc.html' title='fann::ErrorFunc'>ErrorFunc</a>)</code></h4>
+<div class='docblock'><p>Set the error function used during training.</p>
+
+<p>The default is <code>Tanh</code>.</p>
+</div><h4 id='method.get_stop_func' class='method'><code>fn <a href='#method.get_stop_func' class='fnname'>get_stop_func</a>(&amp;self) -&gt; <a class='enum' href='../fann/enum.StopFunc.html' title='fann::StopFunc'>StopFunc</a></code></h4>
+<div class='docblock'><p>Get the stop criterion for training.</p>
+</div><h4 id='method.set_stop_func' class='method'><code>fn <a href='#method.set_stop_func' class='fnname'>set_stop_func</a>(&amp;mut self, sf: <a class='enum' href='../fann/enum.StopFunc.html' title='fann::StopFunc'>StopFunc</a>)</code></h4>
+<div class='docblock'><p>Set the stop criterion for training.</p>
+
+<p>The default is <code>Mse</code>.</p>
+</div><h4 id='method.get_bit_fail_limit' class='method'><code>fn <a href='#method.get_bit_fail_limit' class='fnname'>get_bit_fail_limit</a>(&amp;self) -&gt; <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></code></h4>
+<div class='docblock'><p>Get the bit fail limit.</p>
+</div><h4 id='method.set_bit_fail_limit' class='method'><code>fn <a href='#method.set_bit_fail_limit' class='fnname'>set_bit_fail_limit</a>(&amp;mut self, bit_fail_limit: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>)</code></h4>
+<div class='docblock'><p>Set the bit fail limit.</p>
+
+<p>Each output neuron value that differs from the desired output by more than the bit fail
+limit is counted as a failed bit.</p>
+</div><h4 id='method.get_train_algorithm' class='method'><code>fn <a href='#method.get_train_algorithm' class='fnname'>get_train_algorithm</a>(&amp;self) -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
+<div class='docblock'><p>Get the currently configured training algorithm.</p>
+</div><h4 id='method.set_train_algorithm' class='method'><code>fn <a href='#method.set_train_algorithm' class='fnname'>set_train_algorithm</a>(&amp;mut self, ta: <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a>)</code></h4>
+<div class='docblock'><p>Set the algorithm to be used for training.</p>
+</div><h4 id='method.get_learning_rate' class='method'><code>fn <a href='#method.get_learning_rate' class='fnname'>get_learning_rate</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a></code></h4>
+<div class='docblock'><p>Get the learning rate, which is used to determine how aggressive training should be (not
+used by the RPROP algorithm). The default is 0.7.</p>
+</div><h4 id='method.set_learning_rate' class='method'><code>fn <a href='#method.set_learning_rate' class='fnname'>set_learning_rate</a>(&amp;mut self, learning_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>)</code></h4>
+<div class='docblock'><p>Set the learning rate, which is used to determine how aggressive training should be (not
+used by the RPROP algorithm). The default is 0.7.</p>
+</div><h4 id='method.get_learning_momentum' class='method'><code>fn <a href='#method.get_learning_momentum' class='fnname'>get_learning_momentum</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a></code></h4>
+<div class='docblock'><p>Get the learning momentum used in incremental training. It is recommended to use a value
+between 0.0 and 1.0. The default is 1.0.</p>
+</div><h4 id='method.set_learning_momentum' class='method'><code>fn <a href='#method.set_learning_momentum' class='fnname'>set_learning_momentum</a>(&amp;mut self, learning_momentum: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>)</code></h4>
+<div class='docblock'><p>Set the learning momentum used in incremental training. It is recommended to use a value
+between 0.0 and 1.0. The default is 1.0.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "fann";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

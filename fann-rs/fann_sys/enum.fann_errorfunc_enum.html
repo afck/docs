@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `fann_errorfunc_enum` enum in crate `fann_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, fann_errorfunc_enum">
+
+    <title>fann_sys::fann_errorfunc_enum - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_errorfunc_enum', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>fann_sys</a>::<wbr><a class='enum' href=''>fann_errorfunc_enum</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-302' class='srclink' href='../src/fann_sys/lib.rs.html#337-345' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum fann_errorfunc_enum {
+    FANN_ERRORFUNC_LINEAR,
+    FANN_ERRORFUNC_TANH,
+}</pre><div class='docblock'><p>Error function used during training.</p>
+</div><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.FANN_ERRORFUNC_LINEAR'><code>FANN_ERRORFUNC_LINEAR</code></td><td><div class='docblock'><p>Standard linear error function.</p>
+</div></td></tr><tr><td id='variant.FANN_ERRORFUNC_TANH'><code>FANN_ERRORFUNC_TANH</code></td><td><div class='docblock'><p>Tanh error function, usually better but can require a lower learning rate. This error
+function aggressively targets outputs that differ much from the desired, while not targeting
+outputs that only differ a little that much. This activation function is not recommended for
+cascade training and incremental training.</p>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></code></h3><div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "fann_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>
