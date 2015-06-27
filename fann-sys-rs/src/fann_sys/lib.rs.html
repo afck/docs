@@ -2380,6 +2380,8 @@
 <span id="2338">2338</span>
 <span id="2339">2339</span>
 <span id="2340">2340</span>
+<span id="2341">2341</span>
+<span id="2342">2342</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Raw bindings to C functions of the Fast Artificial Neural Network library</span>
 <span class='doccomment'>//!</span>
@@ -2547,7 +2549,7 @@
     <span class='doccomment'>/// training algorithm works. The RPROP training algorithm is described by</span>
     <span class='doccomment'>/// [Riedmiller and Braun, 1993], but the actual learning algorithm used here is the</span>
     <span class='doccomment'>/// iRPROP- training algorithm which is described by [Igel and Husken, 2000] which</span>
-    <span class='doccomment'>/// is an variety of the standard RPROP training algorithm.</span>
+    <span class='doccomment'>/// is a variant of the standard RPROP training algorithm.</span>
     <span class='ident'>FANN_TRAIN_RPROP</span>,
     <span class='doccomment'>/// A more advanced batch training algorithm which achieves good results</span>
     <span class='doccomment'>/// for many problems. The quickprop training algorithm uses the `learning_rate` parameter</span>
@@ -2578,6 +2580,8 @@
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>fann_activationfunc_enum</span> {
+    <span class='doccomment'>/// Neuron does not exist or does not have an activation function.</span>
+    <span class='ident'>FANN_NONE</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>,
     <span class='doccomment'>/// Linear activation function.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// * span: -inf &lt; y &lt; inf</span>
@@ -2733,7 +2737,7 @@
     <span class='ident'>FANN_STOPFUNC_MSE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='doccomment'>/// Stop criterion is number of bits that fail. The number of bits means the</span>
     <span class='doccomment'>/// number of output neurons which differ more than the bit fail limit</span>
-    <span class='doccomment'>/// (see fann_get_bit_fail_limit, fann_set_bit_fail_limit).</span>
+    <span class='doccomment'>/// (see `fann_get_bit_fail_limit`, `fann_set_bit_fail_limit`).</span>
     <span class='doccomment'>/// The bits are counted in all of the training data, so this number can be higher than</span>
     <span class='doccomment'>/// the number of training data.</span>
     <span class='ident'>FANN_STOPFUNC_BIT</span>,
@@ -3514,8 +3518,8 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Returns</span>
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// The activation function for the neuron or -1 if the neuron is not defined in the neural</span>
-    <span class='doccomment'>/// network.</span>
+    <span class='doccomment'>/// The activation function for the neuron or `FANN_NONE` if the neuron is not defined in the</span>
+    <span class='doccomment'>/// neural network.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # See also</span>
     <span class='doccomment'>/// `fann_set_activation_function_layer`, `fann_set_activation_function_hidden`,</span>

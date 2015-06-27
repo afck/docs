@@ -45,8 +45,9 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-182' class='srclink' href='../src/fann_sys/lib.rs.html#197-330' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-182' class='srclink' href='../src/fann_sys/lib.rs.html#197-332' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum fann_activationfunc_enum {
+    FANN_NONE,
     FANN_LINEAR,
     FANN_THRESHOLD,
     FANN_THRESHOLD_SYMMETRIC,
@@ -83,7 +84,8 @@ can either be defined for a group of neurons by <code>fann_set_activation_functi
 <li><p>d is the derivation.</p></li>
 </ul>
 </div><h2 class='variants'>Variants</h2>
-<table><tr><td id='variant.FANN_LINEAR'><code>FANN_LINEAR</code></td><td><div class='docblock'><p>Linear activation function.</p>
+<table><tr><td id='variant.FANN_NONE'><code>FANN_NONE</code></td><td><div class='docblock'><p>Neuron does not exist or does not have an activation function.</p>
+</div></td></tr><tr><td id='variant.FANN_LINEAR'><code>FANN_LINEAR</code></td><td><div class='docblock'><p>Linear activation function.</p>
 
 <ul>
 <li><p>span: -inf &lt; y &lt; inf</p></li>
