@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-3784' class='srclink' href='../src/fann/lib.rs.html#381-388' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-3632' class='srclink' href='../src/fann/lib.rs.html#389-396' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Fann {
     // some fields omitted
 }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a><a href='http://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>&gt;</code></h4>
@@ -63,7 +63,7 @@ When running the network, the bias nodes always emit 1.</p>
 </ul>
 
 <h1 id="example" class='section-header'><a
-                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
+                           href="#example">Example</a></h1><pre id='rust-example-rendered' class='rust '>
 <span class='comment'>// Creating a network with 2 input neurons, 1 output neuron,</span>
 <span class='comment'>// and two hidden layers with 8 and 9 neurons.</span>
 <span class='kw'>let</span> <span class='ident'>layers</span> <span class='op'>=</span> [<span class='number'>2</span>, <span class='number'>8</span>, <span class='number'>9</span>, <span class='number'>1</span>];
@@ -195,6 +195,12 @@ of output neurons.</p>
 <div class='docblock'><p>Get the number of neurons in each layer of the network.</p>
 </div><h4 id='method.get_bias_counts' class='method'><code>fn <a href='#method.get_bias_counts' class='fnname'>get_bias_counts</a>(&amp;self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>&gt;</code></h4>
 <div class='docblock'><p>Get the number of bias neurons in each layer of the network.</p>
+</div><h4 id='method.get_connections' class='method'><code>fn <a href='#method.get_connections' class='fnname'>get_connections</a>(&amp;self) -&gt; <a class='struct' href='http://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../fann/type.Connection.html' title='fann::Connection'>Connection</a>&gt;</code></h4>
+<div class='docblock'><p>Get a list of all connections in the network.</p>
+</div><h4 id='method.set_connections' class='method'><code>fn <a href='#method.set_connections' class='fnname'>set_connections</a>&lt;'a, I: <a class='trait' href='http://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIterator</a>&lt;Item=&amp;'a <a class='type' href='../fann/type.Connection.html' title='fann::Connection'>Connection</a>&gt;&gt;(&amp;mut self, connections: I)</code></h4>
+<div class='docblock'><p>Set the weights of all given connections.</p>
+
+<p>Connections that don&#39;t already exist are ignored.</p>
 </div><h4 id='method.set_weight' class='method'><code>fn <a href='#method.set_weight' class='fnname'>set_weight</a>(&amp;mut self, from_neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, to_neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, weight: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>)</code></h4>
 <div class='docblock'><p>Set the weight of the given connection.</p>
 </div><h4 id='method.get_activation_func' class='method'><code>fn <a href='#method.get_activation_func' class='fnname'>get_activation_func</a>(&amp;self, layer: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>, neuron: <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='enum' href='../fann/enum.ActivationFunc.html' title='fann::ActivationFunc'>ActivationFunc</a>&gt;</code></h4>
