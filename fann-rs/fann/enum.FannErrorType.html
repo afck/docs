@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-31' class='srclink' href='../src/fann/error.rs.html#9-49' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-32' class='srclink' href='../src/fann/error.rs.html#10-52' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum FannErrorType {
     CantOpenConfigR,
     CantOpenConfigW,
@@ -66,6 +66,7 @@
     IndexOutOfBound,
     ScaleNotPresent,
     CantSaveFile,
+    ErrorCodeReturned,
 }</pre><h2 class='variants'>Variants</h2>
 <table><tr><td id='variant.CantOpenConfigR'><code>CantOpenConfigR</code></td><td><div class='docblock'><p>Unable to open configuration file for reading</p>
 </div></td></tr><tr><td id='variant.CantOpenConfigW'><code>CantOpenConfigW</code></td><td><div class='docblock'><p>Unable to open configuration file for writing</p>
@@ -86,6 +87,7 @@
 </div></td></tr><tr><td id='variant.IndexOutOfBound'><code>IndexOutOfBound</code></td><td><div class='docblock'><p>Index is out of bound</p>
 </div></td></tr><tr><td id='variant.ScaleNotPresent'><code>ScaleNotPresent</code></td><td><div class='docblock'><p>Scaling parameters not present</p>
 </div></td></tr><tr><td id='variant.CantSaveFile'><code>CantSaveFile</code></td><td><div class='docblock'><p>Failed to save file</p>
+</div></td></tr><tr><td id='variant.ErrorCodeReturned'><code>ErrorCodeReturned</code></td><td><div class='docblock'><p>C function returned an error code, i. e. not 0, but did not specify error</p>
 </div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../fann/enum.FannErrorType.html' title='fann::FannErrorType'>FannErrorType</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='http://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Error.html' title='core::fmt::Error'>Error</a>&gt;</code></h4>
 </div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../fann/enum.FannErrorType.html' title='fann::FannErrorType'>FannErrorType</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../fann/enum.FannErrorType.html' title='fann::FannErrorType'>FannErrorType</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 <h4 id='method.ne' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../fann/enum.FannErrorType.html' title='fann::FannErrorType'>FannErrorType</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>

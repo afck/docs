@@ -1342,37 +1342,6 @@
 <span id="1300">1300</span>
 <span id="1301">1301</span>
 <span id="1302">1302</span>
-<span id="1303">1303</span>
-<span id="1304">1304</span>
-<span id="1305">1305</span>
-<span id="1306">1306</span>
-<span id="1307">1307</span>
-<span id="1308">1308</span>
-<span id="1309">1309</span>
-<span id="1310">1310</span>
-<span id="1311">1311</span>
-<span id="1312">1312</span>
-<span id="1313">1313</span>
-<span id="1314">1314</span>
-<span id="1315">1315</span>
-<span id="1316">1316</span>
-<span id="1317">1317</span>
-<span id="1318">1318</span>
-<span id="1319">1319</span>
-<span id="1320">1320</span>
-<span id="1321">1321</span>
-<span id="1322">1322</span>
-<span id="1323">1323</span>
-<span id="1324">1324</span>
-<span id="1325">1325</span>
-<span id="1326">1326</span>
-<span id="1327">1327</span>
-<span id="1328">1328</span>
-<span id="1329">1329</span>
-<span id="1330">1330</span>
-<span id="1331">1331</span>
-<span id="1332">1332</span>
-<span id="1333">1333</span>
 </pre><pre class='rust '>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann_sys</span>;
@@ -1930,14 +1899,7 @@
         <span class='kw'>let</span> <span class='ident'>filename</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>to_filename</span>(<span class='ident'>path</span>));
         <span class='kw'>unsafe</span> {
             <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>fann_save</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>filename</span>.<span class='ident'>as_ptr</span>());
-            <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>));
-            <span class='kw'>match</span> <span class='ident'>result</span> {
-                <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
-                _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
-                         <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>CantSaveFile</span>,
-                         <span class='ident'>error_str</span>: <span class='string'>&quot;Error saving network&quot;</span>.<span class='ident'>to_string</span>(),
-                     }),
-            }
+            <span class='ident'>FannError</span>::<span class='ident'>check_zero</span>(<span class='ident'>result</span>, <span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>, <span class='string'>&quot;Error saving network&quot;</span>)
         }
     }
 
@@ -2521,14 +2483,8 @@
                                                        <span class='ident'>data</span>.<span class='ident'>get_raw</span>(),
                                                        <span class='ident'>new_input_min</span>,
                                                        <span class='ident'>new_input_max</span>);
-            <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>));
-            <span class='kw'>match</span> <span class='ident'>result</span> {
-                <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
-                _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
-                         <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>ScaleNotPresent</span>,
-                         <span class='ident'>error_str</span>: <span class='string'>&quot;Error calculating scaling parameters&quot;</span>.<span class='ident'>to_string</span>(),
-                     }),
-            }
+            <span class='ident'>FannError</span>::<span class='ident'>check_zero</span>(<span class='ident'>result</span>, <span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>,
+                                  <span class='string'>&quot;Error calculating scaling parameters&quot;</span>)
         }
     }
 
@@ -2542,14 +2498,8 @@
                                                        <span class='ident'>data</span>.<span class='ident'>get_raw</span>(),
                                                        <span class='ident'>new_output_min</span>,
                                                        <span class='ident'>new_output_max</span>);
-            <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>));
-            <span class='kw'>match</span> <span class='ident'>result</span> {
-                <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
-                _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
-                         <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>ScaleNotPresent</span>,
-                         <span class='ident'>error_str</span>: <span class='string'>&quot;Error calculating scaling parameters&quot;</span>.<span class='ident'>to_string</span>(),
-                     }),
-            }
+            <span class='ident'>FannError</span>::<span class='ident'>check_zero</span>(<span class='ident'>result</span>, <span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>,
+                                  <span class='string'>&quot;Error calculating scaling parameters&quot;</span>)
         }
     }
 
@@ -2567,29 +2517,17 @@
                                                        <span class='ident'>new_input_max</span>,
                                                        <span class='ident'>new_output_min</span>,
                                                        <span class='ident'>new_output_max</span>);
-            <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>));
-            <span class='kw'>match</span> <span class='ident'>result</span> {
-                <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
-                _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
-                         <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>ScaleNotPresent</span>,
-                         <span class='ident'>error_str</span>: <span class='string'>&quot;Error calculating scaling parameters&quot;</span>.<span class='ident'>to_string</span>(),
-                     }),
-            }
+            <span class='ident'>FannError</span>::<span class='ident'>check_zero</span>(<span class='ident'>result</span>, <span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>,
+                                  <span class='string'>&quot;Error calculating scaling parameters&quot;</span>)
         }
     }
 
     <span class='doccomment'>/// Clear scaling parameters.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>clear_scaling_params</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
-            <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>fann_clear_scaling_params</span>(<span class='self'>self</span>.<span class='ident'>raw</span>);
-            <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>));
-            <span class='kw'>match</span> <span class='ident'>result</span> {
-                <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
-                _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
-                         <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>ScaleNotPresent</span>,
-                         <span class='ident'>error_str</span>: <span class='string'>&quot;Error clearing scaling parameters&quot;</span>.<span class='ident'>to_string</span>(),
-                     }),
-            }
+            <span class='ident'>FannError</span>::<span class='ident'>check_zero</span>(<span class='ident'>fann_clear_scaling_params</span>(<span class='self'>self</span>.<span class='ident'>raw</span>),
+                                  <span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>,
+                                  <span class='string'>&quot;Error clearing scaling parameters&quot;</span>)
         }
     }
 
