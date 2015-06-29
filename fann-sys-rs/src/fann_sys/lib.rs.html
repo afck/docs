@@ -3175,7 +3175,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_create_train_from_callback</span>(<span class='ident'>num_data</span>: <span class='ident'>c_uint</span>, <span class='ident'>num_input</span>: <span class='ident'>c_uint</span>, <span class='ident'>num_output</span>: <span class='ident'>c_uint</span>,
         <span class='ident'>user_function</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span>(<span class='ident'>num</span>: <span class='ident'>c_uint</span>, <span class='ident'>num_input</span>: <span class='ident'>c_uint</span>, <span class='ident'>num_output</span>: <span class='ident'>c_uint</span>,
                                             <span class='ident'>input</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>, <span class='ident'>output</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>)<span class='op'>&gt;</span>)
-        <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>;
+        <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
 
     <span class='doccomment'>/// Destructs the training data and properly deallocates all of the associated data.</span>
     <span class='doccomment'>/// Be sure to call this function when finished using the training data.</span>
