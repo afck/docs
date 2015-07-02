@@ -45,27 +45,12 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1912' class='srclink' href='../src/fann/lib.rs.html#116-169' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-4253' class='srclink' href='../src/fann/train_algorithm.rs.html#89-112' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum TrainAlgorithm {
-    Incremental {
-        learning_momentum: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        learning_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-    },
-    Batch {
-        learning_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-    },
-    Rprop {
-        decrease_factor: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        increase_factor: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        delta_min: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        delta_max: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        delta_zero: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-    },
-    Quickprop {
-        decay: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        mu: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-        learning_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>,
-    },
+    Incremental(<a class='struct' href='../fann/struct.IncrementalParams.html' title='fann::IncrementalParams'>IncrementalParams</a>),
+    Batch(<a class='struct' href='../fann/struct.BatchParams.html' title='fann::BatchParams'>BatchParams</a>),
+    Rprop(<a class='struct' href='../fann/struct.RpropParams.html' title='fann::RpropParams'>RpropParams</a>),
+    Quickprop(<a class='struct' href='../fann/struct.QuickpropParams.html' title='fann::QuickpropParams'>QuickpropParams</a>),
 }</pre><div class='docblock'><p>The Training algorithms used when training on <code>fann_train_data</code> with functions like
 <code>fann_train_on_data</code> or <code>fann_train_on_file</code>. The incremental training alters the weights
 after each time it is presented an input pattern, while batch only alters the weights once after
@@ -74,53 +59,22 @@ it has been presented to all the patterns.</p>
 <table><tr><td id='variant.Incremental'><code>Incremental</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are updated after each training
 pattern. This means that the weights are updated many times during a single epoch and some
 problems will train very fast, while other more advanced problems will not train very well.</p>
-</div><h3 class='fields'>Fields</h3>
-
-                                              <table><tr><td id='variant.Incremental.field.learning_momentum'><code>learning_momentum</code></td><td><div class='docblock'><p>A higher momentum can be used to speed up incremental training. It should be between 0
-and 1, the default is 0.</p>
-</div></td></tr><tr><td id='variant.Incremental.field.learning_rate'><code>learning_rate</code></td><td><div class='docblock'><p>The learning rate determines how aggressive training should be. Default is 0.7.</p>
-</div></td></tr></table></td></tr><tr><td id='variant.Batch'><code>Batch</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are updated after calculating the mean
+</div></td></tr><tr><td id='variant.Batch'><code>Batch</code></td><td><div class='docblock'><p>Standard backpropagation algorithm, where the weights are updated after calculating the mean
 square error for the whole training set. This means that the weights are only updated once
 during an epoch. For this reason some problems will train slower with this algorithm. But
 since the mean square error is calculated more correctly than in incremental training, some
 problems will reach better solutions.</p>
-</div><h3 class='fields'>Fields</h3>
-
-                                              <table><tr><td id='variant.Batch.field.learning_rate'><code>learning_rate</code></td><td><div class='docblock'><p>The learning rate determines how aggressive training should be. Default is 0.7.</p>
-</div></td></tr></table></td></tr><tr><td id='variant.Rprop'><code>Rprop</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results for many problems.
+</div></td></tr><tr><td id='variant.Rprop'><code>Rprop</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results for many problems.
 <code>Rprop</code> is adaptive and therefore does not use the <code>learning_rate</code>. Some other parameters
 can, however, be set to change the way <code>Rprop</code> works, but it is only recommended for users
 with a deep understanding of the algorithm. The original RPROP training algorithm is
 described by [Riedmiller and Braun, 1993], but the algorithm used here is a variant, iRPROP,
 described by [Igel and Husken, 2000].</p>
-</div><h3 class='fields'>Fields</h3>
-
-                                              <table><tr><td id='variant.Rprop.field.decrease_factor'><code>decrease_factor</code></td><td><div class='docblock'><p>A value less than 1, used to decrease the step size during training. Default 0.5</p>
-</div></td></tr><tr><td id='variant.Rprop.field.increase_factor'><code>increase_factor</code></td><td><div class='docblock'><p>A value greater than 1, used to increase the step size during training. Default 1.2</p>
-</div></td></tr><tr><td id='variant.Rprop.field.delta_min'><code>delta_min</code></td><td><div class='docblock'><p>The minimum step size. Default 0.0</p>
-</div></td></tr><tr><td id='variant.Rprop.field.delta_max'><code>delta_max</code></td><td><div class='docblock'><p>The maximum step size. Default 50.0</p>
-</div></td></tr><tr><td id='variant.Rprop.field.delta_zero'><code>delta_zero</code></td><td><div class='docblock'><p>The initial step size. Default 0.1</p>
-</div></td></tr></table></td></tr><tr><td id='variant.Quickprop'><code>Quickprop</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results for many problems. The
+</div></td></tr><tr><td id='variant.Quickprop'><code>Quickprop</code></td><td><div class='docblock'><p>A more advanced batch training algorithm which achieves good results for many problems. The
 quickprop training algorithm uses the <code>learning_rate</code> parameter along with other more
 advanced parameters, but it is only recommended to change these for users with a deep
 understanding of the algorithm. Quickprop is described by [Fahlman, 1988].</p>
-</div><h3 class='fields'>Fields</h3>
-
-                                              <table><tr><td id='variant.Quickprop.field.decay'><code>decay</code></td><td><div class='docblock'><p>The factor by which weights should become smaller in each iteration, to ensure that
-the weights don&#39;t grow too large during training. Should be a negative number close to
-0. The default is -0.0001.</p>
-</div></td></tr><tr><td id='variant.Quickprop.field.mu'><code>mu</code></td><td><div class='docblock'><p>The mu factor is used to increase or decrease the step size; should always be greater
-than 1. The default is 1.75.</p>
-</div></td></tr><tr><td id='variant.Quickprop.field.learning_rate'><code>learning_rate</code></td><td><div class='docblock'><p>The learning rate determines how aggressive training should be. Default is 0.7.</p>
-</div></td></tr></table></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h3><div class='impl-items'><h4 id='method.default_incremental' class='method'><code>fn <a href='#method.default_incremental' class='fnname'>default_incremental</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
-<div class='docblock'><p>The <code>Incremental</code> algorithm with default parameters.</p>
-</div><h4 id='method.default_batch' class='method'><code>fn <a href='#method.default_batch' class='fnname'>default_batch</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
-<div class='docblock'><p>The <code>Batch</code> algorithm with default parameters.</p>
-</div><h4 id='method.default_rprop' class='method'><code>fn <a href='#method.default_rprop' class='fnname'>default_rprop</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
-<div class='docblock'><p>The <code>Rprop</code> algorithm with default parameters.</p>
-</div><h4 id='method.default_quickprop' class='method'><code>fn <a href='#method.default_quickprop' class='fnname'>default_quickprop</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
-<div class='docblock'><p>The <code>Quickprop</code> algorithm with default parameters.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h4>
 </div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 <h4 id='method.ne' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 </div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../fann/enum.TrainAlgorithm.html' title='fann::TrainAlgorithm'>TrainAlgorithm</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>

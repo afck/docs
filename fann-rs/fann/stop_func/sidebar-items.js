@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["StopFunc","Stop critieria for training."]]});

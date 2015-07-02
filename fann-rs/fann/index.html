@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/fann/lib.rs.html#1-1398' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/fann/lib.rs.html#1-941' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>A Rust wrapper for the Fast Artificial Neural Network library.</p>
 
 <p>A new neural network with random weights can be created with the <code>Fann::new</code> method, or, for
@@ -56,9 +56,9 @@ Existing neural networks can be saved to and loaded from files.</p>
 data can be provided directly to the network as slices of floating point numbers.</p>
 
 <p>Example:</p>
-<pre id='rust-example-rendered' class='rust '>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann</span>;
-<span class='kw'>use</span> <span class='ident'>fann</span>::{<span class='ident'>ActivationFunc</span>, <span class='ident'>Fann</span>, <span class='ident'>TrainAlgorithm</span>};
+<span class='kw'>use</span> <span class='ident'>fann</span>::{<span class='ident'>ActivationFunc</span>, <span class='ident'>Fann</span>, <span class='ident'>TrainAlgorithm</span>, <span class='ident'>QuickpropParams</span>};
 
 <span class='kw'>fn</span> <span class='ident'>main</span>() {
    <span class='comment'>// Create a new network with two input neurons, a hidden layer with three neurons, and one</span>
@@ -69,7 +69,7 @@ data can be provided directly to the network as slices of floating point numbers
    <span class='ident'>fann</span>.<span class='ident'>set_activation_func_output</span>(<span class='ident'>ActivationFunc</span>::<span class='ident'>SigmoidSymmetric</span>);
    <span class='comment'>// Use the Quickprop learning algorithm, with default parameters.</span>
    <span class='comment'>// (Otherwise, Rprop would be used.)</span>
-   <span class='ident'>fann</span>.<span class='ident'>set_train_algorithm</span>(<span class='ident'>TrainAlgorithm</span>::<span class='ident'>default_quickprop</span>());
+   <span class='ident'>fann</span>.<span class='ident'>set_train_algorithm</span>(<span class='ident'>TrainAlgorithm</span>::<span class='ident'>Quickprop</span>(<span class='ident'>Default</span>::<span class='ident'>default</span>()));
    <span class='comment'>// Train for up to 500000 epochs, displaying progress information after intervals of 1000</span>
    <span class='comment'>// epochs. Stop when the network&#39;s error on the training data drops to 0.001.</span>
    <span class='kw'>let</span> <span class='ident'>max_epochs</span> <span class='op'>=</span> <span class='number'>500000</span>;
@@ -90,7 +90,7 @@ data can be provided directly to the network as slices of floating point numbers
 
 <p>FANN also supports cascade training, where the network&#39;s topology is changed during training by
 adding additional neurons:</p>
-<pre id='rust-example-rendered' class='rust '>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann</span>;
 <span class='kw'>use</span> <span class='ident'>fann</span>::{<span class='ident'>ActivationFunc</span>, <span class='ident'>CascadeParams</span>, <span class='ident'>Fann</span>};
 
@@ -122,6 +122,14 @@ adding additional neurons:</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                     <tr class=' module-item'>
+                        <td><a class='struct' href='struct.BatchParams.html'
+                               title='fann::BatchParams'>BatchParams</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='struct' href='struct.CascadeParams.html'
                                title='fann::CascadeParams'>CascadeParams</a></td>
                         <td class='docblock short'>
@@ -141,6 +149,30 @@ adding additional neurons:</p>
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.FannError.html'
                                title='fann::FannError'>FannError</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IncrementalParams.html'
+                               title='fann::IncrementalParams'>IncrementalParams</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.QuickpropParams.html'
+                               title='fann::QuickpropParams'>QuickpropParams</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.RpropParams.html'
+                               title='fann::RpropParams'>RpropParams</a></td>
                         <td class='docblock short'>
                              
                         </td>

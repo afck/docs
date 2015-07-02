@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ErrorFunc","Error function used during training."]]});
