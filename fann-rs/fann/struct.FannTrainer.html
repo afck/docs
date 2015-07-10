@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `FannTrainer` struct in crate `fann`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, FannTrainer">
+
+    <title>fann::FannTrainer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='index.html'>fann</a></p><script>window.sidebarCurrent = {name: 'FannTrainer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>fann</a>::<wbr><a class='struct' href=''>FannTrainer</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-5577' class='srclink' href='../src/fann/lib.rs.html#132-138' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct FannTrainer&lt;'a&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>A training configuration. Create this with <code>Fann::on_data</code> or <code>Fann::on_file</code> and run the
+training with <code>train</code>.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='struct' href='../fann/struct.FannTrainer.html' title='fann::FannTrainer'>FannTrainer</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.with_reports' class='method'><code>fn <a href='#method.with_reports' class='fnname'>with_reports</a>(self, interval: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>) -&gt; <a class='struct' href='../fann/struct.FannTrainer.html' title='fann::FannTrainer'>FannTrainer</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Activates printing reports periodically. Between two reports, <code>interval</code> neurons are added
+(for cascade training) or training goes on for <code>interval</code> epochs (otherwise).</p>
+</div><h4 id='method.with_callback' class='method'><code>fn <a href='#method.with_callback' class='fnname'>with_callback</a>(self, interval: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, callback: &amp;'a <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(&amp;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>, &amp;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>, <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>) -&gt; <a class='enum' href='../fann/enum.CallbackResult.html' title='fann::CallbackResult'>CallbackResult</a>) -&gt; <a class='struct' href='../fann/struct.FannTrainer.html' title='fann::FannTrainer'>FannTrainer</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Configures a callback to be called periodically during training. Every <code>interval</code> epochs
+(for regular training) or every time <code>interval</code> new neurons have been added (for cascade
+training), the callback runs. It receives as arguments:</p>
+
+<ul>
+<li>a reference to the current <code>Fann</code>,</li>
+<li>a reference to the training data,</li>
+<li>the number of steps (added neurons or epochs) taken so far.</li>
+</ul>
+</div><h4 id='method.cascade' class='method'><code>fn <a href='#method.cascade' class='fnname'>cascade</a>(self) -&gt; <a class='struct' href='../fann/struct.FannTrainer.html' title='fann::FannTrainer'>FannTrainer</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Use the Cascade2 algorithm: This adds neurons to the neural network while training, starting
+with an ANN without any hidden layers. The network should use shortcut connections, so it
+needs to be created like this:</p>
+<pre id='rust-example-rendered' class='rust '>
+<span class='kw'>let</span> <span class='ident'>td</span> <span class='op'>=</span> <span class='ident'>fann</span>::<span class='ident'>TrainData</span>::<span class='ident'>from_file</span>(<span class='string'>&quot;test_files/xor.data&quot;</span>).<span class='ident'>unwrap</span>();
+<span class='kw'>let</span> <span class='ident'>fann</span> <span class='op'>=</span> <span class='ident'>fann</span>::<span class='ident'>Fann</span>::<span class='ident'>new_shortcut</span>(<span class='kw-2'>&amp;</span>[<span class='ident'>td</span>.<span class='ident'>num_input</span>(), <span class='ident'>td</span>.<span class='ident'>num_output</span>()]).<span class='ident'>unwrap</span>();
+</pre>
+</div><h4 id='method.train' class='method'><code>fn <a href='#method.train' class='fnname'>train</a>(&amp;mut self, max_steps: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, desired_error: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Train the network until either the mean square error drops below the <code>desired_error</code>, or
+the maximum number of steps is reached. If cascade training is activated, <code>max_steps</code>
+refers to the number of neurons that are added, otherwise it is the maximum number of
+training epochs.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "fann";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

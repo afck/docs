@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-4688' class='srclink' href='../src/fann/train_data.rs.html#9-11' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-4598' class='srclink' href='../src/fann/train_data.rs.html#19-21' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct TrainData {
     // some fields omitted
 }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.from_file' class='method'><code>fn <a href='#method.from_file' class='fnname'>from_file</a>&lt;P: <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
@@ -62,6 +62,10 @@ outputdata separated by space
 inputdata separated by space
 outputdata separated by space
 </code></pre>
+</div><h4 id='method.from_callback' class='method'><code>fn <a href='#method.from_callback' class='fnname'>from_callback</a>(num_data: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_input: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_output: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, cb: <a class='struct' href='http://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;TrainCallback&gt;) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
+<div class='docblock'><p>Create training data using the given callback which for each number between <code>0</code> (included)
+and <code>num_data</code> (excluded) returns a pair of input and output vectors with <code>num_input</code> and
+<code>num_output</code> entries respectively.</p>
 </div><h4 id='method.save' class='method'><code>fn <a href='#method.save' class='fnname'>save</a>&lt;P: <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;self, path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Save the training data to a file.</p>
 </div><h4 id='method.merge' class='method'><code>fn <a href='#method.merge' class='fnname'>merge</a>(data1: &amp;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>, data2: &amp;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>

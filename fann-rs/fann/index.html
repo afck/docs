@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/fann/lib.rs.html#1-941' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/fann/lib.rs.html#1-1066' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>A Rust wrapper for the Fast Artificial Neural Network library.</p>
 
 <p>A new neural network with random weights can be created with the <code>Fann::new</code> method, or, for
@@ -56,7 +56,7 @@ Existing neural networks can be saved to and loaded from files.</p>
 data can be provided directly to the network as slices of floating point numbers.</p>
 
 <p>Example:</p>
-<pre class='rust rust-example-rendered'>
+<pre id='rust-example-rendered' class='rust '>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann</span>;
 <span class='kw'>use</span> <span class='ident'>fann</span>::{<span class='ident'>ActivationFunc</span>, <span class='ident'>Fann</span>, <span class='ident'>TrainAlgorithm</span>, <span class='ident'>QuickpropParams</span>};
 
@@ -76,10 +76,9 @@ data can be provided directly to the network as slices of floating point numbers
    <span class='kw'>let</span> <span class='ident'>epochs_between_reports</span> <span class='op'>=</span> <span class='number'>1000</span>;
    <span class='kw'>let</span> <span class='ident'>desired_error</span> <span class='op'>=</span> <span class='number'>0.001</span>;
    <span class='comment'>// Train directly on data loaded from the file &quot;xor.data&quot;.</span>
-   <span class='ident'>fann</span>.<span class='ident'>train_on_file</span>(<span class='string'>&quot;test_files/xor.data&quot;</span>,
-                      <span class='ident'>max_epochs</span>,
-                      <span class='ident'>epochs_between_reports</span>,
-                      <span class='ident'>desired_error</span>).<span class='ident'>unwrap</span>();
+   <span class='ident'>fann</span>.<span class='ident'>on_file</span>(<span class='string'>&quot;test_files/xor.data&quot;</span>)
+       .<span class='ident'>with_reports</span>(<span class='ident'>epochs_between_reports</span>)
+       .<span class='ident'>train</span>(<span class='ident'>max_epochs</span>, <span class='ident'>desired_error</span>).<span class='ident'>unwrap</span>();
    <span class='comment'>// The network now approximates the XOR problem:</span>
    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>fann</span>.<span class='ident'>run</span>(<span class='kw-2'>&amp;</span>[<span class='op'>-</span><span class='number'>1.0</span>,  <span class='number'>1.0</span>]).<span class='ident'>unwrap</span>()[<span class='number'>0</span>] <span class='op'>&gt;</span> <span class='number'>0.9</span>);
    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>fann</span>.<span class='ident'>run</span>(<span class='kw-2'>&amp;</span>[ <span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>]).<span class='ident'>unwrap</span>()[<span class='number'>0</span>] <span class='op'>&gt;</span> <span class='number'>0.9</span>);
@@ -90,7 +89,7 @@ data can be provided directly to the network as slices of floating point numbers
 
 <p>FANN also supports cascade training, where the network&#39;s topology is changed during training by
 adding additional neurons:</p>
-<pre class='rust rust-example-rendered'>
+<pre id='rust-example-rendered' class='rust '>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>fann</span>;
 <span class='kw'>use</span> <span class='ident'>fann</span>::{<span class='ident'>ActivationFunc</span>, <span class='ident'>CascadeParams</span>, <span class='ident'>Fann</span>};
 
@@ -108,10 +107,10 @@ adding additional neurons:</p>
    <span class='kw'>let</span> <span class='ident'>neurons_between_reports</span> <span class='op'>=</span> <span class='number'>1</span>;
    <span class='kw'>let</span> <span class='ident'>desired_error</span> <span class='op'>=</span> <span class='number'>0.001</span>;
    <span class='comment'>// Train directly on data loaded from the file &quot;xor.data&quot;.</span>
-   <span class='ident'>fann</span>.<span class='ident'>cascadetrain_on_file</span>(<span class='string'>&quot;test_files/xor.data&quot;</span>,
-                             <span class='ident'>max_neurons</span>,
-                             <span class='ident'>neurons_between_reports</span>,
-                             <span class='ident'>desired_error</span>).<span class='ident'>unwrap</span>();
+   <span class='ident'>fann</span>.<span class='ident'>on_file</span>(<span class='string'>&quot;test_files/xor.data&quot;</span>)
+       .<span class='ident'>with_reports</span>(<span class='ident'>neurons_between_reports</span>)
+       .<span class='ident'>cascade</span>()
+       .<span class='ident'>train</span>(<span class='ident'>max_neurons</span>, <span class='ident'>desired_error</span>).<span class='ident'>unwrap</span>();
    <span class='comment'>// The network now approximates the XOR problem:</span>
    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>fann</span>.<span class='ident'>run</span>(<span class='kw-2'>&amp;</span>[<span class='op'>-</span><span class='number'>1.0</span>,  <span class='number'>1.0</span>]).<span class='ident'>unwrap</span>()[<span class='number'>0</span>] <span class='op'>&gt;</span> <span class='number'>0.9</span>);
    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>fann</span>.<span class='ident'>run</span>(<span class='kw-2'>&amp;</span>[ <span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>]).<span class='ident'>unwrap</span>()[<span class='number'>0</span>] <span class='op'>&gt;</span> <span class='number'>0.9</span>);
@@ -151,6 +150,16 @@ adding additional neurons:</p>
                                title='fann::FannError'>FannError</a></td>
                         <td class='docblock short'>
                              
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.FannTrainer.html'
+                               title='fann::FannTrainer'>FannTrainer</a></td>
+                        <td class='docblock short'>
+                             <p>A training configuration. Create this with <code>Fann::on_data</code> or <code>Fann::on_file</code> and run the
+training with <code>train</code>.</p>
+
                         </td>
                     </tr>
                 
@@ -195,6 +204,14 @@ adding additional neurons:</p>
 group of neurons using <code>set_activation_func_hidden</code> and <code>set_activation_func_output</code>, or for a
 single neuron using <code>set_activation_func</code>.</p>
 
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.CallbackResult.html'
+                               title='fann::CallbackResult'>CallbackResult</a></td>
+                        <td class='docblock short'>
+                             
                         </td>
                     </tr>
                 
