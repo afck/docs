@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -2389,7 +2389,6 @@
 <span id="2347">2347</span>
 <span id="2348">2348</span>
 <span id="2349">2349</span>
-<span id="2350">2350</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Raw bindings to C functions of the Fast Artificial Neural Network library</span>
 <span class='doccomment'>//!</span>
@@ -2482,11 +2481,10 @@
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>not</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;double&quot;</span>))]</span>
 <span class='kw'>type</span> <span class='ident'>fann_type_internal</span> <span class='op'>=</span> <span class='ident'>c_float</span>;
 
-<span class='doccomment'>/// `fann_type` is the type used for the weights, inputs and outputs of the neural network. In</span>
-<span class='doccomment'>/// the Rust bindings, it defined as `c_float` by default, and as `c_double`, if the `double`</span>
-<span class='doccomment'>/// feature is configured.</span>
+<span class='doccomment'>/// The type of weights, inputs and outputs in a neural network. In the Rust bindings, it is</span>
+<span class='doccomment'>/// defined as `c_float` by default, and as `c_double`, if the `double` feature is configured.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>/// In the FANN C library, `fann_type` is defined as a:</span>
+<span class='doccomment'>/// In the FANN C library, `fann_type` is defined as:</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// * `float`  - if you include fann.h or floatfann.h</span>
 <span class='doccomment'>/// * `double` - if you include doublefann.h</span>
@@ -4748,37 +4746,44 @@
     <section class="footer"></section>
 
     <div id="help" class="hidden">
-        <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
-            <dl>
-                <dt>?</dt>
-                <dd>Show this help dialog</dd>
-                <dt>S</dt>
-                <dd>Focus the search field</dd>
-                <dt>&larrb;</dt>
-                <dd>Move up in search results</dd>
-                <dt>&rarrb;</dt>
-                <dd>Move down in search results</dd>
-                <dt>&#9166;</dt>
-                <dd>Go to active search result</dd>
-            </dl>
-        </div>
-        <div class="infos">
-            <h1>Search tricks</h1>
-            <p>
-                Prefix searches with a type followed by a colon (e.g.
-                <code>fn:</code>) to restrict the search to a given type.
-            </p>
-            <p>
-                Accepted types are: <code>fn</code>, <code>mod</code>,
-                <code>struct</code>, <code>enum</code>,
-                <code>trait</code>, <code>typedef</code> (or
-                <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
-            </p>
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
         </div>
     </div>
 
