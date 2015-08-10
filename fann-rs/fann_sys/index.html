@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/fann_sys/lib.rs.html#1-2344' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/fann_sys/lib.rs.html#1-2349' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Raw bindings to C functions of the Fast Artificial Neural Network library</p>
 
 <h1 id="creation/execution" class='section-header'><a
@@ -1515,9 +1515,17 @@ only one pattern is presented.</p>
                         <td><a class='type' href='type.fann_type.html'
                                title='fann_sys::fann_type'>fann_type</a></td>
                         <td class='docblock short'>
-                             <p><code>fann_type</code> is the type used for the weights, inputs and outputs of the neural network. In
-the Rust bindings, it is currently always defined as <code>c_float</code>.</p>
+                             <p>The type of weights, inputs and outputs in a neural network. In the Rust bindings, it is
+defined as <code>c_float</code> by default, and as <code>c_double</code>, if the <code>double</code> feature is configured.</p>
 
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.fann_type_internal.html'
+                               title='fann_sys::fann_type_internal'>fann_type_internal</a></td>
+                        <td class='docblock short'>
+                             
                         </td>
                     </tr>
                 </table></section>

@@ -1107,6 +1107,10 @@
 <span id="1065">1065</span>
 <span id="1066">1066</span>
 <span id="1067">1067</span>
+<span id="1068">1068</span>
+<span id="1069">1069</span>
+<span id="1070">1070</span>
+<span id="1071">1071</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A Rust wrapper for the Fast Artificial Neural Network library.</span>
 <span class='doccomment'>//!</span>
@@ -1212,6 +1216,10 @@
 <span class='kw'>mod</span> <span class='ident'>stop_func</span>;
 <span class='kw'>mod</span> <span class='ident'>train_algorithm</span>;
 <span class='kw'>mod</span> <span class='ident'>train_data</span>;
+
+<span class='doccomment'>/// The type of weights, inputs and outputs in a neural network. It is defined as `c_float` by</span>
+<span class='doccomment'>/// default, and as `c_double` if the `double` feature is configured.</span>
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>FannType</span> <span class='op'>=</span> <span class='ident'>fann_type</span>;
 
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>Connection</span> <span class='op'>=</span> <span class='ident'>fann_connection</span>;
 
@@ -1476,7 +1484,7 @@
     <span class='doccomment'>/// Give each connection a random weight between `min_weight` and `max_weight`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// By default, weights in a new network are random between -0.1 and 0.1.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>randomize_weights</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>min_weight</span>: <span class='ident'>fann_type</span>, <span class='ident'>max_weight</span>: <span class='ident'>fann_type</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>randomize_weights</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>min_weight</span>: <span class='ident'>FannType</span>, <span class='ident'>max_weight</span>: <span class='ident'>FannType</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_randomize_weights</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>min_weight</span>, <span class='ident'>max_weight</span>) }
     }
 
@@ -1524,7 +1532,7 @@
 
     <span class='doccomment'>/// Return an `Err` if the size of the slice does not match the number of input neurons,</span>
     <span class='doccomment'>/// otherwise `Ok(())`.</span>
-    <span class='kw'>fn</span> <span class='ident'>check_input_size</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>fn</span> <span class='ident'>check_input_size</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>let</span> <span class='ident'>num_input</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>get_num_input</span>() <span class='kw'>as</span> <span class='ident'>usize</span>;
         <span class='kw'>if</span> <span class='ident'>input</span>.<span class='ident'>len</span>() <span class='op'>==</span> <span class='ident'>num_input</span> {
             <span class='prelude-val'>Ok</span>(())
@@ -1539,7 +1547,7 @@
 
     <span class='doccomment'>/// Return an `Err` if the size of the slice does not match the number of output neurons,</span>
     <span class='doccomment'>/// otherwise `Ok(())`.</span>
-    <span class='kw'>fn</span> <span class='ident'>check_output_size</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>fn</span> <span class='ident'>check_output_size</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>let</span> <span class='ident'>num_output</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>get_num_output</span>() <span class='kw'>as</span> <span class='ident'>usize</span>;
         <span class='kw'>if</span> <span class='ident'>output</span>.<span class='ident'>len</span>() <span class='op'>==</span> <span class='ident'>num_output</span> {
             <span class='prelude-val'>Ok</span>(())
@@ -1554,7 +1562,7 @@
 
     <span class='doccomment'>/// Train with a single pair of input and output. This is always incremental training (see</span>
     <span class='doccomment'>/// `TrainAlg`), since only one pattern is presented.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>train</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>], <span class='ident'>desired_output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>train</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>], <span class='ident'>desired_output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>check_input_size</span>(<span class='ident'>input</span>));
             <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>check_output_size</span>(<span class='ident'>desired_output</span>));
@@ -1593,8 +1601,8 @@
     <span class='doccomment'>/// but does not change the network.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Returns the actual output of the network.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>test</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>], <span class='ident'>desired_output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>])
-            <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>fann_type</span><span class='op'>&gt;&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>test</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>], <span class='ident'>desired_output</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>])
+            <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>FannType</span><span class='op'>&gt;&gt;</span> {
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>check_input_size</span>(<span class='ident'>input</span>));
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>check_output_size</span>(<span class='ident'>desired_output</span>));
         <span class='kw'>let</span> <span class='ident'>num_output</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>get_num_output</span>() <span class='kw'>as</span> <span class='ident'>usize</span>;
@@ -1636,7 +1644,7 @@
     <span class='doccomment'>/// Run the input through the neural network and returns the output. The length of the input</span>
     <span class='doccomment'>/// must equal the number of input neurons and the length of the output will equal the number</span>
     <span class='doccomment'>/// of output neurons.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>run</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>fann_type</span><span class='op'>&gt;&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>run</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>FannType</span><span class='op'>&gt;&gt;</span> {
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>check_input_size</span>(<span class='ident'>input</span>));
         <span class='kw'>let</span> <span class='ident'>num_output</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>get_num_output</span>() <span class='kw'>as</span> <span class='ident'>usize</span>;
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='ident'>with_capacity</span>(<span class='ident'>num_output</span>);
@@ -1730,7 +1738,7 @@
     }
 
     <span class='doccomment'>/// Set the weight of the given connection.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_weight</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>from_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>to_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>weight</span>: <span class='ident'>fann_type</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_weight</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>from_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>to_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>weight</span>: <span class='ident'>FannType</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_weight</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>from_neuron</span>, <span class='ident'>to_neuron</span>, <span class='ident'>weight</span>) }
     }
 
@@ -1768,7 +1776,7 @@
     }
 
     <span class='doccomment'>/// Get the activation steepness for neuron number `neuron` in layer number `layer`.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_activation_steepness</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>fann_type</span><span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_activation_steepness</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>FannType</span><span class='op'>&gt;</span> {
         <span class='kw'>let</span> <span class='ident'>steepness</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>fann_get_activation_steepness</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>layer</span>, <span class='ident'>neuron</span>) };
         <span class='kw'>match</span> <span class='ident'>steepness</span> {
             <span class='op'>-</span><span class='number'>1.0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>None</span>,
@@ -1787,22 +1795,22 @@
     <span class='doccomment'>/// be either almost 0 or almost 1.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// The default value is 0.5.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>FannType</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_activation_steepness</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>steepness</span>, <span class='ident'>layer</span>, <span class='ident'>neuron</span>) }
     }
 
     <span class='doccomment'>/// Set the activation steepness for layer number `layer`.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_layer</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_layer</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>FannType</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_activation_steepness_layer</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>steepness</span>, <span class='ident'>layer</span>) }
     }
 
     <span class='doccomment'>/// Set the activation steepness for all hidden layers.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_hidden</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_hidden</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>FannType</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_activation_steepness_hidden</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>steepness</span>) }
     }
 
     <span class='doccomment'>/// Set the activation steepness for the output layer.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_activation_steepness_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>steepness</span>: <span class='ident'>FannType</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_activation_steepness_output</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>steepness</span>) }
     }
 
@@ -1835,7 +1843,7 @@
     }
 
     <span class='doccomment'>/// Get the bit fail limit.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_bit_fail_limit</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>fann_type</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_bit_fail_limit</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FannType</span> {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_get_bit_fail_limit</span>(<span class='self'>self</span>.<span class='ident'>raw</span>) }
     }
 
@@ -1843,7 +1851,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Each output neuron value that differs from the desired output by more than the bit fail</span>
     <span class='doccomment'>/// limit is counted as a failed bit.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_bit_fail_limit</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bit_fail_limit</span>: <span class='ident'>fann_type</span>) {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_bit_fail_limit</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bit_fail_limit</span>: <span class='ident'>FannType</span>) {
         <span class='kw'>unsafe</span> { <span class='ident'>fann_set_bit_fail_limit</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>bit_fail_limit</span>) }
     }
 
@@ -2024,7 +2032,7 @@
 
     <span class='doccomment'>/// Scale data in input vector before feeding it to the network, based on previously calculated</span>
     <span class='doccomment'>/// parameters.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>scale_input</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>scale_input</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='ident'>fann_scale_input</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>input</span>.<span class='ident'>as_mut_ptr</span>());
             <span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>)
@@ -2033,7 +2041,7 @@
 
     <span class='doccomment'>/// Scale data in output vector before feeding it to the network, based on previously calculated</span>
     <span class='doccomment'>/// parameters.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>scale_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>scale_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='ident'>fann_scale_output</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>output</span>.<span class='ident'>as_mut_ptr</span>());
             <span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>)
@@ -2042,7 +2050,7 @@
 
     <span class='doccomment'>/// Descale data in input vector after feeding it to the network, based on previously calculated</span>
     <span class='doccomment'>/// parameters.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>descale_input</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>descale_input</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>input</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='ident'>fann_descale_input</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>input</span>.<span class='ident'>as_mut_ptr</span>());
             <span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>)
@@ -2051,7 +2059,7 @@
 
     <span class='doccomment'>/// Descale data in output vector after getting it from the network, based on previously</span>
     <span class='doccomment'>/// calculated parameters.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>descale_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>fann_type</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>descale_output</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>output</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>FannType</span>]) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='ident'>fann_descale_output</span>(<span class='self'>self</span>.<span class='ident'>raw</span>, <span class='ident'>output</span>.<span class='ident'>as_mut_ptr</span>());
             <span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>)
@@ -2075,7 +2083,7 @@
     <span class='kw'>use</span> <span class='ident'>libc</span>::<span class='ident'>c_uint</span>;
     <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>cell</span>::<span class='ident'>RefCell</span>;
 
-    <span class='kw'>const</span> <span class='ident'>EPSILON</span>: <span class='ident'>f32</span> <span class='op'>=</span> <span class='number'>0.2</span>;
+    <span class='kw'>const</span> <span class='ident'>EPSILON</span>: <span class='ident'>FannType</span> <span class='op'>=</span> <span class='number'>0.2</span>;
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_tutorial</span>() {

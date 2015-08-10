@@ -45,17 +45,16 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-18' class='srclink' href='../src/fann_sys/lib.rs.html#96' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type fann_type = <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>;</pre><div class='docblock'><p><code>fann_type</code> is the type used for the weights, inputs and outputs of the neural network. In
-the Rust bindings, it is currently always defined as <code>c_float</code>.</p>
+        </span><a id='src-21' class='srclink' href='../src/fann_sys/lib.rs.html#100' title='goto source code'>[src]</a></span></h1>
+<pre class='rust typedef'>type fann_type = <a class='type' href='../fann_sys/type.fann_type_internal.html' title='fann_sys::fann_type_internal'>fann_type_internal</a>;</pre><div class='docblock'><p>The type of weights, inputs and outputs in a neural network. In the Rust bindings, it is
+defined as <code>c_float</code> by default, and as <code>c_double</code>, if the <code>double</code> feature is configured.</p>
 
-<p>In the FANN C library, <code>fann_type</code> is defined as a:</p>
+<p>In the FANN C library, <code>fann_type</code> is defined as:</p>
 
 <ul>
-<li><code>float</code> - if you include fann.h or floatfann.h</li>
+<li><code>float</code>  - if you include fann.h or floatfann.h</li>
 <li><code>double</code> - if you include doublefann.h</li>
-<li><code>int</code> - if you include fixedfann.h (please be aware that fixed point usage is
-      only to be used during execution, and not during training).</li>
+<li><code>int</code>    - if you include fixedfann.h (only for executing a network, not training).</li>
 </ul>
 </div></section>
     <section id='search' class="content hidden"></section>
