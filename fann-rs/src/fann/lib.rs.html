@@ -1111,6 +1111,7 @@
 <span id="1069">1069</span>
 <span id="1070">1070</span>
 <span id="1071">1071</span>
+<span id="1072">1072</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A Rust wrapper for the Fast Artificial Neural Network library.</span>
 <span class='doccomment'>//!</span>
@@ -1245,6 +1246,28 @@
     <span class='ident'>Ref</span>(<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>TrainData</span>),
 }
 
+<span class='comment'>// Thread-local container for a pointer to the current FannTrainer.</span>
+<span class='comment'>// This is necessary because the raw fann_train_on_data_with_callback C function takes a function</span>
+<span class='comment'>// pointer and not a closure. So instead of the user-supplied function we pass a function to it</span>
+<span class='comment'>// which will call the callback stored in the trainer.</span>
+<span class='comment'>// The &#39;static lifetime is a lie! But the trainer lives longer than the train method runs, and</span>
+<span class='comment'>// afterwards resets this pointer to null again.</span>
+<span class='macro'>thread_local</span><span class='macro'>!</span>(<span class='kw'>static</span> <span class='ident'>TRAINER</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FannTrainer</span><span class='op'>&lt;</span><span class='lifetime'>&#39;static</span><span class='op'>&gt;&gt;</span> <span class='op'>=</span> <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='ident'>null_mut</span>()));
+
+<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CallbackResult</span> {
+    <span class='ident'>Stop</span>,
+    <span class='ident'>Continue</span>,
+}
+
+<span class='kw'>impl</span> <span class='ident'>CallbackResult</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>stop_if</span>(<span class='ident'>condition</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>CallbackResult</span> {
+        <span class='kw'>match</span> <span class='ident'>condition</span> {
+            <span class='boolval'>true</span>  <span class='op'>=&gt;</span> <span class='ident'>CallbackResult</span>::<span class='ident'>Stop</span>,
+            <span class='boolval'>false</span> <span class='op'>=&gt;</span> <span class='ident'>CallbackResult</span>::<span class='ident'>Continue</span>,
+        }
+    }
+}
+
 <span class='doccomment'>/// A training configuration. Create this with `Fann::on_data` or `Fann::on_file` and run the</span>
 <span class='doccomment'>/// training with `train`.</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FannTrainer</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> {
@@ -1327,14 +1350,16 @@
         <span class='comment'>//   given raw structs.</span>
         <span class='comment'>// * https://github.com/rust-lang/rust/issues/24010 seems to make it impossible to define a</span>
         <span class='comment'>//   trait that would act as a shortcut for Fn(...) -&gt; CallbackResult.</span>
-        <span class='kw'>unsafe</span> {
-            <span class='kw'>let</span> <span class='ident'>trainer</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>FannTrainer</span><span class='op'>&lt;</span><span class='lifetime'>&#39;static</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>transmute</span>(<span class='ident'>TRAINER</span>.<span class='ident'>with</span>(<span class='op'>|</span><span class='ident'>cell</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>cell</span>.<span class='ident'>borrow</span>()));
-            <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>ann</span>, <span class='ident'>trainer</span>.<span class='ident'>fann</span>.<span class='ident'>raw</span>);
-            <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>td</span>, <span class='ident'>trainer</span>.<span class='ident'>get_data</span>().<span class='ident'>unwrap</span>().<span class='ident'>get_raw</span>());
-            <span class='kw'>match</span> <span class='ident'>trainer</span>.<span class='ident'>callback</span>.<span class='ident'>unwrap</span>()(<span class='ident'>trainer</span>.<span class='ident'>fann</span>, <span class='ident'>trainer</span>.<span class='ident'>get_data</span>().<span class='ident'>unwrap</span>(), <span class='ident'>steps</span>) {
-                <span class='ident'>CallbackResult</span>::<span class='ident'>Stop</span>      <span class='op'>=&gt;</span> <span class='op'>-</span><span class='number'>1</span>,
-                <span class='ident'>CallbackResult</span>::<span class='ident'>Continue</span>  <span class='op'>=&gt;</span>  <span class='number'>0</span>,
-            }
+        <span class='kw'>match</span> <span class='ident'>TRAINER</span>.<span class='ident'>with</span>(<span class='op'>|</span><span class='ident'>cell</span><span class='op'>|</span> <span class='kw'>unsafe</span> {
+            <span class='kw'>let</span> <span class='ident'>trainer</span> <span class='op'>=</span> <span class='op'>*</span><span class='ident'>cell</span>.<span class='ident'>borrow</span>();
+            <span class='kw'>let</span> <span class='ident'>data</span> <span class='op'>=</span> (<span class='op'>*</span><span class='ident'>trainer</span>).<span class='ident'>get_data</span>().<span class='ident'>unwrap</span>();
+            <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>ann</span>, (<span class='op'>*</span><span class='ident'>trainer</span>).<span class='ident'>fann</span>.<span class='ident'>raw</span>);
+            <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>td</span>, <span class='ident'>data</span>.<span class='ident'>get_raw</span>());
+            <span class='kw'>let</span> <span class='ident'>callback</span> <span class='op'>=</span> (<span class='op'>*</span><span class='ident'>trainer</span>).<span class='ident'>callback</span>.<span class='ident'>unwrap</span>();
+            <span class='ident'>callback</span>((<span class='op'>*</span><span class='ident'>trainer</span>).<span class='ident'>fann</span>, <span class='ident'>data</span>, <span class='ident'>steps</span>)
+        }) {
+            <span class='ident'>CallbackResult</span>::<span class='ident'>Stop</span>      <span class='op'>=&gt;</span> <span class='op'>-</span><span class='number'>1</span>,
+            <span class='ident'>CallbackResult</span>::<span class='ident'>Continue</span>  <span class='op'>=&gt;</span>  <span class='number'>0</span>,
         }
     }
 
@@ -1353,9 +1378,8 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>train</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>max_steps</span>: <span class='ident'>c_uint</span>, <span class='ident'>desired_error</span>: <span class='ident'>c_float</span>) <span class='op'>-&gt;</span> <span class='ident'>FannResult</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='kw'>unsafe</span> {
             <span class='kw'>let</span> <span class='ident'>raw_data</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='self'>self</span>.<span class='ident'>get_data</span>()).<span class='ident'>get_raw</span>();
-            <span class='kw'>let</span> <span class='ident'>self_ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>FannTrainer</span><span class='op'>&lt;</span><span class='lifetime'>&#39;static</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>);
             <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>callback</span>.<span class='ident'>is_some</span>() {
-                <span class='ident'>TRAINER</span>.<span class='ident'>with</span>(<span class='op'>|</span><span class='ident'>cell</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>cell</span>.<span class='ident'>borrow_mut</span>() <span class='op'>=</span> <span class='op'>*</span><span class='ident'>self_ptr</span>);
+                <span class='ident'>TRAINER</span>.<span class='ident'>with</span>(<span class='op'>|</span><span class='ident'>cell</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>cell</span>.<span class='ident'>borrow_mut</span>() <span class='op'>=</span> <span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='self'>self</span>));
                 <span class='ident'>fann_set_callback</span>(<span class='self'>self</span>.<span class='ident'>fann</span>.<span class='ident'>raw</span>, <span class='prelude-val'>Some</span>(<span class='ident'>FannTrainer</span>::<span class='ident'>raw_callback</span>));
             }
             <span class='kw'>let</span> <span class='ident'>raw_train_fn</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='self'>self</span>.<span class='ident'>cascade</span> {
@@ -1368,28 +1392,6 @@
                 <span class='ident'>TRAINER</span>.<span class='ident'>with</span>(<span class='op'>|</span><span class='ident'>cell</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>cell</span>.<span class='ident'>borrow_mut</span>() <span class='op'>=</span> <span class='ident'>null_mut</span>());
             }
             <span class='ident'>FannError</span>::<span class='ident'>check_no_error</span>(<span class='self'>self</span>.<span class='ident'>fann</span>.<span class='ident'>raw</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_error</span>)
-        }
-    }
-}
-
-<span class='comment'>// Thread-local container for a pointer to the current FannTrainer.</span>
-<span class='comment'>// This is necessary because the raw fann_train_on_data_with_callback C function takes a function</span>
-<span class='comment'>// pointer and not a closure. So instead of the user-supplied function we pass a function to it</span>
-<span class='comment'>// which will call the callback stored in the trainer.</span>
-<span class='comment'>// The &#39;static lifetime is a lie! But the trainer lives longer than the train method runs, and</span>
-<span class='comment'>// afterwards resets this pointer to null again.</span>
-<span class='macro'>thread_local</span><span class='macro'>!</span>(<span class='kw'>static</span> <span class='ident'>TRAINER</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FannTrainer</span><span class='op'>&lt;</span><span class='lifetime'>&#39;static</span><span class='op'>&gt;&gt;</span> <span class='op'>=</span> <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='ident'>null_mut</span>()));
-
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CallbackResult</span> {
-    <span class='ident'>Stop</span>,
-    <span class='ident'>Continue</span>,
-}
-
-<span class='kw'>impl</span> <span class='ident'>CallbackResult</span> {
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>stop_if</span>(<span class='ident'>condition</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>CallbackResult</span> {
-        <span class='kw'>match</span> <span class='ident'>condition</span> {
-            <span class='boolval'>true</span>  <span class='op'>=&gt;</span> <span class='ident'>CallbackResult</span>::<span class='ident'>Stop</span>,
-            <span class='boolval'>false</span> <span class='op'>=&gt;</span> <span class='ident'>CallbackResult</span>::<span class='ident'>Continue</span>,
         }
     }
 }
@@ -2219,8 +2221,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
