@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_create_sparse_array', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,14 +45,13 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1923' class='srclink' href='../src/fann_sys/lib.rs.html#2035-2037' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_create_sparse_array(connection_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, layers: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Just like <code>fann_create_sparse</code>, but with an array of layer sizes
+        </span><a id='src-554' class='srclink' href='../src/fann_sys/lib.rs.html#2050-2053' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_create_sparse_array(connection_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, layers: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Just like <code>fann_create_sparse</code>, but with an array of layer sizes
 instead of individual parameters.</p>
 
 <p>See <code>fann_create_standard_array</code> for a description of the parameters.</p>
 
-<h1 id="see-also" class='section-header'><a
-                           href="#see-also">See also</a></h1>
+<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
 <p><code>fann_create_sparse</code>, <code>fann_create_standard</code>, <code>fann_create_shortcut</code></p>
 
 <p>This function appears in FANN &gt;= 2.0.0.</p>
@@ -61,10 +60,12 @@ instead of individual parameters.</p>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -81,7 +82,7 @@ instead of individual parameters.</p>
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -91,8 +92,8 @@ instead of individual parameters.</p>
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -101,7 +102,7 @@ instead of individual parameters.</p>
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

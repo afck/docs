@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -305,7 +305,7 @@
         <span class='kw'>if</span> <span class='ident'>errdat</span>.<span class='ident'>is_null</span>() {
             <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
                 <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>CantAllocateMem</span>,
-                <span class='ident'>error_str</span>: <span class='string'>&quot;Unable to create a new object&quot;</span>.<span class='ident'>to_string</span>(),
+                <span class='ident'>error_str</span>: <span class='string'>&quot;Unable to create a new object&quot;</span>.<span class='ident'>to_owned</span>(),
             });
         }
         <span class='kw'>let</span> <span class='ident'>error_type</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>fann_get_errno</span>(<span class='ident'>errdat</span>) {
@@ -333,7 +333,7 @@
         <span class='kw'>let</span> <span class='ident'>error_str_opt</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>from_utf8</span>(<span class='ident'>errstr_bytes</span>);
         <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
             <span class='ident'>error_type</span>: <span class='ident'>error_type</span>,
-            <span class='ident'>error_str</span>: <span class='ident'>error_str_opt</span>.<span class='ident'>unwrap_or</span>(<span class='string'>&quot;Invalid UTF-8 in error string&quot;</span>.<span class='ident'>to_string</span>()),
+            <span class='ident'>error_str</span>: <span class='ident'>error_str_opt</span>.<span class='ident'>unwrap_or</span>(<span class='string'>&quot;Invalid UTF-8 in error string&quot;</span>.<span class='ident'>to_owned</span>()),
         })
     }
 
@@ -345,7 +345,7 @@
             <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='prelude-val'>Ok</span>(()),
             _ <span class='op'>=&gt;</span> <span class='prelude-val'>Err</span>(<span class='ident'>FannError</span> {
                      <span class='ident'>error_type</span>: <span class='ident'>FannErrorType</span>::<span class='ident'>ErrorCodeReturned</span>,
-                     <span class='ident'>error_str</span>: <span class='ident'>error_str</span>.<span class='ident'>to_string</span>(),
+                     <span class='ident'>error_str</span>: <span class='ident'>error_str</span>.<span class='ident'>to_owned</span>(),
                  }),
         }
     }
@@ -357,10 +357,12 @@
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -377,7 +379,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -387,8 +389,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -397,7 +399,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
