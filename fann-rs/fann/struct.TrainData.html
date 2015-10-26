@@ -24,10 +24,10 @@
 
     
 
-    <nav class="sidebar">
+    <section class="sidebar">
         
         <p class='location'><a href='index.html'>fann</a></p><script>window.sidebarCurrent = {name: 'TrainData', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </nav>
+    </section>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,10 +45,10 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-671' class='srclink' href='../src/fann/train_data.rs.html#19-21' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-4817' class='srclink' href='../src/fann/train_data.rs.html#19-21' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct TrainData {
     // some fields omitted
-}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.from_file' class='method'><code>fn <a href='#method.from_file' class='fnname'>from_file</a>&lt;P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
+}</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.from_file' class='method'><code>fn <a href='#method.from_file' class='fnname'>from_file</a>&lt;P: <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
 <div class='docblock'><p>Read a file that stores training data.</p>
 
 <p>The file must be formatted like:</p>
@@ -62,11 +62,11 @@ outputdata separated by space
 inputdata separated by space
 outputdata separated by space
 </code></pre>
-</div><h4 id='method.from_callback' class='method'><code>fn <a href='#method.from_callback' class='fnname'>from_callback</a>(num_data: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_input: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_output: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, cb: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;TrainCallback&gt;) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
+</div><h4 id='method.from_callback' class='method'><code>fn <a href='#method.from_callback' class='fnname'>from_callback</a>(num_data: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_input: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, num_output: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, cb: <a class='struct' href='http://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;TrainCallback&gt;) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
 <div class='docblock'><p>Create training data using the given callback which for each number between <code>0</code> (included)
 and <code>num_data</code> (excluded) returns a pair of input and output vectors with <code>num_input</code> and
 <code>num_output</code> entries respectively.</p>
-</div><h4 id='method.save' class='method'><code>fn <a href='#method.save' class='fnname'>save</a>&lt;P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;self, path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.save' class='method'><code>fn <a href='#method.save' class='fnname'>save</a>&lt;P: <a class='trait' href='http://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='http://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;&gt;(&amp;self, path: P) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Save the training data to a file.</p>
 </div><h4 id='method.merge' class='method'><code>fn <a href='#method.merge' class='fnname'>merge</a>(data1: &amp;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>, data2: &amp;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a>&gt;</code></h4>
 <div class='docblock'><p>Merge the given data sets into a new one.</p>
@@ -79,37 +79,35 @@ and <code>num_data</code> (excluded) returns a pair of input and output vectors 
 <div class='docblock'><p>Return the number of input values in each training pattern.</p>
 </div><h4 id='method.num_output' class='method'><code>fn <a href='#method.num_output' class='fnname'>num_output</a>(&amp;self) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></code></h4>
 <div class='docblock'><p>Return the number of output values in each training pattern.</p>
-</div><h4 id='method.scale_for' class='method'><code>fn <a href='#method.scale_for' class='fnname'>scale_for</a>(&amp;mut self, fann: &amp;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.scale_for' class='method'><code>fn <a href='#method.scale_for' class='fnname'>scale_for</a>(&amp;mut self, fann: &amp;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Scale input and output in the training data using the parameters previously calculated for
 the given network.</p>
-</div><h4 id='method.descale_for' class='method'><code>fn <a href='#method.descale_for' class='fnname'>descale_for</a>(&amp;mut self, fann: &amp;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.descale_for' class='method'><code>fn <a href='#method.descale_for' class='fnname'>descale_for</a>(&amp;mut self, fann: &amp;<a class='struct' href='../fann/struct.Fann.html' title='fann::Fann'>Fann</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Descale input and output in the training data using the parameters previously calculated for
 the given network.</p>
-</div><h4 id='method.scale_input' class='method'><code>fn <a href='#method.scale_input' class='fnname'>scale_input</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.scale_input' class='method'><code>fn <a href='#method.scale_input' class='fnname'>scale_input</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Scales the inputs in the training data to the specified range.</p>
-</div><h4 id='method.scale_output' class='method'><code>fn <a href='#method.scale_output' class='fnname'>scale_output</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.scale_output' class='method'><code>fn <a href='#method.scale_output' class='fnname'>scale_output</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Scales the outputs in the training data to the specified range.</p>
-</div><h4 id='method.scale' class='method'><code>fn <a href='#method.scale' class='fnname'>scale</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h4 id='method.scale' class='method'><code>fn <a href='#method.scale' class='fnname'>scale</a>(&amp;mut self, new_min: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>, new_max: <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a>) -&gt; <a class='type' href='../fann/type.FannResult.html' title='fann::FannResult'>FannResult</a>&lt;<a href='http://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
 <div class='docblock'><p>Scales the inputs and outputs in the training data to the specified range.</p>
 </div><h4 id='method.shuffle' class='method'><code>fn <a href='#method.shuffle' class='fnname'>shuffle</a>(&amp;mut self)</code></h4>
 <div class='docblock'><p>Shuffle training data, randomizing the order. This is recommended for incremental training
 while it does not affect batch training.</p>
-</div><h4 id='method.get_raw' class='method'><code>unsafe fn <a href='#method.get_raw' class='fnname'>get_raw</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a></code></h4>
+</div><h4 id='method.get_raw' class='method'><code>unsafe fn <a href='#method.get_raw' class='fnname'>get_raw</a>(&amp;self) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a></code></h4>
 <div class='docblock'><p>Get a pointer to the underlying raw <code>fann_train_data</code> structure.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../fann/struct.TrainData.html' title='fann::TrainData'>TrainData</a></code></h3><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <aside id="help" class="hidden">
+    <div id="help" class="hidden">
         <div>
-            <h1 class="hidden">Help</h1>
-
             <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
+                <h1>Keyboard Shortcuts</h1>
 
                 <dl>
                     <dt>?</dt>
@@ -126,7 +124,7 @@ while it does not affect batch training.</p>
             </div>
 
             <div class="infos">
-                <h2>Search Tricks</h2>
+                <h1>Search Tricks</h1>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -136,8 +134,8 @@ while it does not affect batch training.</p>
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
@@ -146,7 +144,7 @@ while it does not affect batch training.</p>
                 </p>
             </div>
         </div>
-    </aside>
+    </div>
 
     
 

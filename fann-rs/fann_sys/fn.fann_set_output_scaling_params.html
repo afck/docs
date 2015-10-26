@@ -24,10 +24,10 @@
 
     
 
-    <nav class="sidebar">
+    <section class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_set_output_scaling_params', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </nav>
+    </section>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,10 +45,11 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-297' class='srclink' href='../src/fann_sys/lib.rs.html#873-877' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_set_output_scaling_params(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, data: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a>, new_output_min: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, new_output_max: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a></pre><div class='docblock'><p>Calculate output scaling parameters for future use based on training data.</p>
+        </span><a id='src-1084' class='srclink' href='../src/fann_sys/lib.rs.html#873-877' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_set_output_scaling_params(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, data: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a>, new_output_min: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, new_output_max: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_int.html' title='libc::types::os::arch::c95::c_int'>c_int</a></pre><div class='docblock'><p>Calculate output scaling parameters for future use based on training data.</p>
 
-<h1 id='parameters' class='section-header'><a href='#parameters'>Parameters</a></h1>
+<h1 id="parameters" class='section-header'><a
+                           href="#parameters">Parameters</a></h1>
 <ul>
 <li><code>ann</code>            - ANN for which parameters need to be calculated</li>
 <li><code>data</code>           - training data that will be used to calculate scaling parameters</li>
@@ -58,7 +59,8 @@ followed)</li>
 followed)</li>
 </ul>
 
-<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
+<h1 id="see-also" class='section-header'><a
+                           href="#see-also">See also</a></h1>
 <p><code>fann_set_input_scaling_params</code></p>
 
 <p>This function appears in FANN &gt;= 2.1.0</p>
@@ -67,12 +69,10 @@ followed)</li>
 
     <section class="footer"></section>
 
-    <aside id="help" class="hidden">
+    <div id="help" class="hidden">
         <div>
-            <h1 class="hidden">Help</h1>
-
             <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
+                <h1>Keyboard Shortcuts</h1>
 
                 <dl>
                     <dt>?</dt>
@@ -89,7 +89,7 @@ followed)</li>
             </div>
 
             <div class="infos">
-                <h2>Search Tricks</h2>
+                <h1>Search Tricks</h1>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -99,8 +99,8 @@ followed)</li>
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
@@ -109,7 +109,7 @@ followed)</li>
                 </p>
             </div>
         </div>
-    </aside>
+    </div>
 
     
 
