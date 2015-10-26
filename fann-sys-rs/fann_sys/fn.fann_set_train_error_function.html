@@ -24,10 +24,10 @@
 
     
 
-    <nav class="sidebar">
+    <section class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_set_train_error_function', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </nav>
+    </section>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,12 +45,13 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-412' class='srclink' href='../src/fann_sys/lib.rs.html#1335-1336' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_set_train_error_function(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, train_error_function: <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a>)</pre><div class='docblock'><p>Set the error function used during training.</p>
+        </span><a id='src-1458' class='srclink' href='../src/fann_sys/lib.rs.html#1335-1336' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_set_train_error_function(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, train_error_function: <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a>)</pre><div class='docblock'><p>Set the error function used during training.</p>
 
 <p>The error functions are described further in <code>fann_errorfunc_enum</code>.</p>
 
-<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
+<h1 id="see-also" class='section-header'><a
+                           href="#see-also">See also</a></h1>
 <p><code>fann_get_train_error_function</code></p>
 
 <p>This function appears in FANN &gt;= 1.2.0.</p>
@@ -59,12 +60,10 @@
 
     <section class="footer"></section>
 
-    <aside id="help" class="hidden">
+    <div id="help" class="hidden">
         <div>
-            <h1 class="hidden">Help</h1>
-
             <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
+                <h1>Keyboard Shortcuts</h1>
 
                 <dl>
                     <dt>?</dt>
@@ -81,7 +80,7 @@
             </div>
 
             <div class="infos">
-                <h2>Search Tricks</h2>
+                <h1>Search Tricks</h1>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -91,8 +90,8 @@
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
@@ -101,7 +100,7 @@
                 </p>
             </div>
         </div>
-    </aside>
+    </div>
 
     
 

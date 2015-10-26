@@ -24,10 +24,10 @@
 
     
 
-    <nav class="sidebar">
+    <section class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_create_sparse', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </nav>
+    </section>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,10 +45,11 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-551' class='srclink' href='../src/fann_sys/lib.rs.html#2039' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_create_sparse(connection_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, ...) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Creates a standard backpropagation neural network, which is not fully connected.</p>
+        </span><a id='src-1913' class='srclink' href='../src/fann_sys/lib.rs.html#2039' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_create_sparse(connection_rate: <a class='type' href='../libc/types/os/arch/c95/type.c_float.html' title='libc::types::os::arch::c95::c_float'>c_float</a>, num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>) -&gt; <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Creates a standard backpropagation neural network, which is not fully connected.</p>
 
-<h1 id='parameters' class='section-header'><a href='#parameters'>Parameters</a></h1>
+<h1 id="parameters" class='section-header'><a
+                           href="#parameters">Parameters</a></h1>
 <ul>
 <li><code>connection_rate</code> - The connection rate controls how many connections there will be in the
 network. If the connection rate is set to 1, the network will be fully
@@ -59,10 +60,12 @@ A connection rate of 1 will yield the same result as <code>fann_create_standard<
 starting with the input layer and ending with the output layer.</li>
 </ul>
 
-<h1 id='returns' class='section-header'><a href='#returns'>Returns</a></h1>
+<h1 id="returns" class='section-header'><a
+                           href="#returns">Returns</a></h1>
 <p>A pointer to the newly created <code>fann</code>.</p>
 
-<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
+<h1 id="see-also" class='section-header'><a
+                           href="#see-also">See also</a></h1>
 <p><code>fann_create_sparse_array</code>, <code>fann_create_standard</code>, <code>fann_create_shortcut</code></p>
 
 <p>This function appears in FANN &gt;= 2.0.0.</p>
@@ -71,12 +74,10 @@ starting with the input layer and ending with the output layer.</li>
 
     <section class="footer"></section>
 
-    <aside id="help" class="hidden">
+    <div id="help" class="hidden">
         <div>
-            <h1 class="hidden">Help</h1>
-
             <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
+                <h1>Keyboard Shortcuts</h1>
 
                 <dl>
                     <dt>?</dt>
@@ -93,7 +94,7 @@ starting with the input layer and ending with the output layer.</li>
             </div>
 
             <div class="infos">
-                <h2>Search Tricks</h2>
+                <h1>Search Tricks</h1>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -103,8 +104,8 @@ starting with the input layer and ending with the output layer.</li>
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
@@ -113,7 +114,7 @@ starting with the input layer and ending with the output layer.</li>
                 </p>
             </div>
         </div>
-    </aside>
+    </div>
 
     
 

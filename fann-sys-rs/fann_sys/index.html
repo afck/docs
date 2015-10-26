@@ -24,10 +24,10 @@
 
     
 
-    <nav class="sidebar">
+    <section class="sidebar">
         
         <p class='location'></p><script>window.sidebarCurrent = {name: 'fann_sys', ty: 'mod', relpath: '../'};</script>
-    </nav>
+    </section>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -48,7 +48,8 @@
         </span><a id='src-0' class='srclink' href='../src/fann_sys/lib.rs.html#1-2371' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Raw bindings to C functions of the Fast Artificial Neural Network library</p>
 
-<h1 id='creationexecution' class='section-header'><a href='#creationexecution'>Creation/Execution</a></h1>
+<h1 id="creation/execution" class='section-header'><a
+                           href="#creation/execution">Creation/Execution</a></h1>
 <p>The FANN library is designed to be very easy to use.
 A feedforward ANN can be created by a simple <code>fann_create_standard</code> function, while
 other ANNs can be created just as easily. The ANNs can be trained by <code>fann_train_on_file</code>
@@ -59,7 +60,8 @@ created will still be powerful and effective. If you have more knowledge about A
 more control, almost every part of the ANNs can be parametrized to create specialized and highly
 optimal ANNs.</p>
 
-<h1 id='training' class='section-header'><a href='#training'>Training</a></h1>
+<h1 id="training" class='section-header'><a
+                           href="#training">Training</a></h1>
 <p>There are many different ways of training neural networks and the FANN library supports
 a number of different approaches.</p>
 
@@ -76,7 +78,8 @@ in order to achieve the same goal as for fixed topology training. This kind of t
 is supported by FANN Cascade Training.</p></li>
 </ul>
 
-<h1 id='cascade-training' class='section-header'><a href='#cascade-training'>Cascade Training</a></h1>
+<h1 id="cascade-training" class='section-header'><a
+                           href="#cascade-training">Cascade Training</a></h1>
 <p>Cascade training differs from ordinary training in the sense that it starts with an empty neural
 network and then adds neurons one by one, while it trains the neural network. The main benefit
 of this approach is that you do not have to guess the number of hidden layers and neurons prior
@@ -89,11 +92,13 @@ The candidate neurons are created as shortcut connected neurons in a new hidden 
 means that the final neural network will consist of a number of hidden layers with one shortcut
 connected neuron in each.</p>
 
-<h1 id='file-inputoutput' class='section-header'><a href='#file-inputoutput'>File Input/Output</a></h1>
+<h1 id="file-input/output" class='section-header'><a
+                           href="#file-input/output">File Input/Output</a></h1>
 <p>It is possible to save an entire ann to a file with <code>fann_save</code> for future loading with
 <code>fann_create_from_file</code>.</p>
 
-<h1 id='error-handling' class='section-header'><a href='#error-handling'>Error Handling</a></h1>
+<h1 id="error-handling" class='section-header'><a
+                           href="#error-handling">Error Handling</a></h1>
 <p>Errors from the FANN library are usually reported on <code>stderr</code>.
 It is however possible to redirect these error messages to a file,
 or completely ignore them with the <code>fann_set_error_log</code> function.</p>
@@ -101,7 +106,8 @@ or completely ignore them with the <code>fann_set_error_log</code> function.</p>
 <p>It is also possible to inspect the last error message by using the
 <code>fann_get_errno</code> and <code>fann_get_errstr</code> functions.</p>
 
-<h1 id='datatypes' class='section-header'><a href='#datatypes'>Datatypes</a></h1>
+<h1 id="datatypes" class='section-header'><a
+                           href="#datatypes">Datatypes</a></h1>
 <p>The two main datatypes used in the FANN library are <code>fann</code>,
 which represents an artificial neural network, and <code>fann_train_data</code>,
 which represents training data.</p>
@@ -1527,12 +1533,10 @@ defined as <code>c_float</code> by default, and as <code>c_double</code>, if the
 
     <section class="footer"></section>
 
-    <aside id="help" class="hidden">
+    <div id="help" class="hidden">
         <div>
-            <h1 class="hidden">Help</h1>
-
             <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
+                <h1>Keyboard Shortcuts</h1>
 
                 <dl>
                     <dt>?</dt>
@@ -1549,7 +1553,7 @@ defined as <code>c_float</code> by default, and as <code>c_double</code>, if the
             </div>
 
             <div class="infos">
-                <h2>Search Tricks</h2>
+                <h1>Search Tricks</h1>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -1559,8 +1563,8 @@ defined as <code>c_float</code> by default, and as <code>c_double</code>, if the
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
+                    <code>trait</code>, <code>typedef</code> (or
+                    <code>tdef</code>).
                 </p>
 
                 <p>
@@ -1569,7 +1573,7 @@ defined as <code>c_float</code> by default, and as <code>c_double</code>, if the
                 </p>
             </div>
         </div>
-    </aside>
+    </div>
 
     
 
