@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -2389,6 +2389,28 @@
 <span id="2347">2347</span>
 <span id="2348">2348</span>
 <span id="2349">2349</span>
+<span id="2350">2350</span>
+<span id="2351">2351</span>
+<span id="2352">2352</span>
+<span id="2353">2353</span>
+<span id="2354">2354</span>
+<span id="2355">2355</span>
+<span id="2356">2356</span>
+<span id="2357">2357</span>
+<span id="2358">2358</span>
+<span id="2359">2359</span>
+<span id="2360">2360</span>
+<span id="2361">2361</span>
+<span id="2362">2362</span>
+<span id="2363">2363</span>
+<span id="2364">2364</span>
+<span id="2365">2365</span>
+<span id="2366">2366</span>
+<span id="2367">2367</span>
+<span id="2368">2368</span>
+<span id="2369">2369</span>
+<span id="2370">2370</span>
+<span id="2371">2371</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Raw bindings to C functions of the Fast Artificial Neural Network library</span>
 <span class='doccomment'>//!</span>
@@ -2953,7 +2975,7 @@
 
 <span class='attribute'>#[<span class='ident'>cfg_attr</span>(<span class='ident'>not</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;double&quot;</span>), <span class='ident'>link</span>(<span class='ident'>name</span> <span class='op'>=</span> <span class='string'>&quot;fann&quot;</span>))]</span>
 <span class='attribute'>#[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;double&quot;</span>, <span class='ident'>link</span>(<span class='ident'>name</span> <span class='op'>=</span> <span class='string'>&quot;doublefann&quot;</span>))]</span>
-<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
+<span class='kw'>extern</span> {
     <span class='kw'>pub</span> <span class='kw'>static</span> <span class='kw-2'>mut</span> <span class='ident'>fann_default_error_log</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILE</span>;
 
     <span class='doccomment'>/// Change where errors are logged to. Both `fann` and `fann_data` can be</span>
@@ -3029,8 +3051,10 @@
     <span class='doccomment'>/// `fann_test_data`, `fann_train`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_test</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>input</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>,
-                     <span class='ident'>desired_output</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_test</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
+                     <span class='ident'>input</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>,
+                     <span class='ident'>desired_output</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>)
+                     <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_type</span>;
 
     <span class='doccomment'>/// Reads the mean square error from the network.</span>
     <span class='doccomment'>///</span>
@@ -3242,7 +3266,8 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_input_scaling_params</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
                                          <span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>,
                                          <span class='ident'>new_input_min</span>: <span class='ident'>c_float</span>,
-                                         <span class='ident'>new_input_max</span>: <span class='ident'>c_float</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+                                         <span class='ident'>new_input_max</span>: <span class='ident'>c_float</span>)
+                                         <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
     <span class='doccomment'>/// Calculate output scaling parameters for future use based on training data.</span>
     <span class='doccomment'>///</span>
@@ -3262,7 +3287,8 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_output_scaling_params</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
                                           <span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>,
                                           <span class='ident'>new_output_min</span>: <span class='ident'>c_float</span>,
-                                          <span class='ident'>new_output_max</span>: <span class='ident'>c_float</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+                                          <span class='ident'>new_output_max</span>: <span class='ident'>c_float</span>)
+                                          <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
     <span class='doccomment'>/// Calculate input and output scaling parameters for future use based on training data.</span>
     <span class='doccomment'>///</span>
@@ -3286,7 +3312,8 @@
                                    <span class='ident'>new_input_min</span>: <span class='ident'>c_float</span>,
                                    <span class='ident'>new_input_max</span>: <span class='ident'>c_float</span>,
                                    <span class='ident'>new_output_min</span>: <span class='ident'>c_float</span>,
-                                   <span class='ident'>new_output_max</span>: <span class='ident'>c_float</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+                                   <span class='ident'>new_output_max</span>: <span class='ident'>c_float</span>)
+                                   <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
     <span class='doccomment'>/// Clears scaling parameters.</span>
     <span class='doccomment'>///</span>
@@ -3360,7 +3387,8 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_scale_input_train_data</span>(<span class='ident'>train_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>,
-                                       <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>, <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
+                                       <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>,
+                                       <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
 
     <span class='doccomment'>/// Scales the outputs in the training data to the specified range.</span>
     <span class='doccomment'>///</span>
@@ -3369,7 +3397,8 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_scale_output_train_data</span>(<span class='ident'>train_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>,
-                                        <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>, <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
+                                        <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>,
+                                        <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
 
     <span class='doccomment'>/// Scales the inputs and outputs in the training data to the specified range.</span>
     <span class='doccomment'>///</span>
@@ -3378,13 +3407,15 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_scale_train_data</span>(<span class='ident'>train_data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>,
-                                 <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>, <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
+                                 <span class='ident'>new_min</span>: <span class='ident'>fann_type</span>,
+                                 <span class='ident'>new_max</span>: <span class='ident'>fann_type</span>);
 
     <span class='doccomment'>/// Merges the data from `data1` and `data2` into a new `fann_train_data`.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.1.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_merge_train_data</span>(<span class='ident'>data1</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>,
-                                 <span class='ident'>data2</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
+                                 <span class='ident'>data2</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>)
+                                 <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
 
     <span class='doccomment'>/// Returns an exact copy of a `fann_train_data`.</span>
     <span class='doccomment'>///</span>
@@ -3404,8 +3435,10 @@
     <span class='doccomment'>/// `fann_length_train_data`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_subset_train_data</span>(<span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>, <span class='ident'>pos</span>: <span class='ident'>c_uint</span>, <span class='ident'>length</span>: <span class='ident'>c_uint</span>)
-        <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_subset_train_data</span>(<span class='ident'>data</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_train_data</span>,
+                                  <span class='ident'>pos</span>: <span class='ident'>c_uint</span>,
+                                  <span class='ident'>length</span>: <span class='ident'>c_uint</span>)
+                                  <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>;
 
     <span class='doccomment'>/// Returns the number of training patterns in the `fann_train_data`.</span>
     <span class='doccomment'>///</span>
@@ -3455,7 +3488,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 1.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_save_train_to_fixed</span>(<span class='ident'>data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann_train_data</span>,
                                     <span class='ident'>filename</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>,
-                                    <span class='ident'>decimal_point</span>: <span class='ident'>c_uint</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+                                    <span class='ident'>decimal_point</span>: <span class='ident'>c_uint</span>)
+                                    <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
     <span class='doccomment'>/// Return the training algorithm as described by `fann_train_enum`. This training algorithm</span>
     <span class='doccomment'>/// is used by `fann_train_on_data` and associated functions.</span>
@@ -3540,8 +3574,10 @@
     <span class='doccomment'>/// `fann_set_activation_function`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_function</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
-        <span class='op'>-&gt;</span> <span class='ident'>fann_activationfunc_enum</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_function</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>,
+                                        <span class='ident'>layer</span>: <span class='ident'>c_int</span>,
+                                        <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
+                                        <span class='op'>-&gt;</span> <span class='ident'>fann_activationfunc_enum</span>;
 
     <span class='doccomment'>/// Set the activation function for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
@@ -3627,8 +3663,10 @@
     <span class='doccomment'>/// `fann_set_activation_steepness`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_steepness</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>, <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
-        <span class='op'>-&gt;</span> <span class='ident'>fann_type</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_get_activation_steepness</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann</span>,
+                                         <span class='ident'>layer</span>: <span class='ident'>c_int</span>,
+                                         <span class='ident'>neuron</span>: <span class='ident'>c_int</span>)
+                                         <span class='op'>-&gt;</span> <span class='ident'>fann_type</span>;
 
     <span class='doccomment'>/// Set the activation steepness for neuron number `neuron` in layer number `layer`,</span>
     <span class='doccomment'>/// counting the input layer as layer 0.</span>
@@ -3666,7 +3704,9 @@
     <span class='doccomment'>/// `fann_set_activation_steepness_output`, `fann_set_activation_function_layer`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_activation_steepness_layer</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>, <span class='ident'>layer</span>: <span class='ident'>c_int</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_activation_steepness_layer</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
+                                               <span class='ident'>steepness</span>: <span class='ident'>fann_type</span>,
+                                               <span class='ident'>layer</span>: <span class='ident'>c_int</span>);
 
     <span class='doccomment'>/// Set the steepness of the activation steepness in all of the hidden layers.</span>
     <span class='doccomment'>///</span>
@@ -3731,8 +3771,7 @@
     <span class='doccomment'>/// `fann_get_train_stop_function`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_train_stop_function</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
-                                        <span class='ident'>train_stop_function</span>: <span class='ident'>fann_stopfunc_enum</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_train_stop_function</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>train_stop_function</span>: <span class='ident'>fann_stopfunc_enum</span>);
 
     <span class='doccomment'>/// Returns the bit fail limit used during training.</span>
     <span class='doccomment'>///</span>
@@ -4068,7 +4107,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_candidate_stagnation_epochs</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
-        <span class='ident'>cascade_candidate_stagnation_epochs</span>: <span class='ident'>c_uint</span>);
+                                                        <span class='ident'>cascade_candidate_stagnation_epochs</span>: <span class='ident'>c_uint</span>);
 
     <span class='doccomment'>/// The weight multiplier is a parameter which is used to multiply the weights from the</span>
     <span class='doccomment'>/// candidate neuron before adding the neuron to the neural network. This parameter is usually</span>
@@ -4111,8 +4150,7 @@
     <span class='doccomment'>/// `fann_get_cascade_candidate_limit`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_candidate_limit</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
-                                            <span class='ident'>cascade_candidate_limit</span>: <span class='ident'>fann_type</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_candidate_limit</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>cascade_candidate_limit</span>: <span class='ident'>fann_type</span>);
 
     <span class='doccomment'>/// The maximum out epochs determines the maximum number of epochs the output connections</span>
     <span class='doccomment'>/// may be trained after adding a new candidate neuron.</span>
@@ -4150,8 +4188,7 @@
     <span class='doccomment'>/// `fann_get_cascade_max_cand_epochs`</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_max_cand_epochs</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
-                                            <span class='ident'>cascade_max_cand_epochs</span>: <span class='ident'>c_uint</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_max_cand_epochs</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>cascade_max_cand_epochs</span>: <span class='ident'>c_uint</span>);
 
     <span class='doccomment'>/// The number of candidates used during training (calculated by multiplying</span>
     <span class='doccomment'>/// `fann_get_cascade_activation_functions_count`,</span>
@@ -4254,8 +4291,8 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_cascade_activation_steepnesses</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
-        <span class='ident'>cascade_activation_steepnesses</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>,
-        <span class='ident'>cascade_activation_steepnesses_count</span>: <span class='ident'>c_uint</span>);
+                                                   <span class='ident'>cascade_activation_steepnesses</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>fann_type</span>,
+                                                   <span class='ident'>cascade_activation_steepnesses_count</span>: <span class='ident'>c_uint</span>);
 
     <span class='doccomment'>/// The number of candidate groups is the number of groups of identical candidates which will be</span>
     <span class='doccomment'>/// used during training.</span>
@@ -4426,7 +4463,8 @@
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.0.0.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_create_sparse_array</span>(<span class='ident'>connection_rate</span>: <span class='ident'>c_float</span>,
                                     <span class='ident'>num_layers</span>: <span class='ident'>c_uint</span>,
-                                    <span class='ident'>layers</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_uint</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>;
+                                    <span class='ident'>layers</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_uint</span>)
+                                    <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>;
 
     <span class='doccomment'>/// Creates a standard backpropagation neural network, which is not fully connected and which</span>
     <span class='doccomment'>/// also has shortcut connections.</span>
@@ -4665,8 +4703,10 @@
     <span class='doccomment'>/// ignored if it does not already exist in the network.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// This function appears in FANN &gt;= 2.1.0.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_weight</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>, <span class='ident'>from_neuron</span>: <span class='ident'>c_uint</span>,
-                           <span class='ident'>to_neuron</span>: <span class='ident'>c_uint</span>, <span class='ident'>weight</span>: <span class='ident'>fann_type</span>);
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>fann_set_weight</span>(<span class='ident'>ann</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>fann</span>,
+                           <span class='ident'>from_neuron</span>: <span class='ident'>c_uint</span>,
+                           <span class='ident'>to_neuron</span>: <span class='ident'>c_uint</span>,
+                           <span class='ident'>weight</span>: <span class='ident'>fann_type</span>);
 
     <span class='doccomment'>/// Store a pointer to user defined data. The pointer can be retrieved with `fann_get_user_data`</span>
     <span class='doccomment'>/// for example in a callback. It is the user&#39;s responsibility to allocate and deallocate any</span>
@@ -4722,16 +4762,20 @@
             <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_create_standard</span>(<span class='ident'>num_layers</span>, <span class='ident'>num_input</span>, <span class='ident'>num_neurons_hidden</span>, <span class='ident'>num_output</span>);
             <span class='ident'>fann_set_activation_function_hidden</span>(<span class='ident'>ann</span>, <span class='ident'>FANN_SIGMOID_SYMMETRIC</span>);
             <span class='ident'>fann_set_activation_function_output</span>(<span class='ident'>ann</span>, <span class='ident'>FANN_SIGMOID_SYMMETRIC</span>);
-            <span class='ident'>fann_train_on_file</span>(<span class='ident'>ann</span>, <span class='ident'>p_trainfile</span>, <span class='ident'>max_epochs</span>, <span class='ident'>epochs_between_reports</span>, <span class='ident'>desired_error</span>);
+            <span class='ident'>fann_train_on_file</span>(<span class='ident'>ann</span>,
+                               <span class='ident'>p_trainfile</span>,
+                               <span class='ident'>max_epochs</span>,
+                               <span class='ident'>epochs_between_reports</span>,
+                               <span class='ident'>desired_error</span>);
             <span class='ident'>fann_save</span>(<span class='ident'>ann</span>, <span class='ident'>p_savefile</span>);
             <span class='ident'>fann_destroy</span>(<span class='ident'>ann</span>);
         }
         <span class='comment'>// Load the ANN and execute input.</span>
         <span class='kw'>unsafe</span> {
             <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_create_from_file</span>(<span class='ident'>p_savefile</span>);
-            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> ( <span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='op'>-</span><span class='number'>1.0</span>,  <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
-            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> ( <span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [ <span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
-            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='op'>-</span><span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [ <span class='number'>1.0</span>,  <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
+            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='op'>-</span><span class='number'>1.0</span>, <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
+            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
+            <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='op'>-</span><span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='number'>1.0</span>, <span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
             <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>EPSILON</span> <span class='op'>&gt;</span> (<span class='op'>-</span><span class='number'>1.0</span> <span class='op'>-</span> <span class='op'>*</span><span class='ident'>fann_run</span>(<span class='ident'>ann</span>, [<span class='op'>-</span><span class='number'>1.0</span>, <span class='op'>-</span><span class='number'>1.0</span>].<span class='ident'>as_ptr</span>())).<span class='ident'>abs</span>());
             <span class='ident'>fann_destroy</span>(<span class='ident'>ann</span>);
         }
@@ -4745,10 +4789,12 @@
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -4765,7 +4811,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -4785,7 +4831,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

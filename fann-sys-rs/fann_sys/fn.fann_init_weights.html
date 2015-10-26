@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_init_weights', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,8 +45,8 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1985' class='srclink' href='../src/fann_sys/lib.rs.html#2107' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_init_weights(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, train_data: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a>)</pre><div class='docblock'><p>Initialize the weights using Widrow + Nguyen&#39;s algorithm.</p>
+        </span><a id='src-1985' class='srclink' href='../src/fann_sys/lib.rs.html#2123' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_init_weights(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, train_data: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann_train_data.html' title='fann_sys::fann_train_data'>fann_train_data</a></a>)</pre><div class='docblock'><p>Initialize the weights using Widrow + Nguyen&#39;s algorithm.</p>
 
 <p>This function behaves similarly to <code>fann_randomize_weights</code>. It will use the algorithm
 developed by Derrick Nguyen and Bernard Widrow to set the weights in such a way
@@ -67,10 +67,12 @@ will be used to train the network.</p>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -87,7 +89,7 @@ will be used to train the network.</p>
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -107,7 +109,7 @@ will be used to train the network.</p>
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
