@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>fann_sys</a></p><script>window.sidebarCurrent = {name: 'fann_get_bit_fail', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,8 +45,8 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-920' class='srclink' href='../src/fann_sys/lib.rs.html#669' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_get_bit_fail(ann: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></pre><div class='docblock'><p>The number of fail bits; means the number of output neurons which differ more
+        </span><a id='src-248' class='srclink' href='../src/fann_sys/lib.rs.html#669' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_get_bit_fail(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>) -&gt; <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></pre><div class='docblock'><p>The number of fail bits; means the number of output neurons which differ more
 than the bit fail limit (see <code>fann_get_bit_fail_limit</code>, <code>fann_set_bit_fail_limit</code>).
 The bits are counted in all of the training data, so this number can be higher than
 the number of training data.</p>
@@ -54,8 +54,7 @@ the number of training data.</p>
 <p>This value is reset by <code>fann_reset_MSE</code> and updated by all the same functions which also
 update the MSE value (e.g. <code>fann_test_data</code>, <code>fann_train_epoch</code>)</p>
 
-<h1 id="see-also" class='section-header'><a
-                           href="#see-also">See also</a></h1>
+<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
 <p><code>fann_stopfunc_enum</code>, <code>fann_get_MSE</code></p>
 
 <p>This function appears in FANN &gt;= 2.0.0</p>
@@ -64,10 +63,12 @@ update the MSE value (e.g. <code>fann_test_data</code>, <code>fann_train_epoch</
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -84,7 +85,7 @@ update the MSE value (e.g. <code>fann_test_data</code>, <code>fann_train_epoch</
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -94,8 +95,8 @@ update the MSE value (e.g. <code>fann_test_data</code>, <code>fann_train_epoch</
                 <p>
                     Accepted types are: <code>fn</code>, <code>mod</code>,
                     <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>typedef</code> (or
-                    <code>tdef</code>).
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
                 </p>
 
                 <p>
@@ -104,7 +105,7 @@ update the MSE value (e.g. <code>fann_test_data</code>, <code>fann_train_epoch</
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
