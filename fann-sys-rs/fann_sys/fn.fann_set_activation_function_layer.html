@@ -45,8 +45,8 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-381' class='srclink' href='../src/fann_sys/lib.rs.html#1203-1205' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_set_activation_function_layer(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, activation_function: <a class='enum' href='../fann_sys/enum.fann_activationfunc_enum.html' title='fann_sys::fann_activationfunc_enum'>fann_activationfunc_enum</a>, layer: <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</pre><div class='docblock'><p>Set the activation function for all the neurons in the layer number <code>layer</code>,
+        </span><a id='src-382' class='srclink' href='../src/fann_sys/lib.rs.html#1203-1205' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_set_activation_function_layer(ann: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, activation_function: <a class='enum' href='../fann_sys/enum.fann_activationfunc_enum.html' title='fann_sys::fann_activationfunc_enum'>fann_activationfunc_enum</a>, layer: <a class='type' href='../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</pre><div class='docblock'><p>Set the activation function for all the neurons in the layer number <code>layer</code>,
 counting the input layer as layer 0.</p>
 
 <p>It is not possible to set activation functions for the neurons in the input layer.</p>
