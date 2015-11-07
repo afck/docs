@@ -45,12 +45,11 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1902' class='srclink' href='../src/fann_sys/lib.rs.html#2018' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_create_standard_array(num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, layers: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Just like <code>fann_create_standard</code>, but with an array of layer sizes
+        </span><a id='src-549' class='srclink' href='../src/fann_sys/lib.rs.html#2018' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_create_standard_array(num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, layers: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a></a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Just like <code>fann_create_standard</code>, but with an array of layer sizes
 instead of individual parameters.</p>
 
-<h1 id="example" class='section-header'><a
-                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
 <span class='comment'>// Creating an ANN with 2 input neurons, 1 output neuron,</span>
 <span class='comment'>// and two hidden layers with 8 and 9 neurons</span>
 <span class='kw'>let</span> <span class='ident'>layers</span> <span class='op'>=</span> [<span class='number'>2</span>, <span class='number'>8</span>, <span class='number'>9</span>, <span class='number'>1</span>];
@@ -58,8 +57,7 @@ instead of individual parameters.</p>
     <span class='kw'>let</span> <span class='ident'>ann</span> <span class='op'>=</span> <span class='ident'>fann_sys</span>::<span class='ident'>fann_create_standard_array</span>(<span class='number'>4</span>, <span class='ident'>layers</span>.<span class='ident'>as_ptr</span>());
 }</pre>
 
-<h1 id="see-also" class='section-header'><a
-                           href="#see-also">See also</a></h1>
+<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
 <p><code>fann_create_standard</code>, <code>fann_create_sparse</code>, <code>fann_create_shortcut</code></p>
 
 <p>This function appears in FANN &gt;= 2.0.0.</p>
