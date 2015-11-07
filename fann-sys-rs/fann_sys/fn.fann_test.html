@@ -45,13 +45,12 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-897' class='srclink' href='../src/fann_sys/lib.rs.html#640-643' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_test(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, input: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a>, desired_output: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a></pre><div class='docblock'><p>Test with a set of inputs, and a set of desired outputs.
+        </span><a id='src-243' class='srclink' href='../src/fann_sys/lib.rs.html#640-643' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_test(ann: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>, input: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a>, desired_output: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../fann_sys/type.fann_type.html' title='fann_sys::fann_type'>fann_type</a></a></pre><div class='docblock'><p>Test with a set of inputs, and a set of desired outputs.
 This operation updates the mean square error, but does not
 change the network in any way.</p>
 
-<h1 id="see-also" class='section-header'><a
-                           href="#see-also">See also</a></h1>
+<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
 <p><code>fann_test_data</code>, <code>fann_train</code></p>
 
 <p>This function appears in FANN &gt;= 1.0.0.</p>

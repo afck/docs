@@ -45,15 +45,14 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1451' class='srclink' href='../src/fann_sys/lib.rs.html#1325' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_get_train_error_function(ann: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>) -&gt; <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></pre><div class='docblock'><p>Returns the error function used during training.</p>
+        </span><a id='src-411' class='srclink' href='../src/fann_sys/lib.rs.html#1325' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_get_train_error_function(ann: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a>) -&gt; <a class='enum' href='../fann_sys/enum.fann_errorfunc_enum.html' title='fann_sys::fann_errorfunc_enum'>fann_errorfunc_enum</a></pre><div class='docblock'><p>Returns the error function used during training.</p>
 
 <p>The error functions are described further in <code>fann_errorfunc_enum</code>.</p>
 
 <p>The default error function is <code>FANN_ERRORFUNC_TANH</code></p>
 
-<h1 id="see-also" class='section-header'><a
-                           href="#see-also">See also</a></h1>
+<h1 id='see-also' class='section-header'><a href='#see-also'>See also</a></h1>
 <p><code>fann_set_train_error_function</code></p>
 
 <p>This function appears in FANN &gt;= 1.2.0.</p>

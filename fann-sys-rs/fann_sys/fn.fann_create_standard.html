@@ -45,8 +45,8 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-1895' class='srclink' href='../src/fann_sys/lib.rs.html#1998' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern fn fann_create_standard(num_layers: <a class='type' href='../libc/types/os/arch/c95/type.c_uint.html' title='libc::types::os::arch::c95::c_uint'>c_uint</a>, ...) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Creates a standard fully connected backpropagation neural network.</p>
+        </span><a id='src-547' class='srclink' href='../src/fann_sys/lib.rs.html#1998' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern fn fann_create_standard(num_layers: <a class='type' href='../libc/type.c_uint.html' title='libc::c_uint'>c_uint</a>, ...) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../fann_sys/struct.fann.html' title='fann_sys::fann'>fann</a></a></pre><div class='docblock'><p>Creates a standard fully connected backpropagation neural network.</p>
 
 <p>There will be a bias neuron in each layer (except the output layer),
 and this bias neuron will be connected to all neurons in the next layer.
@@ -54,20 +54,17 @@ When running the network, the bias nodes always emit 1.</p>
 
 <p>To destroy a <code>fann</code> use the <code>fann_destroy</code> function.</p>
 
-<h1 id="parameters" class='section-header'><a
-                           href="#parameters">Parameters</a></h1>
+<h1 id='parameters' class='section-header'><a href='#parameters'>Parameters</a></h1>
 <ul>
 <li><code>num_layers</code> - The total number of layers including the input and the output layer.</li>
 <li><code>...</code>        - Integer values determining the number of neurons in each layer starting
 with the input layer and ending with the output layer.</li>
 </ul>
 
-<h1 id="returns" class='section-header'><a
-                           href="#returns">Returns</a></h1>
+<h1 id='returns' class='section-header'><a href='#returns'>Returns</a></h1>
 <p>A pointer to the newly created <code>fann</code>.</p>
 
-<h1 id="example" class='section-header'><a
-                           href="#example">Example</a></h1><pre class='rust rust-example-rendered'>
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1><pre class='rust rust-example-rendered'>
 <span class='comment'>// Creating an ANN with 2 input neurons, 1 output neuron,</span>
 <span class='comment'>// and two hidden layers with 8 and 9 neurons</span>
 <span class='kw'>unsafe</span> {
